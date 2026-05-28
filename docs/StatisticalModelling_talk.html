@@ -399,12 +399,11 @@ Julian Merder
 <p>– George <span class="citation" data-cites="box1979robustness">Box (<a href="#/reference" role="doc-biblioref" onclick="">1979</a>)</span></p>
 </blockquote></li>
 <li><p>whether a model is useful depends on the <code>purpose</code> of the study.</p></li>
-<li><p>A <code>model</code> is useful if it answering the <code>question</code>?</p></li>
+<li><p>A <code>model</code> is useful if it can answer the <code>question</code></p></li>
 </ul>
 </section>
 <section id="regression-models" class="slide level2">
 <h2>Regression Models</h2>
-<p><img data-src="input_output.png" style="width:90.0%" height="100"></p>
 <p><span class="citation" data-cites="breiman2003statistical">Breiman (<a href="#/reference" role="doc-biblioref" onclick="">2003</a>)</span></p>
 <ul>
 <li><p><span class="math display">\[X  {\longrightarrow}  \fbox{NATURE} {\longrightarrow} Y, \]</span></p></li>
@@ -413,7 +412,7 @@ Julian Merder
 <li><p>the <code>model</code> tries to unmask the unknown function <span class="math inline">\(G()\)</span> which could be <code>mathematical</code> or <code>algorithmic</code></p></li>
 </ul>
 </section>
-<section id="stochastic-model" class="slide level2">
+<section id="stochastic-model" class="slide level2 smaller">
 <h2>Stochastic model</h2>
 <ul>
 <li><p><code>deterministic model</code>: <span class="math inline">\(Y =G(X)\)</span></p></li>
@@ -449,16 +448,14 @@ Julian Merder
 </section>
 <section id="distributional-regression-models" class="slide level2">
 <h2>Distributional regression models</h2>
-<ul>
-<li><code>input-output</code> problem</li>
-</ul>
+<p><img data-src="input_output.png" style="width:90.0%" height="100"></p>
 <p>The <code>parametric</code> Distributional Regression model <span class="citation" data-cites="RigbyStasinopoulos05">Stasinopoulos et al. (<a href="#/reference" role="doc-biblioref" onclick="">2024</a>)</span> can be represented as</p>
 <p><span class="math display">\[X  {\longrightarrow}  \fbox{$\boldsymbol{\theta}$(X)} {\longrightarrow} D(Y|\boldsymbol{\theta}(X)),\]</span> where <span class="math inline">\(D(Y|\boldsymbol{\theta}(X))\)</span> estimates the <code>natural error</code> distribution of <span class="math inline">\(Y\)</span> (conditional on the <span class="math inline">\(X\)</span>).</p>
 </section>
 <section id="distributional-regression-models-1" class="slide level2">
 <h2>Distributional regression models</h2>
 <ul>
-<li><p>The task of parametrtic <code>distributional Regression</code> is to find ;</p>
+<li><p>The task of parametric <code>distributional Regression</code> is to find ;</p>
 <ul>
 <li><code>which</code> and <code>how</code> the x’s effect the parameters of the distribution i.e <span class="math inline">\(\boldsymbol{\theta}(X)\)</span> and</li>
 <li>the appropriate distribution for the response i.e.&nbsp;<span class="math inline">\(D(Y|\boldsymbol{\theta})\)</span></li>
@@ -663,10 +660,11 @@ Figure&nbsp;4
 <h2>Modern Statistical Modelling</h2>
 <p><img data-src="modern_1.png" style="width:90.0%" height="600"></p>
 </section>
-<section id="discussion" class="slide level2 small">
+<section id="discussion" class="slide level2 smaller">
 <h2>Discussion</h2>
 <ul>
-<li><p><code>measures of goodness of fit</code> are needed in model <code>fitting</code> and model <code>comparison</code> and can be differ ideally <code>focus</code> on the <code>question</code></p></li>
+<li><p><code>measures of goodness of fit</code> are needed in both model <code>fitting</code> and model <code>comparison</code> and can be differ</p></li>
+<li><p>ideally we should <code>focus</code> on the <code>question</code></p></li>
 <li><p>the type of <code>measures</code> of goodness of fit make the model <code>agnostic</code></p></li>
 <li><p><code>diagnostics</code> evaluate at <code>test</code> and <code>training</code> <code>data</code> should be part of any SM</p></li>
 <li><p><code>interpretable</code> models easier to check.<br>
@@ -679,7 +677,7 @@ Figure&nbsp;4
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="3,">
+<div class="quarto-layout-panel" data-layout-ncol="3," data-layout-nrow="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <p><img data-src="book-1.png" width="300"> <img data-src="BOOK-2.png" width="323"> <img data-src="book3.png" width="333"> see also the <code>R</code> package <code>gamlss2</code></p>

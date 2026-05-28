@@ -57,11 +57,10 @@ bibliography: book2025.bib
 
 - whether a model is useful depends on the `purpose` of the study.
 
-- A `model` is useful if it answering the `question`?
+- A `model` is useful if it can  answer the `question`
 
 ## Regression Models
 
-![](input_output.png){width="90%" height="100px"}
 
 @breiman2003statistical
 
@@ -71,12 +70,12 @@ bibliography: book2025.bib
 - 
   $$X  {\longrightarrow}  \fbox{Model} {\longrightarrow} Y, $$
 
-- 
+-
   $$X  {\longrightarrow} \fbox{G(X)}  {\longrightarrow} Y.$$
 
 - the `model` tries to unmask the unknown function $G()$ which could be `mathematical` or `algorithmic`
 
-## Stochastic model
+## Stochastic model  {.smaller}
 
 - `deterministic model`: $Y =G(X)$
 
@@ -114,7 +113,8 @@ bibliography: book2025.bib
 
 ## Distributional regression models
 
-- `input-output` problem
+ ![](input_output.png){width="90%" height="100px"}
+ 
 
 The `parametric` Distributional Regression model [@RigbyStasinopoulos05, @stasinopoulos2024generalized] can be represented as
 
@@ -123,7 +123,7 @@ where $D(Y|\boldsymbol{\theta}(X))$ estimates the `natural error` distribution o
 
 ## Distributional regression models
 
-- The task of parametrtic `distributional Regression` is to find ;
+- The task of parametric `distributional Regression` is to find ;
 
   - `which` and `how` the x's effect the parameters of the distribution i.e $\boldsymbol{\theta}(X)$ and
   - the appropriate distribution for the response i.e. $D(Y|\boldsymbol{\theta})$
@@ -313,9 +313,11 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 
 ![](modern_1.png){width="90%" height="600px"}
 
-## Discussion {.small}
+## Discussion {.smaller}
 
-- `measures of goodness of fit` are needed in model `fitting` and model `comparison` and can be differ ideally `focus` on the `question`
+- `measures of goodness of fit` are needed in both model `fitting` and model `comparison` and can be differ 
+
+- ideally we should `focus` on the `question`
 
 - the type of `measures` of goodness of fit make the model `agnostic`
 

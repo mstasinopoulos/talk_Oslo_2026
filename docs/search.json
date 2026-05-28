@@ -25,14 +25,14 @@
     "href": "StatisticalModelling_talk.html#model",
     "title": "Statistical Modelling Process",
     "section": "Model",
-    "text": "Model\n\n\nall models are wrong but some are useful.\n– George Box (1979)\n\nwhether a model is useful depends on the purpose of the study.\nA model is useful if it answering the question?"
+    "text": "Model\n\n\nall models are wrong but some are useful.\n– George Box (1979)\n\nwhether a model is useful depends on the purpose of the study.\nA model is useful if it can answer the question"
   },
   {
     "objectID": "StatisticalModelling_talk.html#regression-models",
     "href": "StatisticalModelling_talk.html#regression-models",
     "title": "Statistical Modelling Process",
     "section": "Regression Models",
-    "text": "Regression Models\n\nBreiman (2003)\n\n\\[X  {\\longrightarrow}  \\fbox{NATURE} {\\longrightarrow} Y, \\]\n\\[X  {\\longrightarrow}  \\fbox{Model} {\\longrightarrow} Y, \\]\n\\[X  {\\longrightarrow} \\fbox{G(X)}  {\\longrightarrow} Y.\\]\nthe model tries to unmask the unknown function \\(G()\\) which could be mathematical or algorithmic"
+    "text": "Regression Models\nBreiman (2003)\n\n\\[X  {\\longrightarrow}  \\fbox{NATURE} {\\longrightarrow} Y, \\]\n\\[X  {\\longrightarrow}  \\fbox{Model} {\\longrightarrow} Y, \\]\n\\[X  {\\longrightarrow} \\fbox{G(X)}  {\\longrightarrow} Y.\\]\nthe model tries to unmask the unknown function \\(G()\\) which could be mathematical or algorithmic"
   },
   {
     "objectID": "StatisticalModelling_talk.html#stochastic-model",
@@ -67,14 +67,14 @@
     "href": "StatisticalModelling_talk.html#distributional-regression-models",
     "title": "Statistical Modelling Process",
     "section": "Distributional regression models",
-    "text": "Distributional regression models\n\ninput-output problem\n\nThe parametric Distributional Regression model Stasinopoulos et al. (2024) can be represented as\n\\[X  {\\longrightarrow}  \\fbox{$\\boldsymbol{\\theta}$(X)} {\\longrightarrow} D(Y|\\boldsymbol{\\theta}(X)),\\] where \\(D(Y|\\boldsymbol{\\theta}(X))\\) estimates the natural error distribution of \\(Y\\) (conditional on the \\(X\\))."
+    "text": "Distributional regression models\n\nThe parametric Distributional Regression model Stasinopoulos et al. (2024) can be represented as\n\\[X  {\\longrightarrow}  \\fbox{$\\boldsymbol{\\theta}$(X)} {\\longrightarrow} D(Y|\\boldsymbol{\\theta}(X)),\\] where \\(D(Y|\\boldsymbol{\\theta}(X))\\) estimates the natural error distribution of \\(Y\\) (conditional on the \\(X\\))."
   },
   {
     "objectID": "StatisticalModelling_talk.html#distributional-regression-models-1",
     "href": "StatisticalModelling_talk.html#distributional-regression-models-1",
     "title": "Statistical Modelling Process",
     "section": "Distributional regression models",
-    "text": "Distributional regression models\n\nThe task of parametrtic distributional Regression is to find ;\n\nwhich and how the x’s effect the parameters of the distribution i.e \\(\\boldsymbol{\\theta}(X)\\) and\nthe appropriate distribution for the response i.e. \\(D(Y|\\boldsymbol{\\theta})\\)"
+    "text": "Distributional regression models\n\nThe task of parametric distributional Regression is to find ;\n\nwhich and how the x’s effect the parameters of the distribution i.e \\(\\boldsymbol{\\theta}(X)\\) and\nthe appropriate distribution for the response i.e. \\(D(Y|\\boldsymbol{\\theta})\\)"
   },
   {
     "objectID": "StatisticalModelling_talk.html#distributional-regression-models-2",
@@ -207,7 +207,7 @@
     "href": "StatisticalModelling_talk.html#discussion",
     "title": "Statistical Modelling Process",
     "section": "Discussion",
-    "text": "Discussion\n\nmeasures of goodness of fit are needed in model fitting and model comparison and can be differ ideally focus on the question\nthe type of measures of goodness of fit make the model agnostic\ndiagnostics evaluate at test and training data should be part of any SM\ninterpretable models easier to check.\n\n“Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead” (Rudin 2019)"
+    "text": "Discussion\n\nmeasures of goodness of fit are needed in both model fitting and model comparison and can be differ\nideally we should focus on the question\nthe type of measures of goodness of fit make the model agnostic\ndiagnostics evaluate at test and training data should be part of any SM\ninterpretable models easier to check.\n\n“Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead” (Rudin 2019)"
   },
   {
     "objectID": "StatisticalModelling_talk.html#end",
