@@ -20,10 +20,9 @@ format:
 bibliography: book2025.bib       
 ---
 
-## introduction 
+## introduction
 
-
-- discuss basic ideas of `statistical modelling` 
+- discuss basic ideas of `statistical modelling`
 
 - using a `distributional regression` example
 
@@ -40,113 +39,101 @@ bibliography: book2025.bib
 #     style D fill:#dfd")
 ```
 
-
-
-
-
 ## why
-
 
 ![](Question_Data_answer.png){width="90%" height="400px"}
 
-- The `data`, are collected to answer the `question` and this is done through a 
-`model`.   
+- The `data`, are collected to answer the `question` and this is done through a `model`.
 
-- The concepts are `interconnected` 
-
+- The concepts are `interconnected`
 
 ## Model
--   > `all models are wrong but some are useful`.
-    >
-    > -- George @box1979robustness
 
--   whether a model is useful depends on the `purpose` of the study.
+- 
 
--   A `model` is  useful if it answering the `question`?
+  > `all models are wrong but some are useful`.
+  >
+  > -- George @box1979robustness
 
-## Regression Models 
+- whether a model is useful depends on the `purpose` of the study.
+
+- A `model` is useful if it answering the `question`?
+
+## Regression Models
 
 ![](input_output.png){width="90%" height="100px"}
 
 @breiman2003statistical
 
--   $$
-    X  {\longrightarrow}  \fbox{NATURE} {\longrightarrow} Y, 
-    $$
+- 
+  $$X  {\longrightarrow}  \fbox{NATURE} {\longrightarrow} Y, $$
 
--   $$
-    X  {\longrightarrow}  \fbox{Model} {\longrightarrow} Y, 
-    $$
+- 
+  $$X  {\longrightarrow}  \fbox{Model} {\longrightarrow} Y, $$
 
--   $$
-    X  {\longrightarrow} \fbox{G(X)}  {\longrightarrow} Y.
-    $$
+- 
+  $$X  {\longrightarrow} \fbox{G(X)}  {\longrightarrow} Y.$$
 
-
--   the `model` tries to unmask the unknown function $G()$  which could be `mathematical` or `algorithmic`
-
+- the `model` tries to unmask the unknown function $G()$ which could be `mathematical` or `algorithmic`
 
 ## Stochastic model
 
 - `deterministic model`: $Y =G(X)$
 
-- `stochastic model`:  $Y =G(X, E)$, where $E$ is the error (a probabilistic component)
+- `stochastic model`: $Y =G(X, E)$, where $E$ is the error (a probabilistic component)
 
-- $G(X, E)$ represent both the $\textit{signal}$ and $\textit{noise}$ in the `data` 
+- $G(X, E)$ represent both the $\textit{signal}$ and $\textit{noise}$ in the `data`
 
-- `additive model assumption`: $$Y =G(X)+E$$ a common model `assumption` for the  $\textit{signal}$  and the  $\textit{noise}$, widely used in `machine learning` with implicit normal errors.
-
+- An additive model `assumption`: $$Y =G(X)+E$$ is a common model assumption for the $\textit{signal}$ and the $\textit{noise}$, widely used in `machine learning` with implicit normal errors.
 
 ## Assumptions
 
+- an `assumption` is an axiomatic statement which need to be approximately correct for the model work.
 
--   an `assumption` is an axiomatic statement which need to be approximately correct  for the model work.
+- if `all` the assumptions are approximately correct then the model could be useful
 
--   if `all` the assumptions are approximately correct then the model could be useful 
-
--  the  `assumptions` often help with the `intepretation` of a model 
+- the `assumptions` often help with the `intepretation` of a model
 
 ## Assumptions (2) {.mediun}
 
--   `explicit` assumptions,  are easier to check;
+- `explicit` assumptions, are easier to check;
 
--   `implicit` assumptions,  are often not checked;
+- `implicit` assumptions, are often not checked;
 
--   `incorrect` assumptions could lead to questionable scientific discoveries;
+- `incorrect` assumptions could lead to questionable scientific discoveries;
 
--    `assumptions` should be checked  using `diagnostic` tools;
+- `assumptions` should be checked using `diagnostic` tools;
 
-## Algorithmic <-> Mathematical models {.mediun}
+## Algorithmic \<-\> Mathematical models {.mediun}
 
--  `mathematical models,` the function $G(X,E)$ is defined explicitly  through the `assumptions` 
+- `mathematical models,` the function $G(X,E)$ is defined explicitly through the `assumptions`
 
--   `algorithmic models` make implicit assumptions about the function $G(X,E)$.
+- `algorithmic models` make implicit assumptions about the function $G(X,E)$.
 
--   the additive algorithmic `model` $G(X)+E$ makes implicit assumptions for $G(X)$ and the `natural error` 
+- the additive algorithmic `model` $G(X)+E$ makes implicit assumptions for $G(X)$ and the `natural error`
 
 ## Distributional regression models
 
-- `input-output` problem; `input` $\longrightarrow$ `output`
+- `input-output` problem
 
-The `parametric` Distributional Regression model [@RigbyStasinopoulos05, @stasinopoulos2024generalized]  can be represented as 
+The `parametric` Distributional Regression model [@RigbyStasinopoulos05, @stasinopoulos2024generalized] can be represented as
 
-$$X  {\longrightarrow}  \fbox{$\boldsymbol{\theta}$(X)} {\longrightarrow} D(Y|\boldsymbol{\theta}(X)),
-$$ where $D(Y|\boldsymbol{\theta}(X))$ estimates the `natural error` distribution of $Y$ (conditional on the $X$). 
+$$X  {\longrightarrow}  \fbox{$\boldsymbol{\theta}$(X)} {\longrightarrow} D(Y|\boldsymbol{\theta}(X)),$$
+where $D(Y|\boldsymbol{\theta}(X))$ estimates the `natural error` distribution of $Y$ (conditional on the $X$).
 
-## Distributional regression models 
+## Distributional regression models
 
 - The task of parametrtic `distributional Regression` is to find ;
 
-    -  `which` and `how` the x's effect the parameters of the distribution i.e $\boldsymbol{\theta}(X)$ and 
-    -  the appropriate distribution for the response i.e. $D(Y|\boldsymbol{\theta})$
+  - `which` and `how` the x's effect the parameters of the distribution i.e $\boldsymbol{\theta}(X)$ and
+  - the appropriate distribution for the response i.e. $D(Y|\boldsymbol{\theta})$
 
-## Distributional regression models 
+## Distributional regression models
 
-- A `modern` computational approach of the distributional regression, @chai2026neural;
-$$X, U  {\longrightarrow}  \fbox{deep learning} {\longrightarrow} D(Y|X),
-$$ where U represent a simple distribution e.g. uniform which after transformations becomes  $D(Y|X)$  the conditional  distribution of $Y$ given $X$. 
+- A `modern` computational approach of the distributional regression, @chai2026neural; $$X, U  {\longrightarrow}  \fbox{deep learning} {\longrightarrow} D(Y|X),$$
+  where U represent a simple distribution e.g. uniform which after transformations becomes $D(Y|X)$ the conditional distribution of $Y$ given $X$.
 
-This version of the DR model is NOT easy to interpret because it is  a `black box`. 
+This version of the DR model is NOT easy to interpret because it is a `black box`.
 
 ## The Albumin (ALB) `data`
 
@@ -158,11 +145,11 @@ library(ggplot2)
 rm(list=ls())
 load(file="/Users/dimitriosstasinopoulos/Dropbox/github/gamlss.data/data/ALB.rda")
 ```
+
 ```{r}
 library(gamlss2)
 plot(ALB~ga, data=ALB, xlab="gestational age")
 ```
-
 
 ```{r}
 #| cache: true
@@ -188,6 +175,7 @@ fitted_centiles_gap(m2, cent=c(97.5, 90, 75, 50, 25, 2.5), title="(a)",  data=FA
 ```
 
 ## The Albumin (ALB) `question`
+
 ```{r}
 #| label: fig-c
 #| echo: false
@@ -202,82 +190,73 @@ ALBe <- data.frame(ALB, zscores=resid(m2), index=resid(m2) < qnorm(.05))
    ggplot2::theme_bw(15)
 ```
 
-## Fitting
+## Fit
 
- i) either maximize/minimize an objective measure of `goodness of fit`, $\mathbb{R}(Y,G(X,E))$, (i.e. a `training measure`) to obtain the fitted values:
-$$\widehat{D} = \widehat{G} (X,E)$$
+- two ways to `fit` a model
 
-  
-ii) or alternatively simulate from the model  $G(X,E)$ and then average to obtain  the fitted values $\widehat{Y}$ or  a fitted distribution $\widehat{D}$
+1)  maximize/minimize an objective measure of `goodness of fit`, $\mathbb{R}(Y,G(X,E))$, (i.e. a `training measure`) to obtain the fitted values: $$\widehat{D} = \widehat{G} (X,E)$$
 
-## residuals 
+2)  simulate from the model $G(X,E)$ and then average to obtain the fitted values $\widehat{Y}$ or a fitted distribution $\widehat{D}$
+
+## residuals
 
 - `training residuals`: $$\widehat{r}=r(Y, \widehat{D})$$ for a suitable function $r$.
 
-- if the model is adequate the `training residuals`  should look as a `white noise` 
+- if the model is `adequate` the `training residuals` should look as a `white noise`
 
 - `white noise`, zero mean, constant variance and independent observations
 
+- `residuals` can be used as a `diagnostic` tool
 
-## Diagnostics 
+## Diagnostics
 
-
-1) `residuals diagnostics`: 
+1)  `residuals diagnostics`:
 
 - `are the residuals white noise`?
 
-   - yes: `adequate model` - the model explain the data well-  
+  - yes: `adequate model` - the model explain the data well-
 
-    - no:  - start again - 
+  - no: - start again -
 
 - all `stochastic models` have residuals so residual diagnostic is an `angostic` tool.
 
-2) Other types of `diagnostics` could `focus` on checking assumptions or possibly focusing in answering the `question`.
+2)  Other types of `diagnostics` could check other assumptions or possibly `focusing` in answering the `question`.
 
-
-
-## Classical statistical modelling 
-
+## Classical statistical modelling
 
 ![](classical_Model_cicle.png){width="90%" height="600px"}
 
 ## Classical statistical modelling 1
 
-![](StatisticalModelling_talk_1.png ){width="90%" height="600px"}
+![](classical_Model_cicle_1.png){width="90%" height="600px"}
 
 ## Classical statistical modelling: comments
 
-- the classical statistical modelling approach can find an `adequate` model 
+- the classical statistical modelling approach can find an `adequate` model
 
-- but can not check for `over-fitting` 
+- but can not check for `over-fitting`
 
-- we `overfit` if the `model`  is close to the `data` but it does not generalised on `new data`  
+- we `overfit` if the `model` is close to the `data` but it does not generalised on `new data`
 
 - `data partition` can help with this
-
 
 ## Data Partition
 
 ![](data_partition_1.png){width="90%" height="300px"}
 
-data partition helps to check `over-fitting` and to improve `inference` 
+data partition helps to check `over-fitting` and to improve `inference`
 
+## types of Partition
 
-
-
-## types of Partition 
-
-
-i) `single` partition (holdout samples) 
+i)  `single` partition (holdout samples)
 
 ii) `multiple` partitions (bootstrapping, K-fold cross validation )
 
-importantly the `data` are divided to 
+importantly the `data` are divided to
 
-- `training` `data` 
+- `training` `data`
 
-- `test` `data` 
-
+- `test` `data`
 
 <!-- ## data partition 2 -->
 
@@ -285,39 +264,36 @@ importantly the `data` are divided to
 
 ## stack of models
 
-- for each `data` set there are several adequate models called the `Rashomon set` 
+- for each `data` set there are several adequate models called the `Rashomon set`
 
 - several models from the `Rashomon set` are `interpretable` @rudin2024amazing.
 
 - how to chose between different adequate models?
-  - use a `test measure` of goodness of fit 
-  - even better use a `focus test measure` of goodness of fit 
+
+  - use a `test measure` of goodness of fit
+  - even better use a `focus test measure` of goodness of fit
   - or use `model average`
 
 ## model average
 
-- average their fitted distribution 
+- average their fitted distribution
 
-$$ Av(\bar{f})=\pi_1 \bar{f}_1(Y)+\pi_2 \bar{f}_2(Y)+\ldots, \pi_k \bar{f}_k(Y)$$ 
+$$ Av(\bar{f})=\pi_1 \bar{f}_1(Y)+\pi_2 \bar{f}_2(Y)+\ldots, \pi_k \bar{f}_k(Y)$$
 
-or make the mixing probabilities  functions of the covariates; 
+or make the mixing probabilities functions of the covariates;
 
-$$ Av(\bar{f})=\pi_1(X) \bar{f}_1(y)+\pi_2() \bar{f}_2(y)+\ldots, \pi_k(X) \bar{f}_k(y)$$ 
+$$ Av(\bar{f})=\pi_1(X) \bar{f}_1(y)+\pi_2() \bar{f}_2(y)+\ldots, \pi_k(X) \bar{f}_k(y)$$
 
+## Model comparison
 
+- use a `test measure` of goodness of fit
 
-## Model comparison 
+- for the ALB data sets we use
 
-- use a `test measure` of goodness of fit  
-
-
-- for the ALB data sets we use 
   - deviance ($-2 \ell$) as global `test measure`
-  - $\chi^2$ values as  `focus test measure` 
-  
-  
+  - $\chi^2$ values as `focus test measure`
+
 Both applied to the ALB data and lead to the `BCTo` distribution as the best distribution.
-  
 
 ## ALB diagnostics
 
@@ -334,36 +310,26 @@ resid_wp(m2, title="(b)")+
 resid_wp_wrap(m2, xvar=ALB$ga)
 ```
 
-
-
-## Modern Statistical Modelling 
-
-
+## Modern Statistical Modelling
 
 ![](modern_1.png){width="90%" height="600px"}
 
+## Discussion {.small}
 
-## Discussion  {.small}
+- `measures of goodness of fit` are needed in model `fitting` and model `comparison` and can be differ ideally `focus` on the `question`
 
--  `measures of goodness of fit` are needed in model `fitting` and model `comparison` and can be differ ideally  `focus`  on the `question` 
+- the type of `measures` of goodness of fit make the model `agnostic`
 
-- the type of `measures` of goodness of fit make the model `agnostic` 
+- `diagnostics` evaluate at `test` and `training` `data` should be part of any SM
 
-- `diagnostics` evaluate at `test`  and `training` `data` should be part of any SM 
+- `interpretable` models easier to check.\
 
-- `interpretable` models  easier to check.  
 - "Stop explaining black box machine learning models for `high stakes decisions` and use `interpretable` models instead" [@rudin2019stop]
 
-
-
-
 ## end
-
 
 ::: {layout-ncol="3," layout-nrow="1"}
 ![](book-1.png){width="300"} ![](BOOK-2.png){width="323"} ![](book3.png){width="333"} see also the `R` package `gamlss2`
 :::
 
-## Reference 
- 
-
+## Reference
