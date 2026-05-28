@@ -165,14 +165,14 @@
     "href": "StatisticalModelling_talk.html#stack-of-models",
     "title": "Statistical Modelling Process",
     "section": "stack of models",
-    "text": "stack of models\n\nfor each data set there are several adequate models called the Rashomon set\nseveral models from the Rashomon set are interpretable Rudin et al. (2024).\nhow to chose between different adequate models?\n\nuse a test measure of goodness of fit\neven better use a focus test measure of goodness of fit\nor use model average"
+    "text": "stack of models\n\nfor each data set there could be several adequate models called the Rashomon set\nseveral models from the Rashomon set are interpretable Rudin et al. (2024).\nhow to chose between different adequate models?\n\nuse a test measure of goodness of fit or even better use a focus test measure of goodness of fit\nor use model average"
   },
   {
     "objectID": "StatisticalModelling_talk.html#model-average",
     "href": "StatisticalModelling_talk.html#model-average",
     "title": "Statistical Modelling Process",
     "section": "model average",
-    "text": "model average\n\naverage their fitted distribution\n\n\\[ Av(\\bar{f})=\\pi_1 \\bar{f}_1(Y)+\\pi_2 \\bar{f}_2(Y)+\\ldots, \\pi_k \\bar{f}_k(Y)\\]\nor make the mixing probabilities functions of the covariates;\n\\[ Av(\\bar{f})=\\pi_1(X) \\bar{f}_1(y)+\\pi_2() \\bar{f}_2(y)+\\ldots, \\pi_k(X) \\bar{f}_k(y)\\]"
+    "text": "model average\n\nfor DR we can average their fitted distribution\n\n\\[ Av(\\bar{f})=\\pi_1 \\bar{f}_1(Y)+\\pi_2 \\bar{f}_2(Y)+\\ldots, \\pi_k \\bar{f}_k(Y)\\]\n\nor make the mixing probabilities functions of the covariates;\n\n\\[ Av(\\bar{f})=\\pi_1(X) \\bar{f}_1(y)+\\pi_2(X) \\bar{f}_2(y)+\\ldots, \\pi_k(X) \\bar{f}_k(y)\\]"
   },
   {
     "objectID": "StatisticalModelling_talk.html#model-comparison",

@@ -593,24 +593,25 @@ Figure&nbsp;2
 <section id="stack-of-models" class="slide level2">
 <h2>stack of models</h2>
 <ul>
-<li><p>for each <code>data</code> set there are several adequate models called the <code>Rashomon set</code></p></li>
+<li><p>for each <code>data</code> set there could be several <code>adequate</code> models called the <code>Rashomon set</code></p></li>
 <li><p>several models from the <code>Rashomon set</code> are <code>interpretable</code> <span class="citation" data-cites="rudin2024amazing">Rudin et al. (<a href="#/reference" role="doc-biblioref" onclick="">2024</a>)</span>.</p></li>
 <li><p>how to chose between different adequate models?</p>
-<ul>
-<li>use a <code>test measure</code> of goodness of fit</li>
-<li>even better use a <code>focus test measure</code> of goodness of fit</li>
+<ol type="1">
+<li>use a <code>test measure</code> of goodness of fit or even better use a <code>focus test measure</code> of goodness of fit</li>
 <li>or use <code>model average</code></li>
-</ul></li>
+</ol></li>
 </ul>
 </section>
 <section id="model-average" class="slide level2">
 <h2>model average</h2>
 <ul>
-<li>average their fitted distribution</li>
+<li>for DR we can average their fitted distribution</li>
 </ul>
 <p><span class="math display">\[ Av(\bar{f})=\pi_1 \bar{f}_1(Y)+\pi_2 \bar{f}_2(Y)+\ldots, \pi_k \bar{f}_k(Y)\]</span></p>
-<p>or make the mixing probabilities functions of the covariates;</p>
-<p><span class="math display">\[ Av(\bar{f})=\pi_1(X) \bar{f}_1(y)+\pi_2() \bar{f}_2(y)+\ldots, \pi_k(X) \bar{f}_k(y)\]</span></p>
+<ul>
+<li>or make the mixing probabilities functions of the covariates;</li>
+</ul>
+<p><span class="math display">\[ Av(\bar{f})=\pi_1(X) \bar{f}_1(y)+\pi_2(X) \bar{f}_2(y)+\ldots, \pi_k(X) \bar{f}_k(y)\]</span></p>
 </section>
 <section id="model-comparison" class="slide level2">
 <h2>Model comparison</h2>
@@ -678,7 +679,7 @@ Figure&nbsp;4
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-ncol="3," data-layout-nrow="1">
+<div class="quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="3,">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <p><img data-src="book-1.png" width="300"> <img data-src="BOOK-2.png" width="323"> <img data-src="book3.png" width="333"> see also the <code>R</code> package <code>gamlss2</code></p>

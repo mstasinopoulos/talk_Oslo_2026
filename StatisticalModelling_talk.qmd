@@ -264,25 +264,24 @@ importantly the `data` are divided to
 
 ## stack of models
 
-- for each `data` set there are several adequate models called the `Rashomon set`
+- for each `data` set there could be several `adequate` models called the `Rashomon set`
 
 - several models from the `Rashomon set` are `interpretable` @rudin2024amazing.
 
 - how to chose between different adequate models?
 
-  - use a `test measure` of goodness of fit
-  - even better use a `focus test measure` of goodness of fit
-  - or use `model average`
+  1) use a `test measure` of goodness of fit or even better use a `focus test measure` of goodness of fit
+  2) or use `model average`
 
 ## model average
 
-- average their fitted distribution
+- for DR we can average their fitted distribution
 
-$$ Av(\bar{f})=\pi_1 \bar{f}_1(Y)+\pi_2 \bar{f}_2(Y)+\ldots, \pi_k \bar{f}_k(Y)$$
+ $$ Av(\bar{f})=\pi_1 \bar{f}_1(Y)+\pi_2 \bar{f}_2(Y)+\ldots, \pi_k \bar{f}_k(Y)$$
 
-or make the mixing probabilities functions of the covariates;
+- or make the mixing probabilities functions of the covariates;
 
-$$ Av(\bar{f})=\pi_1(X) \bar{f}_1(y)+\pi_2() \bar{f}_2(y)+\ldots, \pi_k(X) \bar{f}_k(y)$$
+$$ Av(\bar{f})=\pi_1(X) \bar{f}_1(y)+\pi_2(X) \bar{f}_2(y)+\ldots, \pi_k(X) \bar{f}_k(y)$$
 
 ## Model comparison
 
