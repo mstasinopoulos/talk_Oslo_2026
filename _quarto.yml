@@ -9,7 +9,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - talk_2.qmd
+      - StatisticalMdelling_talk.qmd
 
       
 sidebar:

@@ -343,7 +343,7 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 ![](modern_1.png){width="90%" height="600px"}
 
 
-## Discussion 
+## Discussion  {.small}
 
 -  `measures of goodness of fit` are needed in model `fitting` and model `comparison` and can be differ ideally  `focus`  on the `question` 
 
