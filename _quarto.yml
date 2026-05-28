@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: docs
+website:
+  title: "IWSM talk 2026"
+  navbar:
+    background: primary
+    search: true
+    left:
+      - href: index.qmd
+        text: Home
+      - talk_2.qmd
+
+      
+sidebar:
+  contents: auto
+      
+format:
+  html:
+    theme: sky
+    css: styles.css
+    toc: true
+
+editor: visual
+
