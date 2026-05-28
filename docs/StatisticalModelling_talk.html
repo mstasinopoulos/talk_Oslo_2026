@@ -407,15 +407,9 @@ Julian Merder
 <p><img data-src="input_output.png" style="width:90.0%" height="100"></p>
 <p><span class="citation" data-cites="breiman2003statistical">Breiman (<a href="#/reference" role="doc-biblioref" onclick="">2003</a>)</span></p>
 <ul>
-<li><p><span class="math display">\[
-X  {\longrightarrow}  \fbox{NATURE} {\longrightarrow} Y,
-\]</span></p></li>
-<li><p><span class="math display">\[
-X  {\longrightarrow}  \fbox{Model} {\longrightarrow} Y,
-\]</span></p></li>
-<li><p><span class="math display">\[
-X  {\longrightarrow} \fbox{G(X)}  {\longrightarrow} Y.
-\]</span></p></li>
+<li><p><span class="math display">\[X  {\longrightarrow}  \fbox{NATURE} {\longrightarrow} Y, \]</span></p></li>
+<li><p><span class="math display">\[X  {\longrightarrow}  \fbox{Model} {\longrightarrow} Y, \]</span></p></li>
+<li><p><span class="math display">\[X  {\longrightarrow} \fbox{G(X)}  {\longrightarrow} Y.\]</span></p></li>
 <li><p>the <code>model</code> tries to unmask the unknown function <span class="math inline">\(G()\)</span> which could be <code>mathematical</code> or <code>algorithmic</code></p></li>
 </ul>
 </section>
@@ -425,7 +419,7 @@ X  {\longrightarrow} \fbox{G(X)}  {\longrightarrow} Y.
 <li><p><code>deterministic model</code>: <span class="math inline">\(Y =G(X)\)</span></p></li>
 <li><p><code>stochastic model</code>: <span class="math inline">\(Y =G(X, E)\)</span>, where <span class="math inline">\(E\)</span> is the error (a probabilistic component)</p></li>
 <li><p><span class="math inline">\(G(X, E)\)</span> represent both the <span class="math inline">\(\textit{signal}\)</span> and <span class="math inline">\(\textit{noise}\)</span> in the <code>data</code></p></li>
-<li><p><code>additive model assumption</code>: <span class="math display">\[Y =G(X)+E\]</span> a common model <code>assumption</code> for the <span class="math inline">\(\textit{signal}\)</span> and the <span class="math inline">\(\textit{noise}\)</span>, widely used in <code>machine learning</code> with implicit normal errors.</p></li>
+<li><p>An additive model <code>assumption</code>: <span class="math display">\[Y =G(X)+E\]</span> is a common model assumption for the <span class="math inline">\(\textit{signal}\)</span> and the <span class="math inline">\(\textit{noise}\)</span>, widely used in <code>machine learning</code> with implicit normal errors.</p></li>
 </ul>
 </section>
 <section id="assumptions" class="slide level2">
@@ -456,11 +450,10 @@ X  {\longrightarrow} \fbox{G(X)}  {\longrightarrow} Y.
 <section id="distributional-regression-models" class="slide level2">
 <h2>Distributional regression models</h2>
 <ul>
-<li><code>input-output</code> problem; <code>input</code> <span class="math inline">\(\longrightarrow\)</span> <code>output</code></li>
+<li><code>input-output</code> problem</li>
 </ul>
 <p>The <code>parametric</code> Distributional Regression model <span class="citation" data-cites="RigbyStasinopoulos05">Stasinopoulos et al. (<a href="#/reference" role="doc-biblioref" onclick="">2024</a>)</span> can be represented as</p>
-<p><span class="math display">\[X  {\longrightarrow}  \fbox{$\boldsymbol{\theta}$(X)} {\longrightarrow} D(Y|\boldsymbol{\theta}(X)),
-\]</span> where <span class="math inline">\(D(Y|\boldsymbol{\theta}(X))\)</span> estimates the <code>natural error</code> distribution of <span class="math inline">\(Y\)</span> (conditional on the <span class="math inline">\(X\)</span>).</p>
+<p><span class="math display">\[X  {\longrightarrow}  \fbox{$\boldsymbol{\theta}$(X)} {\longrightarrow} D(Y|\boldsymbol{\theta}(X)),\]</span> where <span class="math inline">\(D(Y|\boldsymbol{\theta}(X))\)</span> estimates the <code>natural error</code> distribution of <span class="math inline">\(Y\)</span> (conditional on the <span class="math inline">\(X\)</span>).</p>
 </section>
 <section id="distributional-regression-models-1" class="slide level2">
 <h2>Distributional regression models</h2>
@@ -475,8 +468,7 @@ X  {\longrightarrow} \fbox{G(X)}  {\longrightarrow} Y.
 <section id="distributional-regression-models-2" class="slide level2">
 <h2>Distributional regression models</h2>
 <ul>
-<li>A <code>modern</code> computational approach of the distributional regression, <span class="citation" data-cites="chai2026neural">Chai, Fan, and Gu (<a href="#/reference" role="doc-biblioref" onclick="">2026</a>)</span>; <span class="math display">\[X, U  {\longrightarrow}  \fbox{deep learning} {\longrightarrow} D(Y|X),
-\]</span> where U represent a simple distribution e.g.&nbsp;uniform which after transformations becomes <span class="math inline">\(D(Y|X)\)</span> the conditional distribution of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span>.</li>
+<li>A <code>modern</code> computational approach of the distributional regression, <span class="citation" data-cites="chai2026neural">Chai, Fan, and Gu (<a href="#/reference" role="doc-biblioref" onclick="">2026</a>)</span>; <span class="math display">\[X, U  {\longrightarrow}  \fbox{deep learning} {\longrightarrow} D(Y|X),\]</span> where U represent a simple distribution e.g.&nbsp;uniform which after transformations becomes <span class="math inline">\(D(Y|X)\)</span> the conditional distribution of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span>.</li>
 </ul>
 <p>This version of the DR model is NOT easy to interpret because it is a <code>black box</code>.</p>
 </section>
@@ -526,19 +518,23 @@ Figure&nbsp;2
 </div>
 </div>
 </section>
-<section id="fitting" class="slide level2">
-<h2>Fitting</h2>
-<ol type="i">
-<li><p>either maximize/minimize an objective measure of <code>goodness of fit</code>, <span class="math inline">\(\mathbb{R}(Y,G(X,E))\)</span>, (i.e.&nbsp;a <code>training measure</code>) to obtain the fitted values: <span class="math display">\[\widehat{D} = \widehat{G} (X,E)\]</span></p></li>
-<li><p>or alternatively simulate from the model <span class="math inline">\(G(X,E)\)</span> and then average to obtain the fitted values <span class="math inline">\(\widehat{Y}\)</span> or a fitted distribution <span class="math inline">\(\widehat{D}\)</span></p></li>
+<section id="fit" class="slide level2">
+<h2>Fit</h2>
+<ul>
+<li>two ways to <code>fit</code> a model</li>
+</ul>
+<ol type="1">
+<li><p>maximize/minimize an objective measure of <code>goodness of fit</code>, <span class="math inline">\(\mathbb{R}(Y,G(X,E))\)</span>, (i.e.&nbsp;a <code>training measure</code>) to obtain the fitted values: <span class="math display">\[\widehat{D} = \widehat{G} (X,E)\]</span></p></li>
+<li><p>simulate from the model <span class="math inline">\(G(X,E)\)</span> and then average to obtain the fitted values <span class="math inline">\(\widehat{Y}\)</span> or a fitted distribution <span class="math inline">\(\widehat{D}\)</span></p></li>
 </ol>
 </section>
 <section id="residuals" class="slide level2">
 <h2>residuals</h2>
 <ul>
 <li><p><code>training residuals</code>: <span class="math display">\[\widehat{r}=r(Y, \widehat{D})\]</span> for a suitable function <span class="math inline">\(r\)</span>.</p></li>
-<li><p>if the model is adequate the <code>training residuals</code> should look as a <code>white noise</code></p></li>
+<li><p>if the model is <code>adequate</code> the <code>training residuals</code> should look as a <code>white noise</code></p></li>
 <li><p><code>white noise</code>, zero mean, constant variance and independent observations</p></li>
+<li><p><code>residuals</code> can be used as a <code>diagnostic</code> tool</p></li>
 </ul>
 </section>
 <section id="diagnostics" class="slide level2">
@@ -555,7 +551,7 @@ Figure&nbsp;2
 <li><p>all <code>stochastic models</code> have residuals so residual diagnostic is an <code>angostic</code> tool.</p></li>
 </ul>
 <ol start="2" type="1">
-<li>Other types of <code>diagnostics</code> could <code>focus</code> on checking assumptions or possibly focusing in answering the <code>question</code>.</li>
+<li>Other types of <code>diagnostics</code> could check other assumptions or possibly <code>focusing</code> in answering the <code>question</code>.</li>
 </ol>
 </section>
 <section id="classical-statistical-modelling" class="slide level2">
@@ -564,7 +560,7 @@ Figure&nbsp;2
 </section>
 <section id="classical-statistical-modelling-1" class="slide level2">
 <h2>Classical statistical modelling 1</h2>
-<p><img data-src="StatisticalModelling_talk_1.png" style="width:90.0%" height="600"></p>
+<p><img data-src="classical_Model_cicle_1.png" style="width:90.0%" height="600"></p>
 </section>
 <section id="classical-statistical-modelling-comments" class="slide level2">
 <h2>Classical statistical modelling: comments</h2>

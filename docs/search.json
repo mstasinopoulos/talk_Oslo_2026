@@ -32,14 +32,14 @@
     "href": "StatisticalModelling_talk.html#regression-models",
     "title": "Statistical Modelling Process",
     "section": "Regression Models",
-    "text": "Regression Models\n\nBreiman (2003)\n\n\\[\nX  {\\longrightarrow}  \\fbox{NATURE} {\\longrightarrow} Y,\n\\]\n\\[\nX  {\\longrightarrow}  \\fbox{Model} {\\longrightarrow} Y,\n\\]\n\\[\nX  {\\longrightarrow} \\fbox{G(X)}  {\\longrightarrow} Y.\n\\]\nthe model tries to unmask the unknown function \\(G()\\) which could be mathematical or algorithmic"
+    "text": "Regression Models\n\nBreiman (2003)\n\n\\[X  {\\longrightarrow}  \\fbox{NATURE} {\\longrightarrow} Y, \\]\n\\[X  {\\longrightarrow}  \\fbox{Model} {\\longrightarrow} Y, \\]\n\\[X  {\\longrightarrow} \\fbox{G(X)}  {\\longrightarrow} Y.\\]\nthe model tries to unmask the unknown function \\(G()\\) which could be mathematical or algorithmic"
   },
   {
     "objectID": "StatisticalModelling_talk.html#stochastic-model",
     "href": "StatisticalModelling_talk.html#stochastic-model",
     "title": "Statistical Modelling Process",
     "section": "Stochastic model",
-    "text": "Stochastic model\n\ndeterministic model: \\(Y =G(X)\\)\nstochastic model: \\(Y =G(X, E)\\), where \\(E\\) is the error (a probabilistic component)\n\\(G(X, E)\\) represent both the \\(\\textit{signal}\\) and \\(\\textit{noise}\\) in the data\nadditive model assumption: \\[Y =G(X)+E\\] a common model assumption for the \\(\\textit{signal}\\) and the \\(\\textit{noise}\\), widely used in machine learning with implicit normal errors."
+    "text": "Stochastic model\n\ndeterministic model: \\(Y =G(X)\\)\nstochastic model: \\(Y =G(X, E)\\), where \\(E\\) is the error (a probabilistic component)\n\\(G(X, E)\\) represent both the \\(\\textit{signal}\\) and \\(\\textit{noise}\\) in the data\nAn additive model assumption: \\[Y =G(X)+E\\] is a common model assumption for the \\(\\textit{signal}\\) and the \\(\\textit{noise}\\), widely used in machine learning with implicit normal errors."
   },
   {
     "objectID": "StatisticalModelling_talk.html#assumptions",
@@ -67,7 +67,7 @@
     "href": "StatisticalModelling_talk.html#distributional-regression-models",
     "title": "Statistical Modelling Process",
     "section": "Distributional regression models",
-    "text": "Distributional regression models\n\ninput-output problem; input \\(\\longrightarrow\\) output\n\nThe parametric Distributional Regression model Stasinopoulos et al. (2024) can be represented as\n\\[X  {\\longrightarrow}  \\fbox{$\\boldsymbol{\\theta}$(X)} {\\longrightarrow} D(Y|\\boldsymbol{\\theta}(X)),\n\\] where \\(D(Y|\\boldsymbol{\\theta}(X))\\) estimates the natural error distribution of \\(Y\\) (conditional on the \\(X\\))."
+    "text": "Distributional regression models\n\ninput-output problem\n\nThe parametric Distributional Regression model Stasinopoulos et al. (2024) can be represented as\n\\[X  {\\longrightarrow}  \\fbox{$\\boldsymbol{\\theta}$(X)} {\\longrightarrow} D(Y|\\boldsymbol{\\theta}(X)),\\] where \\(D(Y|\\boldsymbol{\\theta}(X))\\) estimates the natural error distribution of \\(Y\\) (conditional on the \\(X\\))."
   },
   {
     "objectID": "StatisticalModelling_talk.html#distributional-regression-models-1",
@@ -81,7 +81,7 @@
     "href": "StatisticalModelling_talk.html#distributional-regression-models-2",
     "title": "Statistical Modelling Process",
     "section": "Distributional regression models",
-    "text": "Distributional regression models\n\nA modern computational approach of the distributional regression, Chai, Fan, and Gu (2026); \\[X, U  {\\longrightarrow}  \\fbox{deep learning} {\\longrightarrow} D(Y|X),\n\\] where U represent a simple distribution e.g. uniform which after transformations becomes \\(D(Y|X)\\) the conditional distribution of \\(Y\\) given \\(X\\).\n\nThis version of the DR model is NOT easy to interpret because it is a black box."
+    "text": "Distributional regression models\n\nA modern computational approach of the distributional regression, Chai, Fan, and Gu (2026); \\[X, U  {\\longrightarrow}  \\fbox{deep learning} {\\longrightarrow} D(Y|X),\\] where U represent a simple distribution e.g. uniform which after transformations becomes \\(D(Y|X)\\) the conditional distribution of \\(Y\\) given \\(X\\).\n\nThis version of the DR model is NOT easy to interpret because it is a black box."
   },
   {
     "objectID": "StatisticalModelling_talk.html#the-albumin-alb-data",
@@ -116,14 +116,14 @@
     "href": "StatisticalModelling_talk.html#residuals",
     "title": "Statistical Modelling Process",
     "section": "residuals",
-    "text": "residuals\n\ntraining residuals: \\[\\widehat{r}=r(Y, \\widehat{D})\\] for a suitable function \\(r\\).\nif the model is adequate the training residuals should look as a white noise\nwhite noise, zero mean, constant variance and independent observations"
+    "text": "residuals\n\ntraining residuals: \\[\\widehat{r}=r(Y, \\widehat{D})\\] for a suitable function \\(r\\).\nif the model is adequate the training residuals should look as a white noise\nwhite noise, zero mean, constant variance and independent observations\nresiduals can be used as a diagnostic tool"
   },
   {
     "objectID": "StatisticalModelling_talk.html#diagnostics",
     "href": "StatisticalModelling_talk.html#diagnostics",
     "title": "Statistical Modelling Process",
     "section": "Diagnostics",
-    "text": "Diagnostics\n\nresiduals diagnostics:\n\n\nare the residuals white noise?\n\nyes: adequate model - the model explain the data well-\nno: - start again -\n\nall stochastic models have residuals so residual diagnostic is an angostic tool.\n\n\nOther types of diagnostics could focus on checking assumptions or possibly focusing in answering the question."
+    "text": "Diagnostics\n\nresiduals diagnostics:\n\n\nare the residuals white noise?\n\nyes: adequate model - the model explain the data well-\nno: - start again -\n\nall stochastic models have residuals so residual diagnostic is an angostic tool.\n\n\nOther types of diagnostics could check other assumptions or possibly focusing in answering the question."
   },
   {
     "objectID": "StatisticalModelling_talk.html#classical-statistical-modelling",
@@ -222,5 +222,12 @@
     "title": "Statistical Modelling Process",
     "section": "Reference",
     "text": "Reference\n\n\n\n\nwww.gamlss.com\n\n\n\n\nBox, G. E. P. 1979. “Robustness in the Strategy of Scientific Model Building.” Robustness in Statistics 1: 201–36.\n\n\nBreiman, Leo. 2003. “Statistical Modeling: The Two Cultures.” Quality Control and Applied Statistics 48 (1): 81–82.\n\n\nChai, Jinhang, Jianqing Fan, and Yihong Gu. 2026. “Neural Generative Distributional Regression.” arXiv Preprint arXiv:2605.02062.\n\n\nRigby, R. A., and D. M. Stasinopoulos. 2005. “Generalized Additive Models for Location, Scale and Shape (with Discussion).” Applied Statistics 54: 507–54.\n\n\nRudin, Cynthia. 2019. “Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead.” Nature Machine Intelligence 1 (5): 206–15.\n\n\nRudin, Cynthia, Chudi Zhong, Lesia Semenova, Margo Seltzer, Ronald Parr, Jiachang Liu, Srikar Katta, Jon Donnelly, Harry Chen, and Zachery Boner. 2024. “Amazing Things Come from Having Many Good Models.” arXiv Preprint arXiv:2407.04846.\n\n\nStasinopoulos, M. D., T. Kneib, N. Klein, A. Mayr, and G. Z Heller. 2024. Generalized Additive Models for Location, Scale and Shape: A Distributional Regression Approach, with Applications. Vol. 56. Cambridge University Press."
+  },
+  {
+    "objectID": "StatisticalModelling_talk.html#fit",
+    "href": "StatisticalModelling_talk.html#fit",
+    "title": "Statistical Modelling Process",
+    "section": "Fit",
+    "text": "Fit\n\ntwo ways to fit a model\n\n\nmaximize/minimize an objective measure of goodness of fit, \\(\\mathbb{R}(Y,G(X,E))\\), (i.e. a training measure) to obtain the fitted values: \\[\\widehat{D} = \\widehat{G} (X,E)\\]\nsimulate from the model \\(G(X,E)\\) and then average to obtain the fitted values \\(\\widehat{Y}\\) or a fitted distribution \\(\\widehat{D}\\)"
   }
 ]
