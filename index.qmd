@@ -1,0 +1,12 @@
+---
+title: "IWSM talk 2026"
+author:
+  - Mikis Stasinopoulos
+  - Bob Rigby
+  - Fernanda de Bastiani
+  - Julian Merder
+---
+
+This website contain the talk to be given to the IWSM, July 2026 in Oslo - Norway.
+
+-   [talk](StatisticalModelling_talk.qmd)
