@@ -315,15 +315,19 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 
 ## Discussion {.smaller}
 
-- `measures of goodness of fit` are needed in both model `fitting` and model `comparison` and can be differ 
+- most problems in SM arise if the `assumptions` are not correct 
 
-- ideally we should `focus` on the `question`
+- `measures of goodness of fit` are needed for both model `fitting` and model `comparison` 
+
+- the two  `measures of goodness of fit` can be different  
+
+- ideally  `measures of goodness of fit` should `focus` on the `question`
 
 - the type of `measures` of goodness of fit make the model `agnostic`
 
 - `diagnostics` evaluate at `test` and `training` `data` should be part of any SM
 
-- `interpretable` models easier to check.\
+- `interpretable` (mostly mathematical)  models easier to check.
 
 - "Stop explaining black box machine learning models for `high stakes decisions` and use `interpretable` models instead" [@rudin2019stop]
 

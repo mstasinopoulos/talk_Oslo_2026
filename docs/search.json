@@ -207,7 +207,7 @@
     "href": "StatisticalModelling_talk.html#discussion",
     "title": "Statistical Modelling Process",
     "section": "Discussion",
-    "text": "Discussion\n\nmeasures of goodness of fit are needed in both model fitting and model comparison and can be differ\nideally we should focus on the question\nthe type of measures of goodness of fit make the model agnostic\ndiagnostics evaluate at test and training data should be part of any SM\ninterpretable models easier to check.\n\n“Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead” (Rudin 2019)"
+    "text": "Discussion\n\nmost problems in SM arise if the assumptions are not correct\nmeasures of goodness of fit are needed for both model fitting and model comparison\nthe two measures of goodness of fit can be different\nideally measures of goodness of fit should focus on the question\nthe type of measures of goodness of fit make the model agnostic\ndiagnostics evaluate at test and training data should be part of any SM\ninterpretable (mostly mathematical) models easier to check.\n“Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead” (Rudin 2019)"
   },
   {
     "objectID": "StatisticalModelling_talk.html#end",
