@@ -1,5 +1,5 @@
 ---
-title: "IWSM talk 2026"
+title: "Statistical Modelling Process talk given to  IWSM 2026"
 author:
   - Mikis Stasinopoulos
   - Bob Rigby
@@ -7,6 +7,6 @@ author:
   - Julian Merder
 ---
 
-This website contain the talk to be given to the IWSM, July 2026 in Oslo - Norway.
+This website contain the talk that will be given to the IWSM, July 2026 in Oslo - Norway.
 
 -   [talk](StatisticalModelling_talk.qmd)
