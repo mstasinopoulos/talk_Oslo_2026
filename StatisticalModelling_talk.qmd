@@ -83,7 +83,7 @@ bibliography: book2025.bib
 
 - `deterministic model`: $Y =G(X)$
 
-- `stochastic model`: $Y =G(X, E)$, where $E$ is the error (a probabilistic component)
+- `statistical model`: $Y =G(X, E)$, where $E$ is the error (a probabilistic component)
 
 - $G(X, E)$ represent both the $\textit{signal}$ and $\textit{noise}$ in the `data`
 
@@ -107,9 +107,9 @@ bibliography: book2025.bib
 
 - `assumptions` should be checked using `diagnostic` tools;
 
-## Algorithmic \<-\> Mathematical models {.mediun}
+## Algorithmic \<-\> Stastistical  models {.mediun}
 
-- `mathematical models,` the function $G(X,E)$ is defined explicitly through the `assumptions`
+- `statistical models,` the function $G(X,E)$ is defined explicitly through the `assumptions`
 
 - `algorithmic models` make implicit assumptions about the function $G(X,E)$.
 
@@ -214,17 +214,17 @@ ALBe <- data.frame(ALB, zscores=resid(m2), index=resid(m2) < qnorm(.05))
 
 ## Diagnostics {.smaller}
 
-1)  `residuals diagnostics`:
+1)  `training residuals diagnostics`:
 
 - `are the residuals white noise`?
 
-  - yes: `adequate model` - the model explain the data well-
+  - yes: `adequate model` the model is not under-fitting the data
 
-  - no: - start again -
+  - no: start again 
 
-- all `stochastic models` have residuals so residual diagnostic is an `angostic` tool.
+- residuals can be calculated  for all `statistical models`, so residual diagnostics is an `agnostic` tool.
 
-2)  Other types of `diagnostics` could check other assumptions or possibly `focusing` in answering the `question`.
+2)  Other types of `diagnostics` could check other assumptions or possibly `focus` in answering the `question`.
 
 ## Classical statistical modelling
 
@@ -268,7 +268,7 @@ importantly the `data` are divided to
 
 ## stack of models
 
-- for each `data` set there could be several `adequate` models called the `Rashomon set`
+- for each `data` set there could be several models which are not under-fitting or over-fitting the data called the `Rashomon set`
 
 - several models from the `Rashomon set` are `interpretable` @rudin2024amazing.
 
@@ -279,13 +279,13 @@ importantly the `data` are divided to
 
 ## model average
 
-- for DR we can average their fitted distribution
+- for DR we can average their fitted distributions
 
- $$ Av(\bar{f})=\pi_1 \bar{f}_1(Y)+\pi_2 \bar{f}_2(Y)+\ldots, \pi_k \bar{f}_k(Y)$$
+ $$ Av({\hat{f{}}_{2}})=\pi_1 {\hat{f{}}_{1}}(Y)+\pi_2 {\hat{f{}}_{2}}(Y)+\ldots, \pi_k {\hat{f{}}_{k}}(Y)$$
 
 - or make the mixing probabilities functions of the covariates;
 
-$$ Av(\bar{f})=\pi_1(X) \bar{f}_1(y)+\pi_2(X) \bar{f}_2(y)+\ldots, \pi_k(X) \bar{f}_k(y)$$
+$$ Av(\hat{f{}})=\pi_1(X) \hat{f{}}_{1}(y)+\pi_2(X) \hat{f{}}_{2}(y)+\ldots, \pi_k(X) \hat{f{}}_{k}(y)$$
 
 ## Model comparison
 
@@ -294,7 +294,7 @@ $$ Av(\bar{f})=\pi_1(X) \bar{f}_1(y)+\pi_2(X) \bar{f}_2(y)+\ldots, \pi_k(X) \bar
 - for the ALB data sets we use
 
   - deviance ($-2 \ell$) as global `test measure`
-  - $\chi^2$ values as `focus test measure`
+  - $\chi^2$ values as `focused test measure`
 
 Both applied to the ALB data and lead to the `BCTo` distribution as the best distribution.
 
@@ -327,9 +327,9 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 
 - ideally  `measures of goodness of fit` should `focus` on the `question`
 
-- the type of `measures` of goodness of fit make the model `agnostic`
+- the  `measure` of goodness of fit can be model `agnostic`
 
-- `diagnostics` evaluate at `test` and `training` `data` should be part of any SM
+- `diagnostics` evaluated at `test` and `training` `data` should be part of any SM
 
 - `interpretable` (mostly mathematical)  models easier to check.
 

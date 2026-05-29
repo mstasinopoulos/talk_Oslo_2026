@@ -418,7 +418,7 @@ Julian Merder
 <h2>Stochastic model</h2>
 <ul>
 <li><p><code>deterministic model</code>: <span class="math inline">\(Y =G(X)\)</span></p></li>
-<li><p><code>stochastic model</code>: <span class="math inline">\(Y =G(X, E)\)</span>, where <span class="math inline">\(E\)</span> is the error (a probabilistic component)</p></li>
+<li><p><code>statistical model</code>: <span class="math inline">\(Y =G(X, E)\)</span>, where <span class="math inline">\(E\)</span> is the error (a probabilistic component)</p></li>
 <li><p><span class="math inline">\(G(X, E)\)</span> represent both the <span class="math inline">\(\textit{signal}\)</span> and <span class="math inline">\(\textit{noise}\)</span> in the <code>data</code></p></li>
 <li><p>An additive model <code>assumption</code>: <span class="math display">\[Y =G(X)+E\]</span> is a common model assumption for the <span class="math inline">\(\textit{signal}\)</span> and the <span class="math inline">\(\textit{noise}\)</span>, widely used in <code>machine learning</code> with implicit normal errors.</p></li>
 </ul>
@@ -440,10 +440,10 @@ Julian Merder
 <li><p><code>assumptions</code> should be checked using <code>diagnostic</code> tools;</p></li>
 </ul>
 </section>
-<section id="algorithmic---mathematical-models" class="slide level2 mediun">
-<h2>Algorithmic &lt;-&gt; Mathematical models</h2>
+<section id="algorithmic---stastistical-models" class="slide level2 mediun">
+<h2>Algorithmic &lt;-&gt; Stastistical models</h2>
 <ul>
-<li><p><code>mathematical models,</code> the function <span class="math inline">\(G(X,E)\)</span> is defined explicitly through the <code>assumptions</code></p></li>
+<li><p><code>statistical models,</code> the function <span class="math inline">\(G(X,E)\)</span> is defined explicitly through the <code>assumptions</code></p></li>
 <li><p><code>algorithmic models</code> make implicit assumptions about the function <span class="math inline">\(G(X,E)\)</span>.</p></li>
 <li><p>the additive algorithmic <code>model</code> <span class="math inline">\(G(X)+E\)</span> makes implicit assumptions for <span class="math inline">\(G(X)\)</span> and the <code>natural error</code></p></li>
 </ul>
@@ -539,18 +539,18 @@ Figure&nbsp;2
 <section id="diagnostics" class="slide level2 smaller">
 <h2>Diagnostics</h2>
 <ol type="1">
-<li><code>residuals diagnostics</code>:</li>
+<li><code>training residuals diagnostics</code>:</li>
 </ol>
 <ul>
 <li><p><code>are the residuals white noise</code>?</p>
 <ul>
-<li><p>yes: <code>adequate model</code> - the model explain the data well-</p></li>
-<li><p>no: - start again -</p></li>
+<li><p>yes: <code>adequate model</code> the model is not under-fitting the data</p></li>
+<li><p>no: start again</p></li>
 </ul></li>
-<li><p>all <code>stochastic models</code> have residuals so residual diagnostic is an <code>angostic</code> tool.</p></li>
+<li><p>residuals can be calculated for all <code>statistical models</code>, so residual diagnostics is an <code>agnostic</code> tool.</p></li>
 </ul>
 <ol start="2" type="1">
-<li>Other types of <code>diagnostics</code> could check other assumptions or possibly <code>focusing</code> in answering the <code>question</code>.</li>
+<li>Other types of <code>diagnostics</code> could check other assumptions or possibly <code>focus</code> in answering the <code>question</code>.</li>
 </ol>
 </section>
 <section id="classical-statistical-modelling" class="slide level2">
@@ -592,7 +592,7 @@ Figure&nbsp;2
 <section id="stack-of-models" class="slide level2">
 <h2>stack of models</h2>
 <ul>
-<li><p>for each <code>data</code> set there could be several <code>adequate</code> models called the <code>Rashomon set</code></p></li>
+<li><p>for each <code>data</code> set there could be several models which are not under-fitting or over-fitting the data called the <code>Rashomon set</code></p></li>
 <li><p>several models from the <code>Rashomon set</code> are <code>interpretable</code> <span class="citation" data-cites="rudin2024amazing">Rudin et al. (<a href="#/reference" role="doc-biblioref" onclick="">2024</a>)</span>.</p></li>
 <li><p>how to chose between different adequate models?</p>
 <ol type="1">
@@ -604,13 +604,13 @@ Figure&nbsp;2
 <section id="model-average" class="slide level2">
 <h2>model average</h2>
 <ul>
-<li>for DR we can average their fitted distribution</li>
+<li>for DR we can average their fitted distributions</li>
 </ul>
-<p><span class="math display">\[ Av(\bar{f})=\pi_1 \bar{f}_1(Y)+\pi_2 \bar{f}_2(Y)+\ldots, \pi_k \bar{f}_k(Y)\]</span></p>
+<p><span class="math display">\[ Av({\hat{f{}}_{2}})=\pi_1 {\hat{f{}}_{1}}(Y)+\pi_2 {\hat{f{}}_{2}}(Y)+\ldots, \pi_k {\hat{f{}}_{k}}(Y)\]</span></p>
 <ul>
 <li>or make the mixing probabilities functions of the covariates;</li>
 </ul>
-<p><span class="math display">\[ Av(\bar{f})=\pi_1(X) \bar{f}_1(y)+\pi_2(X) \bar{f}_2(y)+\ldots, \pi_k(X) \bar{f}_k(y)\]</span></p>
+<p><span class="math display">\[ Av(\hat{f{}})=\pi_1(X) \hat{f{}}_{1}(y)+\pi_2(X) \hat{f{}}_{2}(y)+\ldots, \pi_k(X) \hat{f{}}_{k}(y)\]</span></p>
 </section>
 <section id="model-comparison" class="slide level2">
 <h2>Model comparison</h2>
@@ -619,7 +619,7 @@ Figure&nbsp;2
 <li><p>for the ALB data sets we use</p>
 <ul>
 <li>deviance (<span class="math inline">\(-2 \ell\)</span>) as global <code>test measure</code></li>
-<li><span class="math inline">\(\chi^2\)</span> values as <code>focus test measure</code></li>
+<li><span class="math inline">\(\chi^2\)</span> values as <code>focused test measure</code></li>
 </ul></li>
 </ul>
 <p>Both applied to the ALB data and lead to the <code>BCTo</code> distribution as the best distribution.</p>
@@ -669,8 +669,8 @@ Figure&nbsp;4
 <li><p><code>measures of goodness of fit</code> are needed for both model <code>fitting</code> and model <code>comparison</code></p></li>
 <li><p>the two <code>measures of goodness of fit</code> can be different</p></li>
 <li><p>ideally <code>measures of goodness of fit</code> should <code>focus</code> on the <code>question</code></p></li>
-<li><p>the type of <code>measures</code> of goodness of fit make the model <code>agnostic</code></p></li>
-<li><p><code>diagnostics</code> evaluate at <code>test</code> and <code>training</code> <code>data</code> should be part of any SM</p></li>
+<li><p>the <code>measure</code> of goodness of fit can be model <code>agnostic</code></p></li>
+<li><p><code>diagnostics</code> evaluated at <code>test</code> and <code>training</code> <code>data</code> should be part of any SM</p></li>
 <li><p><code>interpretable</code> (mostly mathematical) models easier to check.</p></li>
 <li><p>“Stop explaining black box machine learning models for <code>high stakes decisions</code> and use <code>interpretable</code> models instead” <span class="citation" data-cites="rudin2019stop">(<a href="#/reference" role="doc-biblioref" onclick="">Rudin 2019</a>)</span></p></li>
 </ul>

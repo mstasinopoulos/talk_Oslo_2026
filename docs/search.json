@@ -39,7 +39,7 @@
     "href": "StatisticalModelling_talk.html#stochastic-model",
     "title": "Statistical Modelling Process",
     "section": "Stochastic model",
-    "text": "Stochastic model\n\ndeterministic model: \\(Y =G(X)\\)\nstochastic model: \\(Y =G(X, E)\\), where \\(E\\) is the error (a probabilistic component)\n\\(G(X, E)\\) represent both the \\(\\textit{signal}\\) and \\(\\textit{noise}\\) in the data\nAn additive model assumption: \\[Y =G(X)+E\\] is a common model assumption for the \\(\\textit{signal}\\) and the \\(\\textit{noise}\\), widely used in machine learning with implicit normal errors."
+    "text": "Stochastic model\n\ndeterministic model: \\(Y =G(X)\\)\nstatistical model: \\(Y =G(X, E)\\), where \\(E\\) is the error (a probabilistic component)\n\\(G(X, E)\\) represent both the \\(\\textit{signal}\\) and \\(\\textit{noise}\\) in the data\nAn additive model assumption: \\[Y =G(X)+E\\] is a common model assumption for the \\(\\textit{signal}\\) and the \\(\\textit{noise}\\), widely used in machine learning with implicit normal errors."
   },
   {
     "objectID": "StatisticalModelling_talk.html#assumptions",
@@ -123,7 +123,7 @@
     "href": "StatisticalModelling_talk.html#diagnostics",
     "title": "Statistical Modelling Process",
     "section": "Diagnostics",
-    "text": "Diagnostics\n\nresiduals diagnostics:\n\n\nare the residuals white noise?\n\nyes: adequate model - the model explain the data well-\nno: - start again -\n\nall stochastic models have residuals so residual diagnostic is an angostic tool.\n\n\nOther types of diagnostics could check other assumptions or possibly focusing in answering the question."
+    "text": "Diagnostics\n\ntraining residuals diagnostics:\n\n\nare the residuals white noise?\n\nyes: adequate model the model is not under-fitting the data\nno: start again\n\nresiduals can be calculated for all statistical models, so residual diagnostics is an agnostic tool.\n\n\nOther types of diagnostics could check other assumptions or possibly focus in answering the question."
   },
   {
     "objectID": "StatisticalModelling_talk.html#classical-statistical-modelling",
@@ -165,21 +165,21 @@
     "href": "StatisticalModelling_talk.html#stack-of-models",
     "title": "Statistical Modelling Process",
     "section": "stack of models",
-    "text": "stack of models\n\nfor each data set there could be several adequate models called the Rashomon set\nseveral models from the Rashomon set are interpretable Rudin et al. (2024).\nhow to chose between different adequate models?\n\nuse a test measure of goodness of fit or even better use a focus test measure of goodness of fit\nor use model average"
+    "text": "stack of models\n\nfor each data set there could be several models which are not under-fitting or over-fitting the data called the Rashomon set\nseveral models from the Rashomon set are interpretable Rudin et al. (2024).\nhow to chose between different adequate models?\n\nuse a test measure of goodness of fit or even better use a focus test measure of goodness of fit\nor use model average"
   },
   {
     "objectID": "StatisticalModelling_talk.html#model-average",
     "href": "StatisticalModelling_talk.html#model-average",
     "title": "Statistical Modelling Process",
     "section": "model average",
-    "text": "model average\n\nfor DR we can average their fitted distribution\n\n\\[ Av(\\bar{f})=\\pi_1 \\bar{f}_1(Y)+\\pi_2 \\bar{f}_2(Y)+\\ldots, \\pi_k \\bar{f}_k(Y)\\]\n\nor make the mixing probabilities functions of the covariates;\n\n\\[ Av(\\bar{f})=\\pi_1(X) \\bar{f}_1(y)+\\pi_2(X) \\bar{f}_2(y)+\\ldots, \\pi_k(X) \\bar{f}_k(y)\\]"
+    "text": "model average\n\nfor DR we can average their fitted distributions\n\n\\[ Av({\\hat{f{}}_{2}})=\\pi_1 {\\hat{f{}}_{1}}(Y)+\\pi_2 {\\hat{f{}}_{2}}(Y)+\\ldots, \\pi_k {\\hat{f{}}_{k}}(Y)\\]\n\nor make the mixing probabilities functions of the covariates;\n\n\\[ Av(\\hat{f{}})=\\pi_1(X) \\hat{f{}}_{1}(y)+\\pi_2(X) \\hat{f{}}_{2}(y)+\\ldots, \\pi_k(X) \\hat{f{}}_{k}(y)\\]"
   },
   {
     "objectID": "StatisticalModelling_talk.html#model-comparison",
     "href": "StatisticalModelling_talk.html#model-comparison",
     "title": "Statistical Modelling Process",
     "section": "Model comparison",
-    "text": "Model comparison\n\nuse a test measure of goodness of fit\nfor the ALB data sets we use\n\ndeviance (\\(-2 \\ell\\)) as global test measure\n\\(\\chi^2\\) values as focus test measure\n\n\nBoth applied to the ALB data and lead to the BCTo distribution as the best distribution."
+    "text": "Model comparison\n\nuse a test measure of goodness of fit\nfor the ALB data sets we use\n\ndeviance (\\(-2 \\ell\\)) as global test measure\n\\(\\chi^2\\) values as focused test measure\n\n\nBoth applied to the ALB data and lead to the BCTo distribution as the best distribution."
   },
   {
     "objectID": "StatisticalModelling_talk.html#alb-diagnostics",
@@ -207,7 +207,7 @@
     "href": "StatisticalModelling_talk.html#discussion",
     "title": "Statistical Modelling Process",
     "section": "Discussion",
-    "text": "Discussion\n\nmost problems in SM arise if the assumptions are not correct\nmeasures of goodness of fit are needed for both model fitting and model comparison\nthe two measures of goodness of fit can be different\nideally measures of goodness of fit should focus on the question\nthe type of measures of goodness of fit make the model agnostic\ndiagnostics evaluate at test and training data should be part of any SM\ninterpretable (mostly mathematical) models easier to check.\n“Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead” (Rudin 2019)"
+    "text": "Discussion\n\nmost problems in SM arise if the assumptions are not correct\nmeasures of goodness of fit are needed for both model fitting and model comparison\nthe two measures of goodness of fit can be different\nideally measures of goodness of fit should focus on the question\nthe measure of goodness of fit can be model agnostic\ndiagnostics evaluated at test and training data should be part of any SM\ninterpretable (mostly mathematical) models easier to check.\n“Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead” (Rudin 2019)"
   },
   {
     "objectID": "StatisticalModelling_talk.html#end",
@@ -236,5 +236,12 @@
     "title": "Statistical Modelling Process",
     "section": "why SM?",
     "text": "why SM?\n\n\nThe data, are collected to answer the question and this is done through a model.\nThe concepts are interconnected"
+  },
+  {
+    "objectID": "StatisticalModelling_talk.html#algorithmic---stastistical-models",
+    "href": "StatisticalModelling_talk.html#algorithmic---stastistical-models",
+    "title": "Statistical Modelling Process",
+    "section": "Algorithmic <-> Stastistical models",
+    "text": "Algorithmic &lt;-&gt; Stastistical models\n\nstatistical models, the function \\(G(X,E)\\) is defined explicitly through the assumptions\nalgorithmic models make implicit assumptions about the function \\(G(X,E)\\).\nthe additive algorithmic model \\(G(X)+E\\) makes implicit assumptions for \\(G(X)\\) and the natural error"
   }
 ]
