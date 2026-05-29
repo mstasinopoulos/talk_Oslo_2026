@@ -379,12 +379,14 @@ Julian Merder
 <section id="introduction" class="slide level2">
 <h2>introduction</h2>
 <ul>
+<li><p>in the 70’s <span class="citation" data-cites="BOxJenkins70">Box and Jenkins (<a href="#/reference" role="doc-biblioref" onclick="">1970</a>)</span> had a diagram to show what is <code>statistical modelling</code> (SM)</p></li>
+<li><p>over the last 40 years I have not seen something similar</p></li>
 <li><p>discuss basic ideas of <code>statistical modelling</code></p></li>
 <li><p>using a <code>distributional regression</code> example</p></li>
 </ul>
 </section>
-<section id="why" class="slide level2">
-<h2>why</h2>
+<section id="why-sm" class="slide level2">
+<h2>why SM?</h2>
 <p><img data-src="Question_Data_answer.png" style="width:90.0%" height="400"></p>
 <ul>
 <li><p>The <code>data</code>, are collected to answer the <code>question</code> and this is done through a <code>model</code>.</p></li>
@@ -396,7 +398,7 @@ Julian Merder
 <ul>
 <li><blockquote>
 <p><code>all models are wrong but some are useful</code>.</p>
-<p>– George <span class="citation" data-cites="box1979robustness">Box (<a href="#/reference" role="doc-biblioref" onclick="">1979</a>)</span></p>
+<p>– George <span class="citation" data-cites="box1979robustness">G. E. P. Box (<a href="#/reference" role="doc-biblioref" onclick="">1979</a>)</span></p>
 </blockquote></li>
 <li><p>whether a model is useful depends on the <code>purpose</code> of the study.</p></li>
 <li><p>A <code>model</code> is useful if it can answer the <code>question</code></p></li>
@@ -458,7 +460,7 @@ Julian Merder
 <li><p>The task of parametric <code>distributional Regression</code> is to find ;</p>
 <ul>
 <li><code>which</code> and <code>how</code> the x’s effect the parameters of the distribution i.e <span class="math inline">\(\boldsymbol{\theta}(X)\)</span> and</li>
-<li>the appropriate distribution for the response i.e.&nbsp;<span class="math inline">\(D(Y|\boldsymbol{\theta})\)</span></li>
+<li>the appropriate <code>distribution</code> for the response i.e.&nbsp;<span class="math inline">\(D(Y|\boldsymbol{\theta})\)</span></li>
 </ul></li>
 </ul>
 </section>
@@ -678,7 +680,7 @@ Figure&nbsp;4
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-ncol="3," data-layout-nrow="1">
+<div class="quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="3,">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <p><img data-src="book-1.png" width="300"> <img data-src="BOOK-2.png" width="323"> <img data-src="book3.png" width="333"> see also the <code>R</code> package <code>gamlss2</code></p>
@@ -698,6 +700,9 @@ Figure&nbsp;4
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-box1979robustness" class="csl-entry" role="listitem">
 Box, G. E. P. 1979. <span>“Robustness in the Strategy of Scientific Model Building.”</span> <em>Robustness in Statistics</em> 1: 201–36.
+</div>
+<div id="ref-BOxJenkins70" class="csl-entry" role="listitem">
+Box, and G. Jenkins. 1970. <em>Time Series Analysis: Forecasting and Control</em>. Holden-Day. San Francisco.
 </div>
 <div id="ref-breiman2003statistical" class="csl-entry" role="listitem">
 Breiman, Leo. 2003. <span>“Statistical Modeling: The Two Cultures.”</span> <em>Quality Control and Applied Statistics</em> 48 (1): 81–82.

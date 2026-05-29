@@ -11,7 +11,7 @@
     "href": "StatisticalModelling_talk.html#introduction",
     "title": "Statistical Modelling Process",
     "section": "introduction",
-    "text": "introduction\n\ndiscuss basic ideas of statistical modelling\nusing a distributional regression example"
+    "text": "introduction\n\nin the 70’s Box and Jenkins (1970) had a diagram to show what is statistical modelling (SM)\nover the last 40 years I have not seen something similar\ndiscuss basic ideas of statistical modelling\nusing a distributional regression example"
   },
   {
     "objectID": "StatisticalModelling_talk.html#why",
@@ -25,7 +25,7 @@
     "href": "StatisticalModelling_talk.html#model",
     "title": "Statistical Modelling Process",
     "section": "Model",
-    "text": "Model\n\n\nall models are wrong but some are useful.\n– George Box (1979)\n\nwhether a model is useful depends on the purpose of the study.\nA model is useful if it can answer the question"
+    "text": "Model\n\n\nall models are wrong but some are useful.\n– George G. E. P. Box (1979)\n\nwhether a model is useful depends on the purpose of the study.\nA model is useful if it can answer the question"
   },
   {
     "objectID": "StatisticalModelling_talk.html#regression-models",
@@ -221,7 +221,7 @@
     "href": "StatisticalModelling_talk.html#reference",
     "title": "Statistical Modelling Process",
     "section": "Reference",
-    "text": "Reference\n\n\n\n\nwww.gamlss.com\n\n\n\n\nBox, G. E. P. 1979. “Robustness in the Strategy of Scientific Model Building.” Robustness in Statistics 1: 201–36.\n\n\nBreiman, Leo. 2003. “Statistical Modeling: The Two Cultures.” Quality Control and Applied Statistics 48 (1): 81–82.\n\n\nChai, Jinhang, Jianqing Fan, and Yihong Gu. 2026. “Neural Generative Distributional Regression.” arXiv Preprint arXiv:2605.02062.\n\n\nRigby, R. A., and D. M. Stasinopoulos. 2005. “Generalized Additive Models for Location, Scale and Shape (with Discussion).” Applied Statistics 54: 507–54.\n\n\nRudin, Cynthia. 2019. “Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead.” Nature Machine Intelligence 1 (5): 206–15.\n\n\nRudin, Cynthia, Chudi Zhong, Lesia Semenova, Margo Seltzer, Ronald Parr, Jiachang Liu, Srikar Katta, Jon Donnelly, Harry Chen, and Zachery Boner. 2024. “Amazing Things Come from Having Many Good Models.” arXiv Preprint arXiv:2407.04846.\n\n\nStasinopoulos, M. D., T. Kneib, N. Klein, A. Mayr, and G. Z Heller. 2024. Generalized Additive Models for Location, Scale and Shape: A Distributional Regression Approach, with Applications. Vol. 56. Cambridge University Press."
+    "text": "Reference\n\n\n\n\nwww.gamlss.com\n\n\n\n\nBox, G. E. P. 1979. “Robustness in the Strategy of Scientific Model Building.” Robustness in Statistics 1: 201–36.\n\n\nBox, and G. Jenkins. 1970. Time Series Analysis: Forecasting and Control. Holden-Day. San Francisco.\n\n\nBreiman, Leo. 2003. “Statistical Modeling: The Two Cultures.” Quality Control and Applied Statistics 48 (1): 81–82.\n\n\nChai, Jinhang, Jianqing Fan, and Yihong Gu. 2026. “Neural Generative Distributional Regression.” arXiv Preprint arXiv:2605.02062.\n\n\nRigby, R. A., and D. M. Stasinopoulos. 2005. “Generalized Additive Models for Location, Scale and Shape (with Discussion).” Applied Statistics 54: 507–54.\n\n\nRudin, Cynthia. 2019. “Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead.” Nature Machine Intelligence 1 (5): 206–15.\n\n\nRudin, Cynthia, Chudi Zhong, Lesia Semenova, Margo Seltzer, Ronald Parr, Jiachang Liu, Srikar Katta, Jon Donnelly, Harry Chen, and Zachery Boner. 2024. “Amazing Things Come from Having Many Good Models.” arXiv Preprint arXiv:2407.04846.\n\n\nStasinopoulos, M. D., T. Kneib, N. Klein, A. Mayr, and G. Z Heller. 2024. Generalized Additive Models for Location, Scale and Shape: A Distributional Regression Approach, with Applications. Vol. 56. Cambridge University Press."
   },
   {
     "objectID": "StatisticalModelling_talk.html#fit",
@@ -229,5 +229,12 @@
     "title": "Statistical Modelling Process",
     "section": "Fit",
     "text": "Fit\n\ntwo ways to fit a model\n\n\nmaximize/minimize an objective measure of goodness of fit, \\(\\mathbb{R}(Y,G(X,E))\\), (i.e. a training measure) to obtain the fitted values: \\[\\widehat{D} = \\widehat{G} (X,E)\\]\nsimulate from the model \\(G(X,E)\\) and then average to obtain the fitted values \\(\\widehat{Y}\\) or a fitted distribution \\(\\widehat{D}\\)"
+  },
+  {
+    "objectID": "StatisticalModelling_talk.html#why-sm",
+    "href": "StatisticalModelling_talk.html#why-sm",
+    "title": "Statistical Modelling Process",
+    "section": "why SM?",
+    "text": "why SM?\n\n\nThe data, are collected to answer the question and this is done through a model.\nThe concepts are interconnected"
   }
 ]

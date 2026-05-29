@@ -22,6 +22,10 @@ bibliography: book2025.bib
 
 ## introduction
 
+- in the 70's @BOxJenkins70 had a diagram to show what is `statistical modelling` (SM)
+
+- over the last 40 years I have not seen something similar  
+
 - discuss basic ideas of `statistical modelling`
 
 - using a `distributional regression` example
@@ -39,7 +43,7 @@ bibliography: book2025.bib
 #     style D fill:#dfd")
 ```
 
-## why
+## why SM?
 
 ![](Question_Data_answer.png){width="90%" height="400px"}
 
@@ -126,7 +130,7 @@ where $D(Y|\boldsymbol{\theta}(X))$ estimates the `natural error` distribution o
 - The task of parametric `distributional Regression` is to find ;
 
   - `which` and `how` the x's effect the parameters of the distribution i.e $\boldsymbol{\theta}(X)$ and
-  - the appropriate distribution for the response i.e. $D(Y|\boldsymbol{\theta})$
+  - the appropriate `distribution` for the response i.e. $D(Y|\boldsymbol{\theta})$
 
 ## Distributional regression models
 
