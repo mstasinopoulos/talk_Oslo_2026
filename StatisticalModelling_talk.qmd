@@ -43,7 +43,7 @@ bibliography: book2025.bib
 #     style D fill:#dfd")
 ```
 
-## why SM?
+## why SM? {.smaller}
 
 ![](Question_Data_answer.png){width="90%" height="400px"}
 
@@ -202,7 +202,7 @@ ALBe <- data.frame(ALB, zscores=resid(m2), index=resid(m2) < qnorm(.05))
 
 2)  simulate from the model $G(X,E)$ and then average to obtain the fitted values $\widehat{Y}$ or a fitted distribution $\widehat{D}$
 
-## residuals
+## residuals 
 
 - `training residuals`: $$\widehat{r}=r(Y, \widehat{D})$$ for a suitable function $r$.
 
@@ -212,7 +212,7 @@ ALBe <- data.frame(ALB, zscores=resid(m2), index=resid(m2) < qnorm(.05))
 
 - `residuals` can be used as a `diagnostic` tool
 
-## Diagnostics
+## Diagnostics {.smaller}
 
 1)  `residuals diagnostics`:
 
@@ -228,11 +228,11 @@ ALBe <- data.frame(ALB, zscores=resid(m2), index=resid(m2) < qnorm(.05))
 
 ## Classical statistical modelling
 
-![](classical_Model_cicle.png){width="90%" height="600px"}
+![](classical_Model_cicle.png){width="90%" height="550px"}
 
 ## Classical statistical modelling 1
 
-![](classical_Model_cicle_1.png){width="90%" height="600px"}
+![](classical_Model_cicle_1.png){width="90%" height="550px"}
 
 ## Classical statistical modelling: comments
 
@@ -315,7 +315,7 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 
 ## Modern Statistical Modelling
 
-![](modern_1.png){width="90%" height="600px"}
+![](modern_1.png){width="90%" height="570px"}
 
 ## Discussion {.smaller}
 
