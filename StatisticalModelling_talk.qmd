@@ -79,7 +79,7 @@ bibliography: book2025.bib
 
 - the `model` tries to unmask the unknown function $G()$ which could be `mathematical` or `algorithmic`
 
-## Stochastic model  {.smaller}
+## Statistical model  {.smaller}
 
 - `deterministic model`: $Y =G(X)$
 
@@ -118,7 +118,6 @@ bibliography: book2025.bib
 ## Distributional regression models
 
  ![](input_output.png){width="90%" height="100px"}
- 
 
 The `parametric` Distributional Regression model [@RigbyStasinopoulos05, @stasinopoulos2024generalized] can be represented as
 
@@ -139,7 +138,7 @@ where $D(Y|\boldsymbol{\theta}(X))$ estimates the `natural error` distribution o
 
 This version of the DR model is NOT easy to interpret because it is a `black box`.
 
-## The Albumin (ALB) `data`
+## The Albumin (ALB): (`data`)
 
 ```{r}
 #| warning: false 
@@ -167,7 +166,7 @@ m2 <- gamlss(ALB ~ pb(ga),
              family = BCTo, data = ALB) 
 ```
 
-## The Albumin (ALB) `fit`
+## The Albumin (ALB) (`model`)
 
 ```{r}
 #| label: fig-a
@@ -178,7 +177,7 @@ fitted_centiles_gap(m2, cent=c(97.5, 90, 75, 50, 25, 2.5), title="(a)",  data=FA
   ggplot2::theme_bw(15)
 ```
 
-## The Albumin (ALB) `question`
+## The Albumin (ALB) (`question`)
 
 ```{r}
 #| label: fig-c
@@ -196,7 +195,7 @@ ALBe <- data.frame(ALB, zscores=resid(m2), index=resid(m2) < qnorm(.05))
 
 ## Fit
 
-- two ways to `fit` a model
+- ways  to `fit` a model
 
 1)  maximize/minimize an objective measure of `goodness of fit`, $\mathbb{R}(Y,G(X,E))$, (i.e. a `training measure`) to obtain the fitted values: $$\widehat{D} = \widehat{G} (X,E)$$
 
@@ -279,7 +278,7 @@ importantly the `data` are divided to
 
 ## model average
 
-- for DR we can average their fitted distributions
+- for DR we can average their fitted distributions @rugamer2024mixture
 
  $$ Av({\hat{f{}}_{2}})=\pi_1 {\hat{f{}}_{1}}(Y)+\pi_2 {\hat{f{}}_{2}}(Y)+\ldots, \pi_k {\hat{f{}}_{k}}(Y)$$
 
@@ -341,4 +340,4 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 ![](book-1.png){width="300"} ![](BOOK-2.png){width="323"} ![](book3.png){width="333"} see also the `R` package `gamlss2`
 :::
 
-## Reference
+## Reference {.smaller}

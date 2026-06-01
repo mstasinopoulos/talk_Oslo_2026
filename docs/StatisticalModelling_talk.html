@@ -414,8 +414,8 @@ Julian Merder
 <li><p>the <code>model</code> tries to unmask the unknown function <span class="math inline">\(G()\)</span> which could be <code>mathematical</code> or <code>algorithmic</code></p></li>
 </ul>
 </section>
-<section id="stochastic-model" class="slide level2 smaller">
-<h2>Stochastic model</h2>
+<section id="statistical-model" class="slide level2 smaller">
+<h2>Statistical model</h2>
 <ul>
 <li><p><code>deterministic model</code>: <span class="math inline">\(Y =G(X)\)</span></p></li>
 <li><p><code>statistical model</code>: <span class="math inline">\(Y =G(X, E)\)</span>, where <span class="math inline">\(E\)</span> is the error (a probabilistic component)</p></li>
@@ -472,7 +472,7 @@ Julian Merder
 <p>This version of the DR model is NOT easy to interpret because it is a <code>black box</code>.</p>
 </section>
 <section id="the-albumin-alb-data" class="slide level2">
-<h2>The Albumin (ALB) <code>data</code></h2>
+<h2>The Albumin (ALB): (<code>data</code>)</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -483,8 +483,8 @@ Julian Merder
 </div>
 </div>
 </section>
-<section id="the-albumin-alb-fit" class="slide level2">
-<h2>The Albumin (ALB) <code>fit</code></h2>
+<section id="the-albumin-alb-model" class="slide level2">
+<h2>The Albumin (ALB) (<code>model</code>)</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-a" class="quarto-float quarto-figure quarto-figure-center" width="960">
@@ -501,7 +501,7 @@ Figure&nbsp;1
 </div>
 </section>
 <section id="the-albumin-alb-question" class="slide level2">
-<h2>The Albumin (ALB) <code>question</code></h2>
+<h2>The Albumin (ALB) (<code>question</code>)</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-c" class="quarto-float quarto-figure quarto-figure-center" width="960">
@@ -520,7 +520,7 @@ Figure&nbsp;2
 <section id="fit" class="slide level2">
 <h2>Fit</h2>
 <ul>
-<li>two ways to <code>fit</code> a model</li>
+<li>ways to <code>fit</code> a model</li>
 </ul>
 <ol type="1">
 <li><p>maximize/minimize an objective measure of <code>goodness of fit</code>, <span class="math inline">\(\mathbb{R}(Y,G(X,E))\)</span>, (i.e.&nbsp;a <code>training measure</code>) to obtain the fitted values: <span class="math display">\[\widehat{D} = \widehat{G} (X,E)\]</span></p></li>
@@ -604,7 +604,7 @@ Figure&nbsp;2
 <section id="model-average" class="slide level2">
 <h2>model average</h2>
 <ul>
-<li>for DR we can average their fitted distributions</li>
+<li>for DR we can average their fitted distributions <span class="citation" data-cites="rugamer2024mixture">Rügamer et al. (<a href="#/reference" role="doc-biblioref" onclick="">2024</a>)</span></li>
 </ul>
 <p><span class="math display">\[ Av({\hat{f{}}_{2}})=\pi_1 {\hat{f{}}_{1}}(Y)+\pi_2 {\hat{f{}}_{2}}(Y)+\ldots, \pi_k {\hat{f{}}_{k}}(Y)\]</span></p>
 <ul>
@@ -680,7 +680,7 @@ Figure&nbsp;4
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-ncol="3," data-layout-nrow="1">
+<div class="quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="3,">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <p><img data-src="book-1.png" width="300"> <img data-src="BOOK-2.png" width="323"> <img data-src="book3.png" width="333"> see also the <code>R</code> package <code>gamlss2</code></p>
@@ -718,6 +718,9 @@ Rudin, Cynthia. 2019. <span>“Stop Explaining Black Box Machine Learning Models
 </div>
 <div id="ref-rudin2024amazing" class="csl-entry" role="listitem">
 Rudin, Cynthia, Chudi Zhong, Lesia Semenova, Margo Seltzer, Ronald Parr, Jiachang Liu, Srikar Katta, Jon Donnelly, Harry Chen, and Zachery Boner. 2024. <span>“Amazing Things Come from Having Many Good Models.”</span> <em>arXiv Preprint arXiv:2407.04846</em>.
+</div>
+<div id="ref-rugamer2024mixture" class="csl-entry" role="listitem">
+Rügamer, David, Florian Pfisterer, Bernd Bischl, and Bettina Grün. 2024. <span>“Mixture of Experts Distributional Regression: Implementation Using Robust Estimation with Adaptive First-Order Methods.”</span> <em>AStA Advances in Statistical Analysis</em> 108 (2): 351–73.
 </div>
 <div id="ref-stasinopoulos2024generalized" class="csl-entry" role="listitem">
 Stasinopoulos, M. D., T. Kneib, N. Klein, A. Mayr, and G. Z Heller. 2024. <em>Generalized Additive Models for Location, Scale and Shape: A Distributional Regression Approach, with Applications</em>. Vol. 56. Cambridge University Press.

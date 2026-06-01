@@ -87,8 +87,8 @@
     "objectID": "StatisticalModelling_talk.html#the-albumin-alb-data",
     "href": "StatisticalModelling_talk.html#the-albumin-alb-data",
     "title": "Statistical Modelling Process",
-    "section": "The Albumin (ALB) data",
-    "text": "The Albumin (ALB) data"
+    "section": "The Albumin (ALB): (data)",
+    "text": "The Albumin (ALB): (data)"
   },
   {
     "objectID": "StatisticalModelling_talk.html#the-albumin-alb-fit",
@@ -101,8 +101,8 @@
     "objectID": "StatisticalModelling_talk.html#the-albumin-alb-question",
     "href": "StatisticalModelling_talk.html#the-albumin-alb-question",
     "title": "Statistical Modelling Process",
-    "section": "The Albumin (ALB) question",
-    "text": "The Albumin (ALB) question\n\n\n\n\n\n\n\n\nFigure 2"
+    "section": "The Albumin (ALB) (question)",
+    "text": "The Albumin (ALB) (question)\n\n\n\n\n\n\n\n\nFigure 2"
   },
   {
     "objectID": "StatisticalModelling_talk.html#fitting",
@@ -172,7 +172,7 @@
     "href": "StatisticalModelling_talk.html#model-average",
     "title": "Statistical Modelling Process",
     "section": "model average",
-    "text": "model average\n\nfor DR we can average their fitted distributions\n\n\\[ Av({\\hat{f{}}_{2}})=\\pi_1 {\\hat{f{}}_{1}}(Y)+\\pi_2 {\\hat{f{}}_{2}}(Y)+\\ldots, \\pi_k {\\hat{f{}}_{k}}(Y)\\]\n\nor make the mixing probabilities functions of the covariates;\n\n\\[ Av(\\hat{f{}})=\\pi_1(X) \\hat{f{}}_{1}(y)+\\pi_2(X) \\hat{f{}}_{2}(y)+\\ldots, \\pi_k(X) \\hat{f{}}_{k}(y)\\]"
+    "text": "model average\n\nfor DR we can average their fitted distributions Rügamer et al. (2024)\n\n\\[ Av({\\hat{f{}}_{2}})=\\pi_1 {\\hat{f{}}_{1}}(Y)+\\pi_2 {\\hat{f{}}_{2}}(Y)+\\ldots, \\pi_k {\\hat{f{}}_{k}}(Y)\\]\n\nor make the mixing probabilities functions of the covariates;\n\n\\[ Av(\\hat{f{}})=\\pi_1(X) \\hat{f{}}_{1}(y)+\\pi_2(X) \\hat{f{}}_{2}(y)+\\ldots, \\pi_k(X) \\hat{f{}}_{k}(y)\\]"
   },
   {
     "objectID": "StatisticalModelling_talk.html#model-comparison",
@@ -221,14 +221,14 @@
     "href": "StatisticalModelling_talk.html#reference",
     "title": "Statistical Modelling Process",
     "section": "Reference",
-    "text": "Reference\n\n\n\n\nwww.gamlss.com\n\n\n\n\nBox, G. E. P. 1979. “Robustness in the Strategy of Scientific Model Building.” Robustness in Statistics 1: 201–36.\n\n\nBox, and G. Jenkins. 1970. Time Series Analysis: Forecasting and Control. Holden-Day. San Francisco.\n\n\nBreiman, Leo. 2003. “Statistical Modeling: The Two Cultures.” Quality Control and Applied Statistics 48 (1): 81–82.\n\n\nChai, Jinhang, Jianqing Fan, and Yihong Gu. 2026. “Neural Generative Distributional Regression.” arXiv Preprint arXiv:2605.02062.\n\n\nRigby, R. A., and D. M. Stasinopoulos. 2005. “Generalized Additive Models for Location, Scale and Shape (with Discussion).” Applied Statistics 54: 507–54.\n\n\nRudin, Cynthia. 2019. “Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead.” Nature Machine Intelligence 1 (5): 206–15.\n\n\nRudin, Cynthia, Chudi Zhong, Lesia Semenova, Margo Seltzer, Ronald Parr, Jiachang Liu, Srikar Katta, Jon Donnelly, Harry Chen, and Zachery Boner. 2024. “Amazing Things Come from Having Many Good Models.” arXiv Preprint arXiv:2407.04846.\n\n\nStasinopoulos, M. D., T. Kneib, N. Klein, A. Mayr, and G. Z Heller. 2024. Generalized Additive Models for Location, Scale and Shape: A Distributional Regression Approach, with Applications. Vol. 56. Cambridge University Press."
+    "text": "Reference\n\n\n\n\nwww.gamlss.com\n\n\n\n\nBox, G. E. P. 1979. “Robustness in the Strategy of Scientific Model Building.” Robustness in Statistics 1: 201–36.\n\n\nBox, and G. Jenkins. 1970. Time Series Analysis: Forecasting and Control. Holden-Day. San Francisco.\n\n\nBreiman, Leo. 2003. “Statistical Modeling: The Two Cultures.” Quality Control and Applied Statistics 48 (1): 81–82.\n\n\nChai, Jinhang, Jianqing Fan, and Yihong Gu. 2026. “Neural Generative Distributional Regression.” arXiv Preprint arXiv:2605.02062.\n\n\nRigby, R. A., and D. M. Stasinopoulos. 2005. “Generalized Additive Models for Location, Scale and Shape (with Discussion).” Applied Statistics 54: 507–54.\n\n\nRudin, Cynthia. 2019. “Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead.” Nature Machine Intelligence 1 (5): 206–15.\n\n\nRudin, Cynthia, Chudi Zhong, Lesia Semenova, Margo Seltzer, Ronald Parr, Jiachang Liu, Srikar Katta, Jon Donnelly, Harry Chen, and Zachery Boner. 2024. “Amazing Things Come from Having Many Good Models.” arXiv Preprint arXiv:2407.04846.\n\n\nRügamer, David, Florian Pfisterer, Bernd Bischl, and Bettina Grün. 2024. “Mixture of Experts Distributional Regression: Implementation Using Robust Estimation with Adaptive First-Order Methods.” AStA Advances in Statistical Analysis 108 (2): 351–73.\n\n\nStasinopoulos, M. D., T. Kneib, N. Klein, A. Mayr, and G. Z Heller. 2024. Generalized Additive Models for Location, Scale and Shape: A Distributional Regression Approach, with Applications. Vol. 56. Cambridge University Press."
   },
   {
     "objectID": "StatisticalModelling_talk.html#fit",
     "href": "StatisticalModelling_talk.html#fit",
     "title": "Statistical Modelling Process",
     "section": "Fit",
-    "text": "Fit\n\ntwo ways to fit a model\n\n\nmaximize/minimize an objective measure of goodness of fit, \\(\\mathbb{R}(Y,G(X,E))\\), (i.e. a training measure) to obtain the fitted values: \\[\\widehat{D} = \\widehat{G} (X,E)\\]\nsimulate from the model \\(G(X,E)\\) and then average to obtain the fitted values \\(\\widehat{Y}\\) or a fitted distribution \\(\\widehat{D}\\)"
+    "text": "Fit\n\nways to fit a model\n\n\nmaximize/minimize an objective measure of goodness of fit, \\(\\mathbb{R}(Y,G(X,E))\\), (i.e. a training measure) to obtain the fitted values: \\[\\widehat{D} = \\widehat{G} (X,E)\\]\nsimulate from the model \\(G(X,E)\\) and then average to obtain the fitted values \\(\\widehat{Y}\\) or a fitted distribution \\(\\widehat{D}\\)"
   },
   {
     "objectID": "StatisticalModelling_talk.html#why-sm",
@@ -243,5 +243,26 @@
     "title": "Statistical Modelling Process",
     "section": "Algorithmic <-> Stastistical models",
     "text": "Algorithmic &lt;-&gt; Stastistical models\n\nstatistical models, the function \\(G(X,E)\\) is defined explicitly through the assumptions\nalgorithmic models make implicit assumptions about the function \\(G(X,E)\\).\nthe additive algorithmic model \\(G(X)+E\\) makes implicit assumptions for \\(G(X)\\) and the natural error"
+  },
+  {
+    "objectID": "StatisticalModelling_talk.html#the-albumin-alb-the-data",
+    "href": "StatisticalModelling_talk.html#the-albumin-alb-the-data",
+    "title": "Statistical Modelling Process",
+    "section": "The Albumin (ALB): the data",
+    "text": "The Albumin (ALB): the data"
+  },
+  {
+    "objectID": "StatisticalModelling_talk.html#the-albumin-alb-model",
+    "href": "StatisticalModelling_talk.html#the-albumin-alb-model",
+    "title": "Statistical Modelling Process",
+    "section": "The Albumin (ALB) (model)",
+    "text": "The Albumin (ALB) (model)\n\n\n\n\n\n\n\n\nFigure 1"
+  },
+  {
+    "objectID": "StatisticalModelling_talk.html#statistical-model",
+    "href": "StatisticalModelling_talk.html#statistical-model",
+    "title": "Statistical Modelling Process",
+    "section": "Statistical model",
+    "text": "Statistical model\n\ndeterministic model: \\(Y =G(X)\\)\nstatistical model: \\(Y =G(X, E)\\), where \\(E\\) is the error (a probabilistic component)\n\\(G(X, E)\\) represent both the \\(\\textit{signal}\\) and \\(\\textit{noise}\\) in the data\nAn additive model assumption: \\[Y =G(X)+E\\] is a common model assumption for the \\(\\textit{signal}\\) and the \\(\\textit{noise}\\), widely used in machine learning with implicit normal errors."
   }
 ]
