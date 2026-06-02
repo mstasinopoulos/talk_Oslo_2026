@@ -83,7 +83,7 @@ bibliography: book2025.bib
 
 - `deterministic model`: $Y =G(X)$
 
-- `statistical model`: $Y =G(X, E)$, where $E$ is the error (a probabilistic component)
+- `statistical model`: $Y =G(X, E)$, where $E$ is the `natural error` (a probabilistic component)
 
 - $G(X, E)$ represent both the $\textit{signal}$ and $\textit{noise}$ in the `data`
 

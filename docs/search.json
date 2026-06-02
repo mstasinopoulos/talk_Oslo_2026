@@ -263,6 +263,6 @@
     "href": "StatisticalModelling_talk.html#statistical-model",
     "title": "Statistical Modelling Process",
     "section": "Statistical model",
-    "text": "Statistical model\n\ndeterministic model: \\(Y =G(X)\\)\nstatistical model: \\(Y =G(X, E)\\), where \\(E\\) is the error (a probabilistic component)\n\\(G(X, E)\\) represent both the \\(\\textit{signal}\\) and \\(\\textit{noise}\\) in the data\nAn additive model assumption: \\[Y =G(X)+E\\] is a common model assumption for the \\(\\textit{signal}\\) and the \\(\\textit{noise}\\), widely used in machine learning with implicit normal errors."
+    "text": "Statistical model\n\ndeterministic model: \\(Y =G(X)\\)\nstatistical model: \\(Y =G(X, E)\\), where \\(E\\) is the natural error (a probabilistic component)\n\\(G(X, E)\\) represent both the \\(\\textit{signal}\\) and \\(\\textit{noise}\\) in the data\nAn additive model assumption: \\[Y =G(X)+E\\] is a common model assumption for the \\(\\textit{signal}\\) and the \\(\\textit{noise}\\), widely used in machine learning with implicit normal errors."
   }
 ]
