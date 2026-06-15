@@ -264,5 +264,229 @@
     "title": "Statistical Modelling Process",
     "section": "Statistical model",
     "text": "Statistical model\n\ndeterministic model: \\(Y =G(X)\\)\nstatistical model: \\(Y =G(X, E)\\), where \\(E\\) is the natural error (a probabilistic component)\n\\(G(X, E)\\) represent both the \\(\\textit{signal}\\) and \\(\\textit{noise}\\) in the data\nAn additive model assumption: \\[Y =G(X)+E\\] is a common model assumption for the \\(\\textit{signal}\\) and the \\(\\textit{noise}\\), widely used in machine learning with implicit normal errors."
+  },
+  {
+    "objectID": "IWSM_talk.html#introduction",
+    "href": "IWSM_talk.html#introduction",
+    "title": "Statistical Modelling Process",
+    "section": "introduction",
+    "text": "introduction\n\nin the 70’s Box and Jenkins (1970) had a diagram to show what is statistical modelling (SM)\nover the last 40 years I have not seen something similar\n\nThis talk\n\ndiscuss basic ideas of statistical modelling\nusing a distributional regression example"
+  },
+  {
+    "objectID": "IWSM_talk.html#why-sm",
+    "href": "IWSM_talk.html#why-sm",
+    "title": "Statistical Modelling Process",
+    "section": "why SM?",
+    "text": "why SM?\n\n\nThe data, are collected to answer the question\nThe concepts are interconnected"
+  },
+  {
+    "objectID": "IWSM_talk.html#model",
+    "href": "IWSM_talk.html#model",
+    "title": "Statistical Modelling Process",
+    "section": "Model",
+    "text": "Model\n\n\nall models are wrong but some are useful.\n– George G. E. P. Box (1979)\n\nwhether a model is useful depends on the purpose of the study.\nA model is useful if it can answer the question"
+  },
+  {
+    "objectID": "IWSM_talk.html#regression-models",
+    "href": "IWSM_talk.html#regression-models",
+    "title": "Statistical Modelling Process",
+    "section": "Regression Models",
+    "text": "Regression Models\nBreiman (2003)\n\n\\[X  {\\longrightarrow}  \\fbox{NATURE} {\\longrightarrow} Y, \\]\n\\[X  {\\longrightarrow}  \\fbox{Model} {\\longrightarrow} Y, \\]\n\\[X  {\\longrightarrow} \\fbox{G(X)}  {\\longrightarrow} Y.\\]\nthe model tries to unmask the unknown function \\(G()\\) which could be mathematical or algorithmic"
+  },
+  {
+    "objectID": "IWSM_talk.html#statistical-model",
+    "href": "IWSM_talk.html#statistical-model",
+    "title": "Statistical Modelling Process",
+    "section": "Statistical model",
+    "text": "Statistical model\n\ndeterministic model: \\(Y =G(X)\\)\nstatistical model: \\(Y =G(X, E)\\), where \\(E\\) is the natural error (a probabilistic component)\n\\(G(X, E)\\) represent both the \\(\\textit{signal}\\) and \\(\\textit{noise}\\) in the data\nAn additive model assumption: \\[Y =G(X)+E\\] is a common model assumption for the \\(\\textit{signal}\\) and the \\(\\textit{noise}\\), widely used in machine learning with implicit normal errors."
+  },
+  {
+    "objectID": "IWSM_talk.html#assumptions",
+    "href": "IWSM_talk.html#assumptions",
+    "title": "Statistical Modelling Process",
+    "section": "Assumptions",
+    "text": "Assumptions\n\nan assumption is an axiomatic statement which need to be approximately correct for the model work.\nif all the assumptions are approximately correct then the model could be useful\nthe assumptions often help with the intepretation of a model\ntypes of assumptions;\n\nexplicit assumptions, are easier to check;\nimplicit assumptions, are often not checked;\n\nassumptions should be checked using diagnostic tools;"
+  },
+  {
+    "objectID": "IWSM_talk.html#assumptions-2",
+    "href": "IWSM_talk.html#assumptions-2",
+    "title": "Statistical Modelling Process",
+    "section": "Assumptions (2)",
+    "text": "Assumptions (2)\n\nexplicit assumptions, are easier to check;\nimplicit assumptions, are often not checked;\nincorrect assumptions could lead to questionable scientific discoveries;\nassumptions should be checked using diagnostic tools;"
+  },
+  {
+    "objectID": "IWSM_talk.html#algorithmic---stastistical-models",
+    "href": "IWSM_talk.html#algorithmic---stastistical-models",
+    "title": "Statistical Modelling Process",
+    "section": "Algorithmic <-> Stastistical models",
+    "text": "Algorithmic &lt;-&gt; Stastistical models\n\nstatistical models, the function \\(G(X,E)\\) is defined explicitly through the assumptions\nalgorithmic models make implicit assumptions about the function \\(G(X,E)\\).\nthe additive algorithmic model \\(G(X)+E\\) makes implicit assumptions for \\(G(X)\\) and the natural error"
+  },
+  {
+    "objectID": "IWSM_talk.html#distributional-regression-models",
+    "href": "IWSM_talk.html#distributional-regression-models",
+    "title": "Statistical Modelling Process",
+    "section": "Distributional regression models",
+    "text": "Distributional regression models\n\nThe parametric Distributional Regression model Stasinopoulos et al. (2024) can be represented as\n\\[X  {\\longrightarrow}  \\fbox{$\\boldsymbol{\\theta}$(X)} {\\longrightarrow} D(Y|\\boldsymbol{\\theta}(X)),\\] where \\(D(Y|\\boldsymbol{\\theta}(X))\\) estimates the natural error distribution of \\(Y\\) (conditional on the \\(X\\))."
+  },
+  {
+    "objectID": "IWSM_talk.html#distributional-regression-models-1",
+    "href": "IWSM_talk.html#distributional-regression-models-1",
+    "title": "Statistical Modelling Process",
+    "section": "Distributional regression models",
+    "text": "Distributional regression models\n\nThe task of parametric distributional Regression is to find ;\n\nwhich and how the x’s effect the parameters of the distribution i.e \\(\\boldsymbol{\\theta}(X)\\) and\nthe appropriate distribution for the response i.e. \\(D(Y|\\boldsymbol{\\theta})\\)"
+  },
+  {
+    "objectID": "IWSM_talk.html#distributional-regression-models-2",
+    "href": "IWSM_talk.html#distributional-regression-models-2",
+    "title": "Statistical Modelling Process",
+    "section": "Distributional regression models",
+    "text": "Distributional regression models\n\nA modern computational approach of the distributional regression, Chai, Fan, and Gu (2026); \\[X, U  {\\longrightarrow}  \\fbox{deep learning} {\\longrightarrow} D(Y|X),\\] where U represent a simple distribution e.g. uniform which after transformations becomes \\(D(Y|X)\\) the conditional distribution of \\(Y\\) given \\(X\\).\n\nThis version of the DR model is NOT easy to interpret because it is a black box."
+  },
+  {
+    "objectID": "IWSM_talk.html#the-albumin-alb-data",
+    "href": "IWSM_talk.html#the-albumin-alb-data",
+    "title": "Statistical Modelling Process",
+    "section": "The Albumin (ALB): (data)",
+    "text": "The Albumin (ALB): (data)"
+  },
+  {
+    "objectID": "IWSM_talk.html#the-albumin-alb-model",
+    "href": "IWSM_talk.html#the-albumin-alb-model",
+    "title": "Statistical Modelling Process",
+    "section": "The Albumin (ALB) (model)",
+    "text": "The Albumin (ALB) (model)\n\n\n\n\n\n\n\n\nFigure 1"
+  },
+  {
+    "objectID": "IWSM_talk.html#the-albumin-alb-question",
+    "href": "IWSM_talk.html#the-albumin-alb-question",
+    "title": "Statistical Modelling Process",
+    "section": "The Albumin (ALB) (question)",
+    "text": "The Albumin (ALB) (question)\n\n\n\n\n\n\n\n\nFigure 2"
+  },
+  {
+    "objectID": "IWSM_talk.html#fit",
+    "href": "IWSM_talk.html#fit",
+    "title": "Statistical Modelling Process",
+    "section": "Fit",
+    "text": "Fit\n\nways to fit a model\n\n\nmaximize/minimize an objective measure of goodness of fit, \\(\\mathbb{R}(Y,G(X,E))\\), (i.e. a training measure) to obtain the fitted values: \\[\\widehat{D} = \\widehat{G} (X,E)\\]\nsimulate from the model \\(G(X,E)\\) and then average to obtain the fitted values \\(\\widehat{Y}\\) or a fitted distribution \\(\\widehat{D}\\)"
+  },
+  {
+    "objectID": "IWSM_talk.html#residuals",
+    "href": "IWSM_talk.html#residuals",
+    "title": "Statistical Modelling Process",
+    "section": "residuals",
+    "text": "residuals\n\ntraining residuals: \\[\\widehat{r}=r(Y, \\widehat{D})\\] for a suitable function \\(r\\).\nif the model is adequate the training residuals should look as a white noise\nwhite noise, zero mean, constant variance and independent observations\nresiduals can be used as a diagnostic tool\n\n\n\n\n\nwww.gamlss.com\n\n\n\n\nBox, G. E. P. 1979. “Robustness in the Strategy of Scientific Model Building.” Robustness in Statistics 1: 201–36.\n\n\nBox, and G. Jenkins. 1970. Time Series Analysis: Forecasting and Control. Holden-Day. San Francisco.\n\n\nChai, Jinhang, Jianqing Fan, and Yihong Gu. 2026. “Neural Generative Distributional Regression.” arXiv Preprint arXiv:2605.02062.\n\n\nRigby, R. A., and D. M. Stasinopoulos. 2005. “Generalized Additive Models for Location, Scale and Shape (with Discussion).” Applied Statistics 54: 507–54.\n\n\nRudin, Cynthia. 2019. “Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead.” Nature Machine Intelligence 1 (5): 206–15.\n\n\nRudin, Cynthia, Chudi Zhong, Lesia Semenova, Margo Seltzer, Ronald Parr, Jiachang Liu, Srikar Katta, Jon Donnelly, Harry Chen, and Zachery Boner. 2024. “Amazing Things Come from Having Many Good Models.” arXiv Preprint arXiv:2407.04846.\n\n\nRügamer, David, Florian Pfisterer, Bernd Bischl, and Bettina Grün. 2024. “Mixture of Experts Distributional Regression: Implementation Using Robust Estimation with Adaptive First-Order Methods.” AStA Advances in Statistical Analysis 108 (2): 351–73.\n\n\nStasinopoulos, M. D., T. Kneib, N. Klein, A. Mayr, and G. Z Heller. 2024. Generalized Additive Models for Location, Scale and Shape: A Distributional Regression Approach, with Applications. Vol. 56. Cambridge University Press."
+  },
+  {
+    "objectID": "IWSM_talk.html#diagnostics",
+    "href": "IWSM_talk.html#diagnostics",
+    "title": "Statistical Modelling Process",
+    "section": "Diagnostics",
+    "text": "Diagnostics\n\ndiagmostics based on training residuals diagnostics:\n\n\nare the residuals white noise?\n\nyes: adequate model the model is not under-fitting the data\nno: start again\n\n\n\nOther types of diagnostics could check other assumptions or possibly focus in answering the question."
+  },
+  {
+    "objectID": "IWSM_talk.html#classical-statistical-modelling",
+    "href": "IWSM_talk.html#classical-statistical-modelling",
+    "title": "Statistical Modelling Process",
+    "section": "Classical statistical modelling",
+    "text": "Classical statistical modelling"
+  },
+  {
+    "objectID": "IWSM_talk.html#classical-statistical-modelling-1",
+    "href": "IWSM_talk.html#classical-statistical-modelling-1",
+    "title": "Statistical Modelling Process",
+    "section": "Classical statistical modelling 1",
+    "text": "Classical statistical modelling 1"
+  },
+  {
+    "objectID": "IWSM_talk.html#classical-statistical-modelling-comments",
+    "href": "IWSM_talk.html#classical-statistical-modelling-comments",
+    "title": "Statistical Modelling Process",
+    "section": "Classical statistical modelling: comments",
+    "text": "Classical statistical modelling: comments\n\nthe classical statistical modelling approach can find an adequate model\nbut can not check for over-fitting\nwe overfit if the model is close to the data but it does not generalised on new data\ndata partition can help with this"
+  },
+  {
+    "objectID": "IWSM_talk.html#data-partition",
+    "href": "IWSM_talk.html#data-partition",
+    "title": "Statistical Modelling Process",
+    "section": "Data Partition",
+    "text": "Data Partition\n\ndata partition helps to check over-fitting and to improve inference"
+  },
+  {
+    "objectID": "IWSM_talk.html#types-of-partition",
+    "href": "IWSM_talk.html#types-of-partition",
+    "title": "Statistical Modelling Process",
+    "section": "types of Partition",
+    "text": "types of Partition\n\nsingle partition (holdout samples)\nmultiple partitions (bootstrapping, K-fold cross validation )\n\nimportantly the data are divided to\n\ntraining data\ntest data"
+  },
+  {
+    "objectID": "IWSM_talk.html#stack-of-models",
+    "href": "IWSM_talk.html#stack-of-models",
+    "title": "Statistical Modelling Process",
+    "section": "stack of models",
+    "text": "stack of models\n\nfor each data set there could be several models which are not under-fitting or over-fitting the data called the Rashomon set\nseveral models from the Rashomon set are interpretable Rudin et al. (2024).\nhow to chose between different adequate models?\n\nuse a test measure of goodness of fit or even better use a focus test measure of goodness of fit\nor use model average"
+  },
+  {
+    "objectID": "IWSM_talk.html#model-average",
+    "href": "IWSM_talk.html#model-average",
+    "title": "Statistical Modelling Process",
+    "section": "model average",
+    "text": "model average\n\nfor DR we can average their fitted distributions Rügamer et al. (2024)\n\n\\[ Av({\\hat{f{}}_{2}})=\\pi_1 {\\hat{f{}}_{1}}(Y)+\\pi_2 {\\hat{f{}}_{2}}(Y)+\\ldots, \\pi_k {\\hat{f{}}_{k}}(Y)\\]\n\nor make the mixing probabilities functions of the covariates;\n\n\\[ Av(\\hat{f{}})=\\pi_1(X) \\hat{f{}}_{1}(y)+\\pi_2(X) \\hat{f{}}_{2}(y)+\\ldots, \\pi_k(X) \\hat{f{}}_{k}(y)\\]"
+  },
+  {
+    "objectID": "IWSM_talk.html#model-comparison",
+    "href": "IWSM_talk.html#model-comparison",
+    "title": "Statistical Modelling Process",
+    "section": "Model comparison",
+    "text": "Model comparison\n\nuse a test measure of goodness of fit\nfor the ALB data sets we use\n\ndeviance (\\(-2 \\ell\\)) as global test measure\n\\(\\chi^2\\) values as focused test measure\n\n\nBoth applied to the ALB data and lead to the BCTo distribution as the best distribution."
+  },
+  {
+    "objectID": "IWSM_talk.html#alb-diagnostics",
+    "href": "IWSM_talk.html#alb-diagnostics",
+    "title": "Statistical Modelling Process",
+    "section": "ALB diagnostics",
+    "text": "ALB diagnostics\n\n\n\n\n\n\n\n\nFigure 3"
+  },
+  {
+    "objectID": "IWSM_talk.html#alb-diagnostics-2",
+    "href": "IWSM_talk.html#alb-diagnostics-2",
+    "title": "Statistical Modelling Process",
+    "section": "ALB diagnostics 2",
+    "text": "ALB diagnostics 2\n\n\n\n\n\n\n\n\nFigure 4"
+  },
+  {
+    "objectID": "IWSM_talk.html#modern-statistical-modelling",
+    "href": "IWSM_talk.html#modern-statistical-modelling",
+    "title": "Statistical Modelling Process",
+    "section": "Modern Statistical Modelling",
+    "text": "Modern Statistical Modelling"
+  },
+  {
+    "objectID": "IWSM_talk.html#discussion",
+    "href": "IWSM_talk.html#discussion",
+    "title": "Statistical Modelling Process",
+    "section": "Discussion",
+    "text": "Discussion\n\nmost problems in SM arise if the assumptions are not correct\nmeasures of goodness of fit are needed for both model fitting and model comparison (the two measures of goodness of fit can be different)\nideally measures of goodness of fit should focus on the question\nthe measure of goodness of fit can be model agnostic\ndiagnostics evaluated at test and training data should be part of any SM\ninterpretable (mostly mathematical) models easier to check.\n“Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead” (Rudin 2019)"
+  },
+  {
+    "objectID": "IWSM_talk.html#end",
+    "href": "IWSM_talk.html#end",
+    "title": "Statistical Modelling Process",
+    "section": "end",
+    "text": "end\n\n\n\n\n\n\n   see also the R package gamlss2"
+  },
+  {
+    "objectID": "IWSM_talk.html#reference",
+    "href": "IWSM_talk.html#reference",
+    "title": "Statistical Modelling Process",
+    "section": "Reference",
+    "text": "Reference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nwww.gamlss.com\n\n\n\n\nBox, G. E. P. 1979. “Robustness in the Strategy of Scientific Model Building.” Robustness in Statistics 1: 201–36.\n\n\nBox, and G. Jenkins. 1970. Time Series Analysis: Forecasting and Control. Holden-Day. San Francisco.\n\n\nRudin, Cynthia. 2019. “Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead.” Nature Machine Intelligence 1 (5): 206–15.\n\n\nRudin, Cynthia, Chudi Zhong, Lesia Semenova, Margo Seltzer, Ronald Parr, Jiachang Liu, Srikar Katta, Jon Donnelly, Harry Chen, and Zachery Boner. 2024. “Amazing Things Come from Having Many Good Models.” arXiv Preprint arXiv:2407.04846.\n\n\nRügamer, David, Florian Pfisterer, Bernd Bischl, and Bettina Grün. 2024. “Mixture of Experts Distributional Regression: Implementation Using Robust Estimation with Adaptive First-Order Methods.” AStA Advances in Statistical Analysis 108 (2): 351–73."
+  },
+  {
+    "objectID": "IWSM_talk.html#the-data",
+    "href": "IWSM_talk.html#the-data",
+    "title": "Statistical Modelling Process",
+    "section": "The data",
+    "text": "The data\n\nThe data, are collected to answer the question and this is done through a model."
   }
 ]

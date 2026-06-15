@@ -24,7 +24,7 @@ bibliography: book2025.bib
 
 - in the 70's @BOxJenkins70 had a diagram to show what is `statistical modelling` (SM)
 
-- over the last 40 years I have not seen something similar  
+- over the last 40 years I have not seen something similar
 
 - discuss basic ideas of `statistical modelling`
 
@@ -61,25 +61,21 @@ bibliography: book2025.bib
 
 - whether a model is useful depends on the `purpose` of the study.
 
-- A `model` is useful if it can  answer the `question`
+- A `model` is useful if it can answer the `question`
 
 ## Regression Models
 
-
 @breiman2003statistical
 
-- 
-  $$X  {\longrightarrow}  \fbox{NATURE} {\longrightarrow} Y, $$
+- $$X  {\longrightarrow}  \fbox{NATURE} {\longrightarrow} Y, $$
 
-- 
-  $$X  {\longrightarrow}  \fbox{Model} {\longrightarrow} Y, $$
+- $$X  {\longrightarrow}  \fbox{Model} {\longrightarrow} Y, $$
 
--
-  $$X  {\longrightarrow} \fbox{G(X)}  {\longrightarrow} Y.$$
+- $$X  {\longrightarrow} \fbox{G(X)}  {\longrightarrow} Y.$$
 
 - the `model` tries to unmask the unknown function $G()$ which could be `mathematical` or `algorithmic`
 
-## Statistical model  {.smaller}
+## Statistical model {.smaller}
 
 - `deterministic model`: $Y =G(X)$
 
@@ -107,7 +103,7 @@ bibliography: book2025.bib
 
 - `assumptions` should be checked using `diagnostic` tools;
 
-## Algorithmic \<-\> Stastistical  models {.mediun}
+## Algorithmic \<-\> Stastistical models {.mediun}
 
 - `statistical models,` the function $G(X,E)$ is defined explicitly through the `assumptions`
 
@@ -117,12 +113,11 @@ bibliography: book2025.bib
 
 ## Distributional regression models
 
- ![](input_output.png){width="90%" height="100px"}
+![](input_output.png){width="90%" height="100px"}
 
 The `parametric` Distributional Regression model [@RigbyStasinopoulos05, @stasinopoulos2024generalized] can be represented as
 
-$$X  {\longrightarrow}  \fbox{$\boldsymbol{\theta}$(X)} {\longrightarrow} D(Y|\boldsymbol{\theta}(X)),$$
-where $D(Y|\boldsymbol{\theta}(X))$ estimates the `natural error` distribution of $Y$ (conditional on the $X$).
+$$X  {\longrightarrow}  \fbox{$\boldsymbol{\theta}$(X)} {\longrightarrow} D(Y|\boldsymbol{\theta}(X)),$$ where $D(Y|\boldsymbol{\theta}(X))$ estimates the `natural error` distribution of $Y$ (conditional on the $X$).
 
 ## Distributional regression models
 
@@ -133,8 +128,7 @@ where $D(Y|\boldsymbol{\theta}(X))$ estimates the `natural error` distribution o
 
 ## Distributional regression models
 
-- A `modern` computational approach of the distributional regression, @chai2026neural; $$X, U  {\longrightarrow}  \fbox{deep learning} {\longrightarrow} D(Y|X),$$
-  where U represent a simple distribution e.g. uniform which after transformations becomes $D(Y|X)$ the conditional distribution of $Y$ given $X$.
+- A `modern` computational approach of the distributional regression, @chai2026neural; $$X, U  {\longrightarrow}  \fbox{deep learning} {\longrightarrow} D(Y|X),$$ where U represent a simple distribution e.g. uniform which after transformations becomes $D(Y|X)$ the conditional distribution of $Y$ given $X$.
 
 This version of the DR model is NOT easy to interpret because it is a `black box`.
 
@@ -195,13 +189,13 @@ ALBe <- data.frame(ALB, zscores=resid(m2), index=resid(m2) < qnorm(.05))
 
 ## Fit
 
-- ways  to `fit` a model
+- ways to `fit` a model
 
 1)  maximize/minimize an objective measure of `goodness of fit`, $\mathbb{R}(Y,G(X,E))$, (i.e. a `training measure`) to obtain the fitted values: $$\widehat{D} = \widehat{G} (X,E)$$
 
 2)  simulate from the model $G(X,E)$ and then average to obtain the fitted values $\widehat{Y}$ or a fitted distribution $\widehat{D}$
 
-## residuals 
+## residuals
 
 - `training residuals`: $$\widehat{r}=r(Y, \widehat{D})$$ for a suitable function $r$.
 
@@ -219,9 +213,9 @@ ALBe <- data.frame(ALB, zscores=resid(m2), index=resid(m2) < qnorm(.05))
 
   - yes: `adequate model` the model is not under-fitting the data
 
-  - no: start again 
+  - no: start again
 
-- residuals can be calculated  for all `statistical models`, so residual diagnostics is an `agnostic` tool.
+- residuals can be calculated for all `statistical models`, so residual diagnostics is an `agnostic` tool.
 
 2)  Other types of `diagnostics` could check other assumptions or possibly `focus` in answering the `question`.
 
@@ -273,14 +267,14 @@ importantly the `data` are divided to
 
 - how to chose between different adequate models?
 
-  1) use a `test measure` of goodness of fit or even better use a `focus test measure` of goodness of fit
-  2) or use `model average`
+  1)  use a `test measure` of goodness of fit or even better use a `focus test measure` of goodness of fit
+  2)  or use `model average`
 
 ## model average
 
 - for DR we can average their fitted distributions @rugamer2024mixture
 
- $$ Av({\hat{f{}}_{2}})=\pi_1 {\hat{f{}}_{1}}(Y)+\pi_2 {\hat{f{}}_{2}}(Y)+\ldots, \pi_k {\hat{f{}}_{k}}(Y)$$
+$$ Av({\hat{f{}}_{2}})=\pi_1 {\hat{f{}}_{1}}(Y)+\pi_2 {\hat{f{}}_{2}}(Y)+\ldots, \pi_k {\hat{f{}}_{k}}(Y)$$
 
 - or make the mixing probabilities functions of the covariates;
 
@@ -318,19 +312,19 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 
 ## Discussion {.smaller}
 
-- most problems in SM arise if the `assumptions` are not correct 
+- most problems in SM arise if the `assumptions` are not correct
 
-- `measures of goodness of fit` are needed for both model `fitting` and model `comparison` 
+- `measures of goodness of fit` are needed for both model `fitting` and model `comparison`
 
-- the two  `measures of goodness of fit` can be different  
+- the two `measures of goodness of fit` can be different
 
-- ideally  `measures of goodness of fit` should `focus` on the `question`
+- ideally `measures of goodness of fit` should `focus` on the `question`
 
-- the  `measure` of goodness of fit can be model `agnostic`
+- the `measure` of goodness of fit can be model `agnostic`
 
 - `diagnostics` evaluated at `test` and `training` `data` should be part of any SM
 
-- `interpretable` (mostly mathematical)  models easier to check.
+- `interpretable` (mostly mathematical) models easier to check.
 
 - "Stop explaining black box machine learning models for `high stakes decisions` and use `interpretable` models instead" [@rudin2019stop]
 
