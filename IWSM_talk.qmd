@@ -20,6 +20,7 @@ format:
 bibliography: book2025.bib       
 ---
 
+
 ## introduction
 
 - in the 70's @BOxJenkins70 had a diagram to show what is `statistical modelling` (SM)
@@ -44,6 +45,10 @@ This talk
 #     style M fill:#fdd
 #     style D fill:#dfd")
 ```
+
+## QR code 
+
+![](QR.png){width="90%" height="570px"}
 
 ## The data
 
@@ -118,16 +123,16 @@ ALBe <- data.frame(ALB, zscores=resid(m2), index=resid(m2) < qnorm(.05))
 
 ## Model
 
-- 
+- a `model` is a simplification or reality 
 
   > `all models are wrong but some are useful`.
   >
   > -- George @box1979robustness
 
-- whether a model is useful depends on the `purpose` of the study.
+- whether a model is useful depends on the `purpose` of the study
+and whether it can answer the `question`
 
-- A `model` is useful if it can answer the `question`
-
+- models depend on `assumptions`
 <!-- ## Regression Models -->
 
 <!-- @breiman2003statistical -->
@@ -150,7 +155,7 @@ ALBe <- data.frame(ALB, zscores=resid(m2), index=resid(m2) < qnorm(.05))
 
 <!-- - An additive model `assumption`: $$Y =G(X)+E$$ is a common model assumption for the $\textit{signal}$ and the $\textit{noise}$, widely used in `machine learning` with implicit normal errors. -->
 
-## Assumptions {.medium}
+## Assumptions {.smaller}
 
 - an `assumption` is an axiomatic statement which need to be approximately correct for the model work.
 
@@ -189,7 +194,7 @@ ALBe <- data.frame(ALB, zscores=resid(m2), index=resid(m2) < qnorm(.05))
   - no: start again
 
 
-2)  Other types of `diagnostics` could check other assumptions or possibly `focus` in answering the `question`.
+2)  Other types of `diagnostics` check other assumptions of the model some of them `focus` in answering the `question`.
 
 
 ## Classical statistical modelling
@@ -257,7 +262,7 @@ importantly the `data` are divided to
 
 - several models from the `Rashomon set` are `interpretable` @rudin2024amazing.
 
-- how to chose between different adequate models?
+- how to chose between models in the `Rashomon set`?
 
   1)  use a `test measure` of goodness of fit or even better use a `focus test measure` of goodness of fit
   2)  or use `model average`
@@ -323,6 +328,7 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 ::: {layout-ncol="3," layout-nrow="1"}
 ![](book-1.png){width="300"} ![](BOOK-2.png){width="323"} ![](book3.png){width="333"} see also the `R` package `gamlss2`
 :::
+
 
 ## Reference {.smaller}
 
