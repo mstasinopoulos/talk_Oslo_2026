@@ -388,6 +388,10 @@ Julian Merder
 <li><p>using a <code>distributional regression</code> example</p></li>
 </ul>
 </section>
+<section id="qr-code" class="slide level2">
+<h2>QR code</h2>
+<p><img data-src="QR.png" style="width:90.0%" height="570"></p>
+</section>
 <section id="the-data" class="slide level2">
 <h2>The data</h2>
 <ul>
@@ -451,14 +455,14 @@ Figure&nbsp;2
 <section id="model" class="slide level2">
 <h2>Model</h2>
 <ul>
-<li><blockquote>
+<li><p>a <code>model</code> is a simplification or reality</p>
+<blockquote>
 <p><code>all models are wrong but some are useful</code>.</p>
 <p>– George <span class="citation" data-cites="box1979robustness">G. E. P. Box (<a href="#/reference" role="doc-biblioref" onclick="">1979</a>)</span></p>
 </blockquote></li>
-<li><p>whether a model is useful depends on the <code>purpose</code> of the study.</p></li>
-<li><p>A <code>model</code> is useful if it can answer the <code>question</code></p></li>
+<li><p>whether a model is useful depends on the <code>purpose</code> of the study and whether it can answer the <code>question</code></p></li>
+<li><p>models depend on <code>assumptions</code> <!-- ## Regression Models --></p></li>
 </ul>
-<!-- ## Regression Models -->
 <!-- @breiman2003statistical -->
 <!-- - $$X  {\longrightarrow}  \fbox{NATURE} {\longrightarrow} Y, $$ -->
 <!-- - $$X  {\longrightarrow}  \fbox{Model} {\longrightarrow} Y, $$ -->
@@ -470,7 +474,7 @@ Figure&nbsp;2
 <!-- - $G(X, E)$ represent both the $\textit{signal}$ and $\textit{noise}$ in the `data` -->
 <!-- - An additive model `assumption`: $$Y =G(X)+E$$ is a common model assumption for the $\textit{signal}$ and the $\textit{noise}$, widely used in `machine learning` with implicit normal errors. -->
 </section>
-<section id="assumptions" class="slide level2 medium">
+<section id="assumptions" class="slide level2 smaller">
 <h2>Assumptions</h2>
 <ul>
 <li><p>an <code>assumption</code> is an axiomatic statement which need to be approximately correct for the model work.</p></li>
@@ -502,7 +506,7 @@ Figure&nbsp;2
 </ul></li>
 </ul>
 <ol start="2" type="1">
-<li>Other types of <code>diagnostics</code> could check other assumptions or possibly <code>focus</code> in answering the <code>question</code>.</li>
+<li>Other types of <code>diagnostics</code> check other assumptions of the model some of them <code>focus</code> in answering the <code>question</code>.</li>
 </ol>
 </section>
 <section id="classical-statistical-modelling" class="slide level2">
@@ -550,7 +554,7 @@ Figure&nbsp;2
 <ul>
 <li><p>for each <code>data</code> set there could be several models which are not under-fitting or over-fitting the data called the <code>Rashomon set</code></p></li>
 <li><p>several models from the <code>Rashomon set</code> are <code>interpretable</code> <span class="citation" data-cites="rudin2024amazing">Rudin et al. (<a href="#/reference" role="doc-biblioref" onclick="">2024</a>)</span>.</p></li>
-<li><p>how to chose between different adequate models?</p>
+<li><p>how to chose between models in the <code>Rashomon set</code>?</p>
 <ol type="1">
 <li>use a <code>test measure</code> of goodness of fit or even better use a <code>focus test measure</code> of goodness of fit</li>
 <li>or use <code>model average</code></li>
@@ -635,7 +639,7 @@ Figure&nbsp;4
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-ncol="3," data-layout-nrow="1">
+<div class="quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="3,">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <p><img data-src="book-1.png" width="300"> <img data-src="BOOK-2.png" width="323"> <img data-src="book3.png" width="333"> see also the <code>R</code> package <code>gamlss2</code></p>

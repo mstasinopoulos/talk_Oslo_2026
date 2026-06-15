@@ -12,3 +12,5 @@ This website contain talks and material given to reseach group of Greenwich Univ
 - This is a longer version of the [talk](StatisticalModelling_talk.qmd) given to the  to the $M^3$Impact research group of the University of Greenwich.
 
 - This is the  actual talk [IWSM talk](IWSM_talk.qmd). 
+
+https://mstasinopoulos.github.io/talk_Oslo_2026/

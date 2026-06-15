@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Statistical Modelling Process",
     "section": "",
-    "text": "This website contain talks and material given to reseach group of Greenwich University (UK) and to the IWSM, July 2026 in Oslo - Norway.\n\nThis is a longer version of the talk given to the to the \\(M^3\\)Impact research group of the University of Greenwich.\nThis is the actual talk IWSM talk."
+    "text": "This website contain talks and material given to reseach group of Greenwich University (UK) and to the IWSM, July 2026 in Oslo - Norway.\n\nThis is a longer version of the talk given to the to the \\(M^3\\)Impact research group of the University of Greenwich.\nThis is the actual talk IWSM talk.\n\nhttps://mstasinopoulos.github.io/talk_Oslo_2026/"
   },
   {
     "objectID": "StatisticalModelling_talk.html#introduction",
@@ -284,7 +284,7 @@
     "href": "IWSM_talk.html#model",
     "title": "Statistical Modelling Process",
     "section": "Model",
-    "text": "Model\n\n\nall models are wrong but some are useful.\n– George G. E. P. Box (1979)\n\nwhether a model is useful depends on the purpose of the study.\nA model is useful if it can answer the question"
+    "text": "Model\n\na model is a simplification or reality\n\nall models are wrong but some are useful.\n– George G. E. P. Box (1979)\n\nwhether a model is useful depends on the purpose of the study and whether it can answer the question\nmodels depend on assumptions"
   },
   {
     "objectID": "IWSM_talk.html#regression-models",
@@ -382,7 +382,7 @@
     "href": "IWSM_talk.html#diagnostics",
     "title": "Statistical Modelling Process",
     "section": "Diagnostics",
-    "text": "Diagnostics\n\ndiagmostics based on training residuals diagnostics:\n\n\nare the residuals white noise?\n\nyes: adequate model the model is not under-fitting the data\nno: start again\n\n\n\nOther types of diagnostics could check other assumptions or possibly focus in answering the question."
+    "text": "Diagnostics\n\ndiagmostics based on training residuals diagnostics:\n\n\nare the residuals white noise?\n\nyes: adequate model the model is not under-fitting the data\nno: start again\n\n\n\nOther types of diagnostics check other assumptions of the model some of them focus in answering the question."
   },
   {
     "objectID": "IWSM_talk.html#classical-statistical-modelling",
@@ -424,7 +424,7 @@
     "href": "IWSM_talk.html#stack-of-models",
     "title": "Statistical Modelling Process",
     "section": "stack of models",
-    "text": "stack of models\n\nfor each data set there could be several models which are not under-fitting or over-fitting the data called the Rashomon set\nseveral models from the Rashomon set are interpretable Rudin et al. (2024).\nhow to chose between different adequate models?\n\nuse a test measure of goodness of fit or even better use a focus test measure of goodness of fit\nor use model average"
+    "text": "stack of models\n\nfor each data set there could be several models which are not under-fitting or over-fitting the data called the Rashomon set\nseveral models from the Rashomon set are interpretable Rudin et al. (2024).\nhow to chose between models in the Rashomon set?\n\nuse a test measure of goodness of fit or even better use a focus test measure of goodness of fit\nor use model average"
   },
   {
     "objectID": "IWSM_talk.html#model-average",
@@ -495,5 +495,19 @@
     "title": "Statistical Modelling Process",
     "section": "question-data-model",
     "text": "question-data-model\n\n\nThe data, are collected to answer the question\nThe concepts are interconnected"
+  },
+  {
+    "objectID": "IWSM_talk.html#qr-codel",
+    "href": "IWSM_talk.html#qr-codel",
+    "title": "Statistical Modelling Process",
+    "section": "QR codel",
+    "text": "QR codel\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nwww.gamlss.com\n\n\n\n\nBox, G. E. P. 1979. “Robustness in the Strategy of Scientific Model Building.” Robustness in Statistics 1: 201–36.\n\n\nBox, and G. Jenkins. 1970. Time Series Analysis: Forecasting and Control. Holden-Day. San Francisco.\n\n\nRudin, Cynthia. 2019. “Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead.” Nature Machine Intelligence 1 (5): 206–15.\n\n\nRudin, Cynthia, Chudi Zhong, Lesia Semenova, Margo Seltzer, Ronald Parr, Jiachang Liu, Srikar Katta, Jon Donnelly, Harry Chen, and Zachery Boner. 2024. “Amazing Things Come from Having Many Good Models.” arXiv Preprint arXiv:2407.04846.\n\n\nRügamer, David, Florian Pfisterer, Bernd Bischl, and Bettina Grün. 2024. “Mixture of Experts Distributional Regression: Implementation Using Robust Estimation with Adaptive First-Order Methods.” AStA Advances in Statistical Analysis 108 (2): 351–73."
+  },
+  {
+    "objectID": "IWSM_talk.html#qr-code",
+    "href": "IWSM_talk.html#qr-code",
+    "title": "Statistical Modelling Process",
+    "section": "QR code",
+    "text": "QR code"
   }
 ]
