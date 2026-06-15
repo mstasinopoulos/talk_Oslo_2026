@@ -1,5 +1,5 @@
 ---
-title: "Statistical Modelling Process talk given to  IWSM 2026"
+title: "Statistical Modelling Process"
 author:
   - Mikis Stasinopoulos
   - Bob Rigby
@@ -7,8 +7,8 @@ author:
   - Julian Merder
 ---
 
-This website contain the talk that will be given to the IWSM, July 2026 in Oslo - Norway.
+This website contain talks and material given to reseach group of Greenwich University (UK) and  to the IWSM, July 2026 in Oslo - Norway.
 
-- This is longer version version of [talk](StatisticalModelling_talk.qmd) given to the  to the $M^3$Impact research group of the University of Greenwich.
+- This is a longer version of the [talk](StatisticalModelling_talk.qmd) given to the  to the $M^3$Impact research group of the University of Greenwich.
 
-- This is the the actual [IWSM talk](IWSM_talk.qmd). 
+- This is the  actual talk [IWSM talk](IWSM_talk.qmd). 
