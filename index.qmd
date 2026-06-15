@@ -9,4 +9,6 @@ author:
 
 This website contain the talk that will be given to the IWSM, July 2026 in Oslo - Norway.
 
--   [talk](StatisticalModelling_talk.qmd)
+- This is longer version version of [talk](StatisticalModelling_talk.qmd) given to the  to the $M^3$ research group of the University of Greenwich.
+
+- This is the the actual [IWSM talk](IWSM_talk.qmd). 

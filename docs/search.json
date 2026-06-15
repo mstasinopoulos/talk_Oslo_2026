@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Statistical Modelling Process talk given to IWSM 2026",
     "section": "",
-    "text": "This website contain the talk that will be given to the IWSM, July 2026 in Oslo - Norway.\n\ntalk"
+    "text": "This website contain the talk that will be given to the IWSM, July 2026 in Oslo - Norway.\n\nThis is longer version version of talk given to the to the \\(M^3\\) research group of the University of Greenwich.\nThis is the the actual IWSM talk."
   },
   {
     "objectID": "StatisticalModelling_talk.html#introduction",
@@ -466,7 +466,7 @@
     "href": "IWSM_talk.html#discussion",
     "title": "Statistical Modelling Process",
     "section": "Discussion",
-    "text": "Discussion\n\nmost problems in SM arise if the assumptions are not correct\nmeasures of goodness of fit are needed for both model fitting and model comparison (the two measures of goodness of fit can be different)\nideally measures of goodness of fit should focus on the question\nthe measure of goodness of fit can be model agnostic\ndiagnostics evaluated at test and training data should be part of any SM\ninterpretable (mostly mathematical) models easier to check.\n“Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead” (Rudin 2019)"
+    "text": "Discussion\n\nmost problems in SM arise if the assumptions are not correct\nmeasures of goodness of fit are needed for both model fitting and model comparison (the two measures can be different)\nideally measures of goodness of fit should focus on the question\nthe measure of goodness of fit can be model agnostic\ndiagnostics evaluated at test and training data should be part of any SM\ninterpretable (mostly mathematical) models are easier to check.\n“Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead” (Rudin 2019)"
   },
   {
     "objectID": "IWSM_talk.html#end",
@@ -488,5 +488,12 @@
     "title": "Statistical Modelling Process",
     "section": "The data",
     "text": "The data\n\nThe data, are collected to answer the question and this is done through a model."
+  },
+  {
+    "objectID": "IWSM_talk.html#question-data-model",
+    "href": "IWSM_talk.html#question-data-model",
+    "title": "Statistical Modelling Process",
+    "section": "question-data-model",
+    "text": "question-data-model\n\n\nThe data, are collected to answer the question\nThe concepts are interconnected"
   }
 ]

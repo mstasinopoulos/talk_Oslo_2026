@@ -108,7 +108,7 @@ ALBe <- data.frame(ALB, zscores=resid(m2), index=resid(m2) < qnorm(.05))
 
 
 
-## why SM? {.smaller}
+## question-data-model {.smaller}
 
 ![](Question_Data_answer.png){width="90%" height="400px"}
 
@@ -306,7 +306,7 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 
 - most problems in SM arise if the `assumptions` are not correct
 
-- `measures of goodness of fit` are needed for both model `fitting` and model `comparison` (the two `measures of goodness of fit` can be different)
+- `measures of goodness of fit` are needed for both model `fitting` and model `comparison` (the two `measures` can be different)
 
 - ideally `measures of goodness of fit` should `focus` on the `question`
 
@@ -314,7 +314,7 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 
 - `diagnostics` evaluated at `test` and `training` `data` should be part of any SM
 
-- `interpretable` (mostly mathematical) models easier to check.
+- `interpretable` (mostly mathematical) models are easier to check.
 
 - "Stop explaining black box machine learning models for `high stakes decisions` and use `interpretable` models instead" [@rudin2019stop]
 
