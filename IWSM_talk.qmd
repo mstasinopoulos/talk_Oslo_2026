@@ -29,7 +29,7 @@ bibliography: book2025.bib
 
 This talk 
 
-- discuss basic ideas of `statistical modelling`
+- start a discussion on the  basic ideas of `statistical modelling`
 
 - using a `distributional regression` example
 
@@ -52,7 +52,7 @@ This talk
 
 ## The data
 
-- The `data`, are collected to answer the `question` and this is done through a `model`.
+- The `data`, are collected to answer a `question` and this is done through a `model`.
 
 
 ## The Albumin (ALB): (`data`)
@@ -161,7 +161,7 @@ and whether it can answer the `question`
 
 - if `all` the assumptions are approximately correct then the model could be useful
 
-- the `assumptions` often help with the `intepretation` of a model
+- the `assumptions` could help with the `intepretation` of a model
 
 
 - types of assumptions;

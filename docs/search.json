@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Statistical Modelling Process",
     "section": "",
-    "text": "This website contain talks and material given to reseach group of Greenwich University (UK) and to the IWSM, July 2026 in Oslo - Norway.\n\nThis is a longer version of the talk given to the to the \\(M^3\\)Impact research group of the University of Greenwich.\nThis is the actual IWSM talk.\n\nhttps://mstasinopoulos.github.io/talk_Oslo_2026/"
+    "text": "This website contain talks and material given to reseach group of Greenwich University (UK) and to the IWSM, July 2026 in Oslo - Norway.\n\nThis is a longer version of the IWSM talk. This talk was given to the to the \\(M^3\\)Impact research group of the University of Greenwich in the beginning of June 2026.\nThis is the actual IWSM talk to be given at the IWSM on the 3th of July 2026.\nthis part refer to some of the analysis of the ALB data performed."
   },
   {
     "objectID": "StatisticalModelling_talk.html#introduction",
@@ -270,7 +270,7 @@
     "href": "IWSM_talk.html#introduction",
     "title": "Statistical Modelling Process",
     "section": "introduction",
-    "text": "introduction\n\nin the 70’s Box and Jenkins (1970) had a diagram to show what is statistical modelling (SM)\nover the last 40 years I have not seen something similar\n\nThis talk\n\ndiscuss basic ideas of statistical modelling\nusing a distributional regression example"
+    "text": "introduction\n\nin the 70’s Box and Jenkins (1970) had a diagram to show what is statistical modelling (SM)\nover the last 40 years I have not seen something similar\n\nThis talk\n\nstart a discussion on the basic ideas of statistical modelling\nusing a distributional regression example"
   },
   {
     "objectID": "IWSM_talk.html#why-sm",
@@ -305,7 +305,7 @@
     "href": "IWSM_talk.html#assumptions",
     "title": "Statistical Modelling Process",
     "section": "Assumptions",
-    "text": "Assumptions\n\nan assumption is an axiomatic statement which need to be approximately correct for the model work.\nif all the assumptions are approximately correct then the model could be useful\nthe assumptions often help with the intepretation of a model\ntypes of assumptions;\n\nexplicit assumptions, are easier to check;\nimplicit assumptions, are often not checked;\n\nassumptions should be checked using diagnostic tools;"
+    "text": "Assumptions\n\nan assumption is an axiomatic statement which need to be approximately correct for the model work.\nif all the assumptions are approximately correct then the model could be useful\nthe assumptions could help with the intepretation of a model\ntypes of assumptions;\n\nexplicit assumptions, are easier to check;\nimplicit assumptions, are often not checked;\n\nassumptions should be checked using diagnostic tools;"
   },
   {
     "objectID": "IWSM_talk.html#assumptions-2",
@@ -487,7 +487,7 @@
     "href": "IWSM_talk.html#the-data",
     "title": "Statistical Modelling Process",
     "section": "The data",
-    "text": "The data\n\nThe data, are collected to answer the question and this is done through a model."
+    "text": "The data\n\nThe data, are collected to answer a question and this is done through a model."
   },
   {
     "objectID": "IWSM_talk.html#question-data-model",
