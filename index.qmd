@@ -13,4 +13,4 @@ This website contain talks and material given to reseach group of Greenwich Univ
 
 - This is the  actual [IWSM talk](IWSM_talk.qmd) to be given at the IWSM on the 3th of July 2026.
 
-- this part refer to some of the [analysis](StatisticalModelling_talk.qmd) of the ALB data performed. 
+- this part refer to some of the [analysis](IWSM_analysis.qmd) of the ALB data performed. 
