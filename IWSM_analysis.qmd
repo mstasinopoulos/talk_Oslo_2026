@@ -1,0 +1,245 @@
+---
+title: "ALB analysis"
+format:
+  html:
+    self-contained: true
+    code-fold: false
+    code-summary: "Code details"
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    toc-expand: 2
+  pdf:
+    pdf-engine: lualatex
+    toc: false
+    number-sections: true
+---
+
+## The ALB data
+
+Getting the datafrom `gamlss.data`;
+
+```{r}
+#| warning: false
+library(gamlss)
+data(ALB)
+dim(ALB)
+head(ALB)
+```
+
+Plotting the data;
+
+```{r}
+plot(ALB~ga, data=ALB)
+```
+
+The data were collected when woman had their scans at Kings College hospital. That explains why they are caps in genstation age because there are only four different scan on healthy woman during pregnacy. Notice that thery here are NOT repeated observations here all 3429 women are different.
+
+::: callout-tip
+## The purpose
+
+The purpose of the study is to try to identify patients with low `ALB`
+:::
+
+## Fit a model
+
+Any GAMLSS regression model needs two sets of information to be fitted:
+
+i) the assumed `distribution` for the response i.e `family=GA`,
+
+ii) the `selection` of covariates;  In fact since we are modelling all distribution parameters as functions of the covariates, we are looking _which covariate_ affect _which distribution parameter_.
+
+
+Often to start a selection procedure we need a starting model.
+
+We fit two model 
+
+i) a normal model e.g. `family=NO` whish works as a staring point for the function  `chooseDist()`
+
+
+```{r}
+#| cache: true
+m00 <- gamlss(   ALB ~ pb(ga),
+    sigma.formula = ~ pb(ga),
+      nu.formula = ~ pb(ga),  
+     tau.formula = ~ pb(ga),
+             family = NO, data = ALB) 
+```
+
+ii) a BCTo model e.g. `family=BCTo` ` whish will works as a staring model for the function  `chooseDistCV()` (see note below)
+
+
+```{r}
+#| cache: true
+m0 <- gamlss(   ALB ~ pb(ga),
+    sigma.formula = ~ pb(ga),
+      nu.formula = ~ pb(ga),  
+     tau.formula = ~ pb(ga),
+             family = BCTo, data = ALB) 
+```
+
+::: callout-note
+The `nu.formula = ~ pb(ga)` and `tau.formula = ~ pb(ga)` will be not be used by  `chooseDist()` unless more that two parameter are involved in the distribution.
+:::
+
+
+::: callout-tip
+## reminder
+
+I have to find out why  the function `chooseDistCV()` do not accepts the normal error model like  `chooseDist()`. 
+:::
+
+
+## Finding a Distributions (training data)  
+
+The typical function for finding a distribution is `chooseDist()`. 
+The problem is that the function only finds suitable distributions in the training data  using  GAIC as the training  measure of goodness of fit and therefor it do not tes for over-fitting
+
+```{r}
+#| cache: true
+D1=chooseDist(m00, data=ALB, type="realplus", parallel="snow", ncpus = 10)
+```
+
+
+For penalties $k=2$ and $k=2.84$ the `BCT` is coming best while for BIC the `BCPEo`  
+Here we print a table of the GAIC for all fitted distributions;
+```{r}
+library(knitr)
+kable(D1)
+```
+The problem with the above analysis is that the measure of goodness of fit, `GAIC`, was validated on the training data only This show that the model is probably adequate but it do not check for overfitting.
+
+
+## Finding a Distributions (cross validation)  
+
+Next we use a $10^{th}$ fold  cross validation for choosing the distribution. Cross validation hopefully prevent overfiting.
+
+There are two criteria we used here;  
+
+- the  `test deviance` which is a `global` criterion, that is, it evalulate how the distribution fite overall.
+
+- a `chi-square` criterion which `focus` on the lower centiles of the distribution.
+
+
+The new function `chooseDistCV()` is used which is not in the `gamlss` package (yet) so we have to sourse it;
+
+```{r}
+source("chooseDistCVParallel.R")
+```
+
+### test deviance
+
+
+First we use a  global measurement of goodness of fit criterion the `test deviance` which in the `chooseDistcCV()` fit is evaluated using the function. The function `measure_of_goodness_of_fit` needs to be defined before.   
+
+```{r}
+measure_of_goodness_of_fit <- function(object)
+{
+  object$CV
+}
+```
+
+Here to avoid fitting all possible positive range distributions using CV we speed things up by using only  a selected set. The set was selected by using the above GAIC table.  
+
+```{r}
+#| cache: true
+
+PP = chooseDistCV(m0, data=ALB, type="extra", 
+          extra=c("GA", "LOGNO", "BCCGo", "BCPEo", "BCTo"))
+```
+
+we can print thje order of the fit using;
+```{r}
+PP
+```
+One could avoid having all the `fold` output by using parallel computing in `R`. 
+```{r}
+#| cache: true
+set.seed(123)
+PP1 = chooseDistCV(m0, data=ALB, type="extra", 
+          extra=c("GA", "LOGNO", "BCCGo", "BCPEo", "BCTo"),
+          parallel="snow", ncpus = 10)
+```
+
+```{r}
+PP1
+```
+
+There are few things to no  here; 
+
+- Any cross validation  will have results depending on the original computer seed 
+
+- Using parallel computation the original seed do not apply in all CPUS therefore the results are different  
+
+Fortunately the main results that the `BCTo` distribution gives the best fit do not change here.
+
+::: callout-tip
+## reminder
+
+I use the code below to find out whether using the some  random sample makes any diffrence.  It looks that it does not.  
+:::
+
+
+```{r}
+# set.seed(123)
+# sam <- sample(10 , dim(ALB)[1], replace=TRUE) 
+# PP = chooseDistCV(m0, data=ALB, type="extra", 
+#           extra=c("GA", "LOGNO", "BCCGo", "BCPEo", "BCTo"), rand=sam)
+# PP
+```
+```{r}
+#| cache: true
+# set.seed(123)
+# PP1 = chooseDistCV(m0, data=ALB, type="extra", 
+#           extra=c("GA", "LOGNO", "BCCGo", "BCPEo", "BCTo"),
+#           parallel="snow", ncpus = 10, rand=sam)
+```
+
+```{r}
+# PP 
+# PP1
+```
+
+
+### chi-squared (focus)
+
+
+First bring the functions in;
+```{r}
+source("Chi2.R")
+```
+
+Define the focus measure of goodness of fit; 
+```{r}
+measure_of_goodness_of_fit <- function(object)
+ {
+   cal_chi2(object$residCV, xvar=ALB$ga, breaks = c(0,17,25,34.5, 50), tail.percent = 5,  side= "lower")
+ }
+```
+Now choose distribution using CV with no parallel computaions.
+```{r}
+#| cache: true
+ PPP = chooseDistCV(m0, data=ALB, type="extra",
+           extra=c("GA", "LOGNO", "BCCGo", "BCPEo", "BCTo"))
+```
+
+Now choose distribution using CV with parallel computaions.
+```{r}
+#| cache: true
+PPP1 = chooseDistCV(m0, data=ALB, type="extra", 
+          extra=c("GA", "LOGNO", "BCCGo", "BCPEo", "BCTo"),
+          parallel="snow", ncpus = 10)
+```
+Now print the results
+```{r}
+PPP
+PPP1
+```
+
+::: callout-tip
+
+
+## reminder
+
+This interesting the same sellection procedure points to a different distribution
+:::

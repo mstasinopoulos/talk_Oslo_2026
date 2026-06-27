@@ -24,7 +24,7 @@ if (is.null(data))   stop("data should be set here")
           N <- dim(data)[1]
        rand <- if (is.null(rand)) sample(K.fold , N, replace=TRUE)       
 #if (is.null(rand)&&is.null(newdata)) stop("rand or newdata should be set")
-     DIST <- switch(type, "realAll"=.realAll,
+       DIST <- switch(type, "realAll"=.realAll,
                  "realline"=.realline,
                  "realplus"=.realplus,
                  "real0to1"=.real0to1,
@@ -33,9 +33,9 @@ if (is.null(data))   stop("data should be set here")
                  "extra"= extra)
 if (type=="extra"&&is.null(extra)) stop("extra is not set")
 if  (!is.null(extra)) DIST <- unique(c(DIST, extra))
-     m0 <- object
-   tgd0 <- deviance(m0)
-   AiC  <- rep(NA, 1)
+       m0 <- object
+     tgd0 <- deviance(m0)
+     AiC  <- rep(NA, 1)
 #--------------- PARALLEL-------------------------------------------------------
 #----------------SET UP PART----------------------------------------------------
   parallel <- match.arg(parallel)
@@ -56,7 +56,7 @@ if  (!is.null(extra)) DIST <- unique(c(DIST, extra))
   {
 # cat(dist, "\n")
     p1 <- try(gamlssCV(formula(object, "mu"), formula(object, "sigma"),
-                                formula(object, "nu"), formula(object, "tau"), rand=rand,
+                       formula(object, "nu"), formula(object, "tau"), rand=rand,
                                 data=data, trace=F,family=dist), silent=TRUE)
     if (any(class(p1)%in%"try-error"))
     {
@@ -65,10 +65,10 @@ if  (!is.null(extra)) DIST <- unique(c(DIST, extra))
                        data=data, trace=F,family=dist), silent=TRUE)
     }
     if (any(class(p1)%in%"try-error")) AiC <- NA else{
-      AiC <- FUN(p1) 
+      AiC <- measure_of_goodness_of_fit(p1) 
       if (trace)     cat(dist, "\n", AiC, "\n") 
     }
-      AiC        # autput of the function
+      AiC        # output of the function
   }
 ################################################################################ 
 # --------  parallel -----------------------------------------------------------
@@ -114,4 +114,12 @@ if  (!is.null(extra)) DIST <- unique(c(DIST, extra))
 #source("~/Dropbox/github/GlossaryForDR/Chi2.R")
 #source("~/Dropbox/2026/IWSM/analysis/Chi2.R")
 # FUN <- function(object)  cal_chi2(resid(object), xvar=da$ga, breaks = c(0,17,25,34.5, 50), tail.percent = 5,  side = c("upper"))
-FUN <- function(object) object$CV
+
+# measure_of_goodness_of_fit <- function(object)
+# {
+#   cal_chi2(object$residCV, xvar=ALB$ga, breaks = c(0,17,25,34.5, 50), tail.percent = 5,  side= "upper")
+# }
+# measure_of_goodness_of_fit <- function(object)
+# {
+#   object$CV
+# }
