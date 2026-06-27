@@ -185,7 +185,7 @@ and whether it can answer the `question`
 
 ## Diagnostics {.mediun}
 
-1)  diagmostics based on `training residuals diagnostics`:
+1)  diagmostics based on (training) `residuals`:
 
 - `are the residuals white noise`?
 
@@ -258,7 +258,7 @@ importantly the `data` are divided to
 
 ## stack of models
 
-- for each `data` set there could be several models which are not under-fitting or over-fitting the data called the `Rashomon set`
+- for each `data` set there are several `adequate` models (not under-fitting or over-fitting the data) called the `Rashomon set`
 
 - several models from the `Rashomon set` are `interpretable` @rudin2024amazing.
 

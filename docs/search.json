@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Statistical Modelling Process",
     "section": "",
-    "text": "This website contain talks and material given to reseach group of Greenwich University (UK) and to the IWSM, July 2026 in Oslo - Norway.\n\nThis is a longer version of the talk given to the to the \\(M^3\\)Impact research group of the University of Greenwich.\nThis is the actual talk IWSM talk.\n\nhttps://mstasinopoulos.github.io/talk_Oslo_2026/"
+    "text": "This website contain talks and material given to reseach group of Greenwich University (UK) and to the IWSM, July 2026 in Oslo - Norway.\n\nThis is a longer version of the talk given to the to the \\(M^3\\)Impact research group of the University of Greenwich.\nThis is the actual IWSM talk.\n\nhttps://mstasinopoulos.github.io/talk_Oslo_2026/"
   },
   {
     "objectID": "StatisticalModelling_talk.html#introduction",
@@ -382,7 +382,7 @@
     "href": "IWSM_talk.html#diagnostics",
     "title": "Statistical Modelling Process",
     "section": "Diagnostics",
-    "text": "Diagnostics\n\ndiagmostics based on training residuals diagnostics:\n\n\nare the residuals white noise?\n\nyes: adequate model the model is not under-fitting the data\nno: start again\n\n\n\nOther types of diagnostics check other assumptions of the model some of them focus in answering the question."
+    "text": "Diagnostics\n\ndiagmostics based on (training) residuals:\n\n\nare the residuals white noise?\n\nyes: adequate model the model is not under-fitting the data\nno: start again\n\n\n\nOther types of diagnostics check other assumptions of the model some of them focus in answering the question."
   },
   {
     "objectID": "IWSM_talk.html#classical-statistical-modelling",
@@ -424,7 +424,7 @@
     "href": "IWSM_talk.html#stack-of-models",
     "title": "Statistical Modelling Process",
     "section": "stack of models",
-    "text": "stack of models\n\nfor each data set there could be several models which are not under-fitting or over-fitting the data called the Rashomon set\nseveral models from the Rashomon set are interpretable Rudin et al. (2024).\nhow to chose between models in the Rashomon set?\n\nuse a test measure of goodness of fit or even better use a focus test measure of goodness of fit\nor use model average"
+    "text": "stack of models\n\nfor each data set there are several adequate models (not under-fitting or over-fitting the data) called the Rashomon set\nseveral models from the Rashomon set are interpretable Rudin et al. (2024).\nhow to chose between models in the Rashomon set?\n\nuse a test measure of goodness of fit or even better use a focus test measure of goodness of fit\nor use model average"
   },
   {
     "objectID": "IWSM_talk.html#model-average",
