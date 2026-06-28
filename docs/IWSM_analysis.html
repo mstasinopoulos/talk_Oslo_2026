@@ -4925,11 +4925,11 @@ window.Quarto = {
   <ul>
   <li><a href="#the-alb-data" id="toc-the-alb-data" class="nav-link active" data-scroll-target="#the-alb-data">The ALB data</a></li>
   <li><a href="#fit-a-model" id="toc-fit-a-model" class="nav-link" data-scroll-target="#fit-a-model">Fit a model</a></li>
-  <li><a href="#finding-a-distributions-training-data" id="toc-finding-a-distributions-training-data" class="nav-link" data-scroll-target="#finding-a-distributions-training-data">Finding a Distributions (training data)</a></li>
+  <li><a href="#finding-a-distributions-using-the-training-data" id="toc-finding-a-distributions-using-the-training-data" class="nav-link" data-scroll-target="#finding-a-distributions-using-the-training-data">Finding a Distributions (using the training data)</a></li>
   <li><a href="#finding-a-distributions-cross-validation" id="toc-finding-a-distributions-cross-validation" class="nav-link" data-scroll-target="#finding-a-distributions-cross-validation">Finding a Distributions (cross validation)</a>
   <ul class="collapse">
   <li><a href="#test-deviance" id="toc-test-deviance" class="nav-link" data-scroll-target="#test-deviance">test deviance</a></li>
-  <li><a href="#chi-squared-focus" id="toc-chi-squared-focus" class="nav-link" data-scroll-target="#chi-squared-focus">chi-squared (focus)</a></li>
+  <li><a href="#chi-squared-the-focus-measure" id="toc-chi-squared-the-focus-measure" class="nav-link" data-scroll-target="#chi-squared-the-focus-measure">chi-squared (the focus measure )</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="IWSM_analysis.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -4962,7 +4962,8 @@ window.Quarto = {
 
 <section id="the-alb-data" class="level2">
 <h2 class="anchored" data-anchor-id="the-alb-data">The ALB data</h2>
-<p>Getting the datafrom <code>gamlss.data</code>;</p>
+<p>The ALB are in the latest version <code>6.0-10</code> of the <code>gamlss.data</code> package. (Note that we may have to get the latest version from the <a href="https://gamlss-dev.r-universe.dev/builds">gamlss universe</a>.</p>
+<p>Getting the data from <code>gamlss.data</code>;</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gamlss)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ALB)</span>
@@ -4981,7 +4982,7 @@ window.Quarto = {
 6 44.4 12.9</code></pre>
 </div>
 </div>
-<p>Plotting the data;</p>
+<p>Now we plot the data;</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ALB<span class="sc">~</span>ga, <span class="at">data=</span>ALB)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -4992,14 +4993,14 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>The data were collected when woman had their scans at Kings College hospital. That explains why they are caps in genstation age because there are only four different scan on healthy woman during pregnacy. Notice that thery here are NOT repeated observations here all 3429 women are different.</p>
+<p>The data were collected when healthy pregnant woman had their scans at Kings College hospital. The scan are taken routinely four times. That explains why they are caps in data for different gestational age. Notice that ate this data they are NOT repeated observations, all 3429 women are different.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-The purpose
+Purpose
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -5009,15 +5010,16 @@ The purpose
 </section>
 <section id="fit-a-model" class="level2">
 <h2 class="anchored" data-anchor-id="fit-a-model">Fit a model</h2>
-<p>Any GAMLSS regression model needs two sets of information to be fitted:</p>
+<p>Here we are using a <code>distributional regression</code> model, GAMLSS, to answer the question.In a distributional model all the parameters of the distributions are functions of the explanatory variable gestation age, <code>ga</code>.</p>
+<p>Any GAMLSS regression model needs two type of assumtions to be fitted:</p>
 <ol type="i">
 <li><p>the assumed <code>distribution</code> for the response i.e <code>family=GA</code>,</p></li>
-<li><p>the <code>selection</code> of covariates; In fact since we are modelling all distribution parameters as functions of the covariates, we are looking <em>which covariate</em> affect <em>which distribution parameter</em>.</p></li>
+<li><p>the <code>selection</code> of covariates; In fact in general since we are modelling all distribution parameters as functions of the covariates, we are looking <code>which covariate</code> affect <code>which distribution parameter</code>.</p></li>
 </ol>
-<p>Often to start a selection procedure we need a starting model.</p>
-<p>We fit two model</p>
+<p>To start a selection procedure in GAMLSS we need a starting model.</p>
+<p>Here we fit two starting models;</p>
 <ol type="i">
-<li>a normal model e.g. <code>family=NO</code> whish works as a staring point for the function <code>chooseDist()</code></li>
+<li>a normal model e.g. <code>family=NO</code> which works as a staring model for the function <code>chooseDist()</code></li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>m00 <span class="ot">&lt;-</span> <span class="fu">gamlss</span>(   ALB <span class="sc">~</span> <span class="fu">pb</span>(ga),</span>
@@ -5032,14 +5034,14 @@ GAMLSS-RS iteration 3: Global Deviance = 15306.09 </code></pre>
 </div>
 </div>
 <ol start="2" type="i">
-<li>a BCTo model e.g. <code>family=BCTo</code> <code>whish will works as a staring model for the function</code>chooseDistCV()` (see note below)</li>
+<li>a BCTo model e.g. <code>family=BCTo</code> <code>which  is used as staring model for the function</code>chooseDistCV()<code>(see note below for an explanation why we have to do that). The function</code>chooseDistCV()`is a new function and has to be sourced.</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>m0 <span class="ot">&lt;-</span> <span class="fu">gamlss</span>(   ALB <span class="sc">~</span> <span class="fu">pb</span>(ga),</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">sigma.formula =</span> <span class="sc">~</span> <span class="fu">pb</span>(ga),</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">nu.formula =</span> <span class="sc">~</span> <span class="fu">pb</span>(ga),  </span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">tau.formula =</span> <span class="sc">~</span> <span class="fu">pb</span>(ga),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> BCTo, <span class="at">data =</span> ALB) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> BCTo, <span class="at">data =</span> ALB, <span class="at">n.cyc=</span><span class="dv">100</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>GAMLSS-RS iteration 1: Global Deviance = 15198.53 
 GAMLSS-RS iteration 2: Global Deviance = 15168.6 
@@ -5071,7 +5073,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The <code>nu.formula = ~ pb(ga)</code> and <code>tau.formula = ~ pb(ga)</code> will be not be used by <code>chooseDist()</code> unless more that two parameter are involved in the distribution.</p>
+<p>The <code>nu.formula = ~ pb(ga)</code> and <code>tau.formula = ~ pb(ga)</code> will be not be used by <code>chooseDistCV()</code> unless more that two parameter are involved in the distribution. This has to be investigated further.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -5088,9 +5090,9 @@ reminder
 </div>
 </div>
 </section>
-<section id="finding-a-distributions-training-data" class="level2">
-<h2 class="anchored" data-anchor-id="finding-a-distributions-training-data">Finding a Distributions (training data)</h2>
-<p>The typical function for finding a distribution is <code>chooseDist()</code>. The problem is that the function only finds suitable distributions in the training data using GAIC as the training measure of goodness of fit and therefor it do not tes for over-fitting</p>
+<section id="finding-a-distributions-using-the-training-data" class="level2">
+<h2 class="anchored" data-anchor-id="finding-a-distributions-using-the-training-data">Finding a Distributions (using the training data)</h2>
+<p>The typical function for finding a distribution is <code>chooseDist()</code>. The problem is that the function only finds suitable distributions for the training data using an Generalized AKaike information criterion, GAIC, as the <code>training  measure of goodness of fit</code>. Therefor it do not check for over-fitting.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>D1<span class="ot">=</span><span class="fu">chooseDist</span>(m00, <span class="at">data=</span>ALB, <span class="at">type=</span><span class="st">&quot;realplus&quot;</span>, <span class="at">parallel=</span><span class="st">&quot;snow&quot;</span>, <span class="at">ncpus =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -5099,8 +5101,8 @@ minimum GAIC(k= 3.84 ) family: BCT
 minimum GAIC(k= 8.14 ) family: BCPEo </code></pre>
 </div>
 </div>
-<p>For penalties <span class="math inline">\(k=2\)</span> and <span class="math inline">\(k=2.84\)</span> the <code>BCT</code> is coming best while for BIC the <code>BCPEo</code><br>
-Here we print a table of the GAIC for all fitted distributions;</p>
+<p>With penalties <span class="math inline">\(k=2\)</span> and <span class="math inline">\(k=2.84\)</span> the <code>BCT</code> is coming best while for BIC the <code>BCPEo</code>.</p>
+<p>Next we print a table of all the fitted GAIC;</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(D1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5264,23 +5266,23 @@ Here we print a table of the GAIC for all fitted distributions;</p>
 <p>Next we use a <span class="math inline">\(10^{th}\)</span> fold cross validation for choosing the distribution. Cross validation hopefully prevent overfiting.</p>
 <p>There are two criteria we used here;</p>
 <ul>
-<li><p>the <code>test deviance</code> which is a <code>global</code> criterion, that is, it evalulate how the distribution fite overall.</p></li>
+<li><p>the <code>test deviance</code> which is a <code>global</code> criterion, that is, it evaluates how the distribution fits overall.</p></li>
 <li><p>a <code>chi-square</code> criterion which <code>focus</code> on the lower centiles of the distribution.</p></li>
 </ul>
-<p>The new function <code>chooseDistCV()</code> is used which is not in the <code>gamlss</code> package (yet) so we have to sourse it;</p>
+<p>The new function <code>chooseDistCV()</code> is used which is not in the <code>gamlss</code> package (yet) so we have to source it;</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;chooseDistCVParallel.R&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="test-deviance" class="level3">
 <h3 class="anchored" data-anchor-id="test-deviance">test deviance</h3>
-<p>First we use a global measurement of goodness of fit criterion the <code>test deviance</code> which in the <code>chooseDistcCV()</code> fit is evaluated using the function. The function <code>measure_of_goodness_of_fit</code> needs to be defined before.</p>
+<p>First we use a global measurement of goodness of fit criterion the <code>test deviance</code>. That is -2 the log-Likelihood evaluated at the test data rather that the training ones. I order to do that we have to define the function <code>measure_of_goodness_of_fit()</code> which <code>chooseDistcCV()</code> uses to evaluate the different distributions. Here we define the function;</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>measure_of_goodness_of_fit <span class="ot">&lt;-</span> <span class="cf">function</span>(object)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>{</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  object<span class="sc">$</span>CV</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Here to avoid fitting all possible positive range distributions using CV we speed things up by using only a selected set. The set was selected by using the above GAIC table.</p>
+<p>Now to avoid fitting all possible positive range distributions using cross validation we speed the process by using only a selected set of 5 distributions. The gamma., <code>GA</code> and the log-normal, <code>LOGNO</code>, distributions both very popular in the statistical literature and the distributions <code>BCTo</code>, <code>BCPEo</code> and <code>BCCGo</code> popular in centile estimation (associated with the LMS method). The <code>R</code> code is as follows;</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>PP <span class="ot">=</span> <span class="fu">chooseDistCV</span>(m0, <span class="at">data=</span>ALB, <span class="at">type=</span><span class="st">&quot;extra&quot;</span>, </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">extra=</span><span class="fu">c</span>(<span class="st">&quot;GA&quot;</span>, <span class="st">&quot;LOGNO&quot;</span>, <span class="st">&quot;BCCGo&quot;</span>, <span class="st">&quot;BCPEo&quot;</span>, <span class="st">&quot;BCTo&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5365,7 +5367,7 @@ smooth.frame, : additive.fit convergence not obtained in 30 iterations</code></p
  </code></pre>
 </div>
 </div>
-<p>we can print thje order of the fit using;</p>
+<p>we can print the order of the fit using;</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>PP</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -5373,7 +5375,7 @@ smooth.frame, : additive.fit convergence not obtained in 30 iterations</code></p
 15204.66 15207.80 15240.09 15388.38 15429.09 </code></pre>
 </div>
 </div>
-<p>One could avoid having all the <code>fold</code> output by using parallel computing in <code>R</code>.</p>
+<p>The simple use of the <code>chooseDistcCV()</code> function results to output which prints the fold number after a new model is fitted to each partitio. One could avoid the unnecessary output by using parallel processing.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>PP1 <span class="ot">=</span> <span class="fu">chooseDistCV</span>(m0, <span class="at">data=</span>ALB, <span class="at">type=</span><span class="st">&quot;extra&quot;</span>, </span>
@@ -5387,60 +5389,153 @@ smooth.frame, : additive.fit convergence not obtained in 30 iterations</code></p
 15212.52 15215.71 15250.28 15390.83 15432.00 </code></pre>
 </div>
 </div>
-<p>There are few things to no here;</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are few things to note here;</p>
 <ul>
 <li><p>Any cross validation will have results depending on the original computer seed</p></li>
-<li><p>Using parallel computation the original seed do not apply in all CPUS therefore the results are different</p></li>
+<li><p>Using parallel computation the original seed do not apply in all CPUS therefore the results are in general different.<br>
+</p></li>
 </ul>
-<p>Fortunately the main results that the <code>BCTo</code> distribution gives the best fit do not change here.</p>
+</div>
+</div>
+<p>Fortunately the <code>BCTo</code> distribution gives the best fit in both runs. This is not always the case.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-reminder
+checking the code
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>I use the code below to find out whether using the some random sample makes any diffrence. It looks that it does not.</p>
+<p>The code below is used to find out whether using the factor which creates the partition using the argument <code>rand</code> to generate the partitions makes any diffence. It looks that it does not.</p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set.seed(123)</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sam &lt;- sample(10 , dim(ALB)[1], replace=TRUE) </span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># PP = chooseDistCV(m0, data=ALB, type=&quot;extra&quot;, </span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">#           extra=c(&quot;GA&quot;, &quot;LOGNO&quot;, &quot;BCCGo&quot;, &quot;BCPEo&quot;, &quot;BCTo&quot;), rand=sam)</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># PP</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>sam <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span> , <span class="fu">dim</span>(ALB)[<span class="dv">1</span>], <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>PP <span class="ot">&lt;-</span> <span class="fu">chooseDistCV</span>(m0, <span class="at">data=</span>ALB, <span class="at">type=</span><span class="st">&quot;extra&quot;</span>,</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">extra=</span><span class="fu">c</span>(<span class="st">&quot;GA&quot;</span>, <span class="st">&quot;LOGNO&quot;</span>, <span class="st">&quot;BCCGo&quot;</span>, <span class="st">&quot;BCPEo&quot;</span>, <span class="st">&quot;BCTo&quot;</span>), <span class="at">rand=</span>sam)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fold 1
+fold 2
+fold 3
+fold 4
+fold 5
+fold 6
+fold 7
+fold 8
+fold 9
+fold 10
+fold 1
+fold 2
+fold 3
+fold 4
+fold 5
+fold 6
+fold 7
+fold 8
+fold 9
+fold 10
+fold 1
+fold 2
+fold 3
+fold 4
+fold 5
+fold 6
+fold 7
+fold 8
+fold 9
+fold 10
+fold 1
+fold 2
+fold 3
+fold 4
+fold 5
+fold 6
+fold 7
+fold 8
+fold 9
+fold 10
+fold 1
+fold 2
+fold 3
+fold 4
+fold 5
+fold 6
+fold 7</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in additive.fit(x = X, y = wv, w = wt * w, s = s, who = who,
+smooth.frame, : additive.fit convergence not obtained in 30 iterations</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fold 8
+fold 9
+fold 10</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predict.gamlss(object, newdata = newdata, data = DatA, what = &quot;nu&quot;, : There is a discrepancy  between the original and the re-fit 
+ used to achieve &#39;safe&#39; predictions 
+ </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>PP1 <span class="ot">&lt;-</span> <span class="fu">chooseDistCV</span>(m0, <span class="at">data=</span>ALB, <span class="at">type=</span><span class="st">&quot;extra&quot;</span>, </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">extra=</span><span class="fu">c</span>(<span class="st">&quot;GA&quot;</span>, <span class="st">&quot;LOGNO&quot;</span>, <span class="st">&quot;BCCGo&quot;</span>, <span class="st">&quot;BCPEo&quot;</span>, <span class="st">&quot;BCTo&quot;</span>),</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">parallel=</span><span class="st">&quot;snow&quot;</span>, <span class="at">ncpus =</span> <span class="dv">10</span>, <span class="at">rand=</span>sam)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set.seed(123)</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># PP1 = chooseDistCV(m0, data=ALB, type=&quot;extra&quot;, </span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co">#           extra=c(&quot;GA&quot;, &quot;LOGNO&quot;, &quot;BCCGo&quot;, &quot;BCPEo&quot;, &quot;BCTo&quot;),</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co">#           parallel=&quot;snow&quot;, ncpus = 10, rand=sam)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a> PP </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    BCTo    BCPEo    BCCGo       GA    LOGNO 
+15205.87 15216.11 15234.67 15393.67 15439.49 </code></pre>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PP </span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># PP1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a> PP1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    BCTo    BCPEo    BCCGo       GA    LOGNO 
+15212.49 15217.51 15251.97 15392.17 15432.95 </code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Finish checking the code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It looks that the the option <code>rand=sam</code> is NOT working properly in the <code>chooseDistCV()</code></p>
+</div>
 </div>
 </section>
-<section id="chi-squared-focus" class="level3">
-<h3 class="anchored" data-anchor-id="chi-squared-focus">chi-squared (focus)</h3>
+<section id="chi-squared-the-focus-measure" class="level3">
+<h3 class="anchored" data-anchor-id="chi-squared-the-focus-measure">chi-squared (the focus measure )</h3>
 <p>First bring the functions in;</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;Chi2.R&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;Chi2.R&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Define the focus measure of goodness of fit;</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>measure_of_goodness_of_fit <span class="ot">&lt;-</span> <span class="cf">function</span>(object)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a> {</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">cal_chi2</span>(object<span class="sc">$</span>residCV, <span class="at">xvar=</span>ALB<span class="sc">$</span>ga, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">17</span>,<span class="dv">25</span>,<span class="fl">34.5</span>, <span class="dv">50</span>), <span class="at">tail.percent =</span> <span class="dv">5</span>,  <span class="at">side=</span> <span class="st">&quot;lower&quot;</span>)</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a> }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>measure_of_goodness_of_fit <span class="ot">&lt;-</span> <span class="cf">function</span>(object)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a> {</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">cal_chi2</span>(object<span class="sc">$</span>residCV, <span class="at">xvar=</span>ALB<span class="sc">$</span>ga, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">17</span>,<span class="dv">25</span>,<span class="fl">34.5</span>, <span class="dv">50</span>), <span class="at">tail.percent =</span> <span class="dv">5</span>,  <span class="at">side=</span> <span class="st">&quot;lower&quot;</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a> }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now choose distribution using CV with no parallel computaions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a> PPP <span class="ot">=</span> <span class="fu">chooseDistCV</span>(m0, <span class="at">data=</span>ALB, <span class="at">type=</span><span class="st">&quot;extra&quot;</span>,</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">extra=</span><span class="fu">c</span>(<span class="st">&quot;GA&quot;</span>, <span class="st">&quot;LOGNO&quot;</span>, <span class="st">&quot;BCCGo&quot;</span>, <span class="st">&quot;BCPEo&quot;</span>, <span class="st">&quot;BCTo&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a> PPP <span class="ot">=</span> <span class="fu">chooseDistCV</span>(m0, <span class="at">data=</span>ALB, <span class="at">type=</span><span class="st">&quot;extra&quot;</span>,</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">extra=</span><span class="fu">c</span>(<span class="st">&quot;GA&quot;</span>, <span class="st">&quot;LOGNO&quot;</span>, <span class="st">&quot;BCCGo&quot;</span>, <span class="st">&quot;BCPEo&quot;</span>, <span class="st">&quot;BCTo&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>fold 1
 fold 2
@@ -5488,17 +5583,65 @@ fold 1</code></pre>
 <pre><code>Warning in RS(): Algorithm RS has not yet converged</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>fold 2
-fold 3
-fold 4</code></pre>
+<pre><code>fold 2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in additive.fit(x = X, y = wv, w = wt * w, s = s, who = who,
+smooth.frame, : additive.fit convergence not obtained in 30 iterations
+Warning in additive.fit(x = X, y = wv, w = wt * w, s = s, who = who,
+smooth.frame, : Algorithm RS has not yet converged</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predict.gamlss(object, newdata = newdata, data = DatA, what = &quot;nu&quot;, : There is a discrepancy  between the original and the re-fit 
+ used to achieve &#39;safe&#39; predictions 
+ </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predict.gamlss(object, newdata = newdata, data = DatA, what = &quot;tau&quot;, : There is a discrepancy  between the original and the re-fit 
+ used to achieve &#39;safe&#39; predictions 
+ </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fold 3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in additive.fit(x = X, y = wv, w = wt * w, s = s, who = who,
+smooth.frame, : additive.fit convergence not obtained in 30 iterations</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in RS(): Algorithm RS has not yet converged</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predict.gamlss(object, newdata = newdata, data = DatA, what = &quot;nu&quot;, : There is a discrepancy  between the original and the re-fit 
+ used to achieve &#39;safe&#39; predictions 
+ </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predict.gamlss(object, newdata = newdata, data = DatA, what = &quot;tau&quot;, : There is a discrepancy  between the original and the re-fit 
+ used to achieve &#39;safe&#39; predictions 
+ </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fold 4
+fold 5</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in additive.fit(x = X, y = wv, w = wt * w, s = s, who = who,
+smooth.frame, : additive.fit convergence not obtained in 30 iterations</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in RS(): Algorithm RS has not yet converged</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>fold 5
-fold 6
-fold 7
+<pre><code>fold 6</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predict.gamlss(object, newdata = newdata, data = DatA, what = &quot;nu&quot;, : There is a discrepancy  between the original and the re-fit 
+ used to achieve &#39;safe&#39; predictions 
+ </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fold 7
 fold 8
 fold 9
 fold 10</code></pre>
@@ -5506,21 +5649,21 @@ fold 10</code></pre>
 </div>
 <p>Now choose distribution using CV with parallel computaions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>PPP1 <span class="ot">=</span> <span class="fu">chooseDistCV</span>(m0, <span class="at">data=</span>ALB, <span class="at">type=</span><span class="st">&quot;extra&quot;</span>, </span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">extra=</span><span class="fu">c</span>(<span class="st">&quot;GA&quot;</span>, <span class="st">&quot;LOGNO&quot;</span>, <span class="st">&quot;BCCGo&quot;</span>, <span class="st">&quot;BCPEo&quot;</span>, <span class="st">&quot;BCTo&quot;</span>),</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">parallel=</span><span class="st">&quot;snow&quot;</span>, <span class="at">ncpus =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>PPP1 <span class="ot">=</span> <span class="fu">chooseDistCV</span>(m0, <span class="at">data=</span>ALB, <span class="at">type=</span><span class="st">&quot;extra&quot;</span>, </span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">extra=</span><span class="fu">c</span>(<span class="st">&quot;GA&quot;</span>, <span class="st">&quot;LOGNO&quot;</span>, <span class="st">&quot;BCCGo&quot;</span>, <span class="st">&quot;BCPEo&quot;</span>, <span class="st">&quot;BCTo&quot;</span>),</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">parallel=</span><span class="st">&quot;snow&quot;</span>, <span class="at">ncpus =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now print the results</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>PPP</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>PPP</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     BCTo     LOGNO        GA     BCCGo     BCPEo 
- 3.020492  4.513079  4.759659 12.239766 13.393470 </code></pre>
+<pre><code>    LOGNO      BCTo        GA     BCCGo     BCPEo 
+ 3.469739  3.609099  4.781214 11.454959 13.319223 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>PPP1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>PPP1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    LOGNO        GA      BCTo     BCCGo     BCPEo 
- 3.400714  4.074632  5.070350 13.194654 13.194654 </code></pre>
+ 3.389019  3.688230  5.537517 13.045693 13.525049 </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">

@@ -9,8 +9,8 @@ author:
 
 This website contain talks and material given to reseach group of Greenwich University (UK) and  to the IWSM, July 2026 in Oslo - Norway.
 
-- This is a longer version of the IWSM [talk](StatisticalModelling_talk.qmd). This talk was given to the  to the $M^3$Impact research group of the University of Greenwich in the beginning of June 2026.
+- This is a long version of the IWSM [talk](StatisticalModelling_talk.qmd). This talk was given to the  to the $M^3$Impact research group of the University of Greenwich in the beginning of June 2026.
 
 - This is the  actual [IWSM talk](IWSM_talk.qmd) to be given at the IWSM on the 3th of July 2026.
 
-- this part refer to some of the [analysis](IWSM_analysis.qmd) of the ALB data performed. 
+- This part explains the [analysis](IWSM_analysis.qmd) cfor the ALB data. 

@@ -17,7 +17,11 @@ format:
 
 ## The ALB data
 
-Getting the datafrom `gamlss.data`;
+The ALB are in the latest version  `6.0-10` of the `gamlss.data` package. (Note that we may have to get the latest version from the [gamlss universe](https://gamlss-dev.r-universe.dev/builds). 
+
+
+
+Getting the data from `gamlss.data`;
 
 ```{r}
 #| warning: false
@@ -27,34 +31,36 @@ dim(ALB)
 head(ALB)
 ```
 
-Plotting the data;
+Now we plot the data;
 
 ```{r}
 plot(ALB~ga, data=ALB)
 ```
 
-The data were collected when woman had their scans at Kings College hospital. That explains why they are caps in genstation age because there are only four different scan on healthy woman during pregnacy. Notice that thery here are NOT repeated observations here all 3429 women are different.
+The data were collected when  healthy pregnant woman had their scans at Kings College hospital. The scan are taken routinely four times. That explains why they are caps in data for different  gestational age. Notice that ate this data they are NOT repeated observations, all 3429 women are different.
 
 ::: callout-tip
-## The purpose
+## Purpose
 
 The purpose of the study is to try to identify patients with low `ALB`
 :::
 
 ## Fit a model
 
-Any GAMLSS regression model needs two sets of information to be fitted:
+Here we are using a `distributional regression` model, GAMLSS, to answer the question.In a distributional model all the parameters of the distributions are functions of the explanatory variable gestation age, `ga`.  
+
+Any GAMLSS regression model needs two type of assumtions to be fitted:
 
 i) the assumed `distribution` for the response i.e `family=GA`,
 
-ii) the `selection` of covariates;  In fact since we are modelling all distribution parameters as functions of the covariates, we are looking _which covariate_ affect _which distribution parameter_.
+ii) the `selection` of covariates;  In fact in general since we are modelling all distribution parameters as functions of the covariates, we are looking `which covariate` affect `which distribution parameter`.
 
 
-Often to start a selection procedure we need a starting model.
+To start a selection procedure in GAMLSS we need a starting model.
 
-We fit two model 
+Here we fit  two starting models; 
 
-i) a normal model e.g. `family=NO` whish works as a staring point for the function  `chooseDist()`
+i) a normal model e.g. `family=NO` which works as a staring model for the function  `chooseDist()`
 
 
 ```{r}
@@ -66,20 +72,20 @@ m00 <- gamlss(   ALB ~ pb(ga),
              family = NO, data = ALB) 
 ```
 
-ii) a BCTo model e.g. `family=BCTo` ` whish will works as a staring model for the function  `chooseDistCV()` (see note below)
+ii) a BCTo model e.g. `family=BCTo` ` which  is used as staring model for the function  `chooseDistCV()` (see note below for an explanation why we have to do that). The function  `chooseDistCV()`is a new function and has to be sourced.
 
 
 ```{r}
-#| cache: true
+#| cache: false
 m0 <- gamlss(   ALB ~ pb(ga),
     sigma.formula = ~ pb(ga),
       nu.formula = ~ pb(ga),  
      tau.formula = ~ pb(ga),
-             family = BCTo, data = ALB) 
+             family = BCTo, data = ALB, n.cyc=100) 
 ```
 
 ::: callout-note
-The `nu.formula = ~ pb(ga)` and `tau.formula = ~ pb(ga)` will be not be used by  `chooseDist()` unless more that two parameter are involved in the distribution.
+The `nu.formula = ~ pb(ga)` and `tau.formula = ~ pb(ga)` will be not be used by  `chooseDistCV()` unless more that two parameter are involved in the distribution. This has to be investigated further. 
 :::
 
 
@@ -90,19 +96,18 @@ I have to find out why  the function `chooseDistCV()` do not accepts the normal 
 :::
 
 
-## Finding a Distributions (training data)  
+## Finding a Distributions (using the training data)  
 
 The typical function for finding a distribution is `chooseDist()`. 
-The problem is that the function only finds suitable distributions in the training data  using  GAIC as the training  measure of goodness of fit and therefor it do not tes for over-fitting
+The problem is that the function only finds suitable distributions for the training data  using  an Generalized AKaike information criterion,  GAIC,  as the `training  measure of goodness of fit`. Therefor it do not check for over-fitting.
 
 ```{r}
 #| cache: true
 D1=chooseDist(m00, data=ALB, type="realplus", parallel="snow", ncpus = 10)
 ```
+With penalties $k=2$ and $k=2.84$ the `BCT` is coming best while for BIC the `BCPEo`.  
 
-
-For penalties $k=2$ and $k=2.84$ the `BCT` is coming best while for BIC the `BCPEo`  
-Here we print a table of the GAIC for all fitted distributions;
+Next we print a table of all the fitted GAIC;
 ```{r}
 library(knitr)
 kable(D1)
@@ -116,12 +121,12 @@ Next we use a $10^{th}$ fold  cross validation for choosing the distribution. Cr
 
 There are two criteria we used here;  
 
-- the  `test deviance` which is a `global` criterion, that is, it evalulate how the distribution fite overall.
+- the  `test deviance` which is a `global` criterion, that is, it evaluates how the distribution fits overall.
 
 - a `chi-square` criterion which `focus` on the lower centiles of the distribution.
 
 
-The new function `chooseDistCV()` is used which is not in the `gamlss` package (yet) so we have to sourse it;
+The new function `chooseDistCV()` is used which is not in the `gamlss` package (yet) so we have to source it;
 
 ```{r}
 source("chooseDistCVParallel.R")
@@ -130,7 +135,8 @@ source("chooseDistCVParallel.R")
 ### test deviance
 
 
-First we use a  global measurement of goodness of fit criterion the `test deviance` which in the `chooseDistcCV()` fit is evaluated using the function. The function `measure_of_goodness_of_fit` needs to be defined before.   
+First we use a  global measurement of goodness of fit criterion the `test deviance`. That is -2 the log-Likelihood  evaluated at the test data rather that the training ones. I order to do that we have to define the function  `measure_of_goodness_of_fit()` which  `chooseDistcCV()` uses  to evaluate the  different distributions. Here we define the function;
+
 
 ```{r}
 measure_of_goodness_of_fit <- function(object)
@@ -139,7 +145,7 @@ measure_of_goodness_of_fit <- function(object)
 }
 ```
 
-Here to avoid fitting all possible positive range distributions using CV we speed things up by using only  a selected set. The set was selected by using the above GAIC table.  
+Now to avoid fitting all possible positive range distributions using cross validation we speed the process  by using only  a selected set of 5 distributions. The gamma., `GA` and the log-normal, `LOGNO`, distributions both very popular in the statistical literature and the distributions `BCTo`, `BCPEo` and `BCCGo` popular in centile estimation (associated with the LMS method).     The `R` code is as follows; 
 
 ```{r}
 #| cache: true
@@ -147,12 +153,14 @@ Here to avoid fitting all possible positive range distributions using CV we spee
 PP = chooseDistCV(m0, data=ALB, type="extra", 
           extra=c("GA", "LOGNO", "BCCGo", "BCPEo", "BCTo"))
 ```
-
-we can print thje order of the fit using;
+we can print the order of the fit using;
 ```{r}
 PP
 ```
-One could avoid having all the `fold` output by using parallel computing in `R`. 
+
+
+The simple use of the  `chooseDistcCV()` function results to output which prints the fold number after a new model is fitted to each partitio. One could avoid the unnecessary output by using parallel processing.   
+
 ```{r}
 #| cache: true
 set.seed(123)
@@ -165,43 +173,50 @@ PP1 = chooseDistCV(m0, data=ALB, type="extra",
 PP1
 ```
 
-There are few things to no  here; 
+
+::: callout-note
+
+There are few things to note  here; 
 
 - Any cross validation  will have results depending on the original computer seed 
 
-- Using parallel computation the original seed do not apply in all CPUS therefore the results are different  
+- Using parallel computation the original seed do not apply in all CPUS therefore the results are in general different.  
+:::
 
-Fortunately the main results that the `BCTo` distribution gives the best fit do not change here.
+Fortunately the `BCTo` distribution gives the best fit in both runs.  This is not always the case.
 
 ::: callout-tip
-## reminder
+## checking the code 
 
-I use the code below to find out whether using the some  random sample makes any diffrence.  It looks that it does not.  
+The code below is used to find out whether using the factor which creates the partition using the argument `rand` to generate the partitions makes any diffence.  It looks that it does not.  
 :::
 
 
 ```{r}
-# set.seed(123)
-# sam <- sample(10 , dim(ALB)[1], replace=TRUE) 
-# PP = chooseDistCV(m0, data=ALB, type="extra", 
-#           extra=c("GA", "LOGNO", "BCCGo", "BCPEo", "BCTo"), rand=sam)
-# PP
-```
-```{r}
 #| cache: true
-# set.seed(123)
-# PP1 = chooseDistCV(m0, data=ALB, type="extra", 
-#           extra=c("GA", "LOGNO", "BCCGo", "BCPEo", "BCTo"),
-#           parallel="snow", ncpus = 10, rand=sam)
+set.seed(123)
+sam <- sample(10 , dim(ALB)[1], replace=TRUE)
+PP <- chooseDistCV(m0, data=ALB, type="extra",
+          extra=c("GA", "LOGNO", "BCCGo", "BCPEo", "BCTo"), rand=sam)
+PP1 <- chooseDistCV(m0, data=ALB, type="extra", 
+           extra=c("GA", "LOGNO", "BCCGo", "BCPEo", "BCTo"),
+           parallel="snow", ncpus = 10, rand=sam)
 ```
 
 ```{r}
-# PP 
-# PP1
+ PP 
+ PP1
 ```
 
+::: callout-tip
+## Finish checking the code 
 
-### chi-squared (focus)
+It looks that the the option `rand=sam` is NOT working properly in the `chooseDistCV()`
+  
+:::
+
+
+### chi-squared (the focus measure )
 
 
 First bring the functions in;

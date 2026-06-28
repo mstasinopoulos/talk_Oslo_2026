@@ -22,7 +22,7 @@ chooseDistCV <- function(object,
    sys_call <- sys.call() 
 if (is.null(data))   stop("data should be set here")
           N <- dim(data)[1]
-       rand <- if (is.null(rand)) sample(K.fold , N, replace=TRUE)       
+       rand_sample <- if (is.null(rand)) sample(K.fold, N, replace=TRUE)       
 #if (is.null(rand)&&is.null(newdata)) stop("rand or newdata should be set")
        DIST <- switch(type, "realAll"=.realAll,
                  "realline"=.realline,
@@ -56,12 +56,12 @@ if  (!is.null(extra)) DIST <- unique(c(DIST, extra))
   {
 # cat(dist, "\n")
     p1 <- try(gamlssCV(formula(object, "mu"), formula(object, "sigma"),
-                       formula(object, "nu"), formula(object, "tau"), rand=rand,
+                       formula(object, "nu"), formula(object, "tau"), rand=rand_sample,
                                 data=data, trace=F,family=dist), silent=TRUE)
     if (any(class(p1)%in%"try-error"))
     {
     p1 <- try(gamlssCV(formula(object, "mu"), formula(object, "sigma"),
-                       formula(object, "nu"), formula(object, "tau"), rand=rand, 
+                       formula(object, "nu"), formula(object, "tau"), rand=rand_sample, 
                        data=data, trace=F,family=dist), silent=TRUE)
     }
     if (any(class(p1)%in%"try-error")) AiC <- NA else{
