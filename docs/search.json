@@ -551,5 +551,12 @@
     "title": "ALB analysis",
     "section": "Finding a Distributions (using the training data)",
     "text": "Finding a Distributions (using the training data)\nThe typical function for finding a distribution is chooseDist(). The problem is that the function only finds suitable distributions for the training data using an Generalized AKaike information criterion, GAIC, as the training  measure of goodness of fit. Therefor it do not check for over-fitting.\n\nD1=chooseDist(m00, data=ALB, type=\"realplus\", parallel=\"snow\", ncpus = 10)\n\nminimum GAIC(k= 2 ) family: BCT \nminimum GAIC(k= 3.84 ) family: BCT \nminimum GAIC(k= 8.14 ) family: BCPEo \n\n\nWith penalties \\(k=2\\) and \\(k=2.84\\) the BCT is coming best while for BIC the BCPEo.\nNext we print a table of all the fitted GAIC;\n\nlibrary(knitr)\nkable(D1)\n\n\n\n\n\n2\n3.84\n8.14\n\n\n\n\nEXP\n31965.45\n31975.83\n32000.08\n\n\nGA\n15382.23\n15396.27\n15429.08\n\n\nIG\n15426.08\n15440.15\n15473.04\n\n\nLOGNO\n15422.55\n15436.45\n15468.92\n\n\nLOGNO2\n15422.55\n15436.45\n15468.92\n\n\nWEI\n15592.10\n15604.97\n15635.04\n\n\nWEI2\nNA\nNA\nNA\n\n\nWEI3\n15592.11\n15604.99\n15635.08\n\n\nIGAMMA\n15477.06\n15521.24\n15624.50\n\n\nPARETO2\n32290.85\n32305.98\n32341.35\n\n\nPARETO2o\n357305.49\n357386.43\n357575.59\n\n\nGP\n32290.85\n32305.98\n32341.35\n\n\nBCCG\n15232.64\n15255.62\n15309.35\n\n\nBCCGo\n15232.94\n15255.75\n15309.06\n\n\nexGAUS\n15321.58\n15339.38\n15380.99\n\n\nGG\n15274.98\n15292.94\n15334.94\n\n\nGIG\nNA\nNA\nNA\n\n\nLNO\n15422.55\n15436.45\n15468.92\n\n\nBCTo\n15194.67\n15230.82\n15315.30\n\n\nBCT\n15194.48\n15230.77\n15315.58\n\n\nBCPEo\n15203.96\n15234.26\n15305.06\n\n\nBCPE\n15203.68\n15234.19\n15305.47\n\n\nGB2\n15240.12\n15265.68\n15325.42\n\n\n\n\n\nThe problem with the above analysis is that the measure of goodness of fit, GAIC, was validated on the training data only This show that the model is probably adequate but it do not check for overfitting."
+  },
+  {
+    "objectID": "IWSM_talk.html#magnet",
+    "href": "IWSM_talk.html#magnet",
+    "title": "Statistical Modelling Process",
+    "section": "MAGNET",
+    "text": "MAGNET"
   }
 ]

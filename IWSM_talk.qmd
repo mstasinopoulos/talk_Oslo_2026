@@ -330,6 +330,13 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 :::
 
 
+## MAGNET
+
+
+![](Flexible_regression_flyer4.png){width="8000"} 
+
+
+
 ## Reference {.smaller}
 
 
