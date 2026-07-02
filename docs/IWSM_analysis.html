@@ -4919,25 +4919,12 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#the-alb-data" id="toc-the-alb-data" class="nav-link active" data-scroll-target="#the-alb-data">The ALB data</a></li>
-  <li><a href="#fit-a-model" id="toc-fit-a-model" class="nav-link" data-scroll-target="#fit-a-model">Fit a model</a></li>
-  <li><a href="#finding-a-distributions-using-the-training-data" id="toc-finding-a-distributions-using-the-training-data" class="nav-link" data-scroll-target="#finding-a-distributions-using-the-training-data">Finding a Distributions (using the training data)</a></li>
-  <li><a href="#finding-a-distributions-cross-validation" id="toc-finding-a-distributions-cross-validation" class="nav-link" data-scroll-target="#finding-a-distributions-cross-validation">Finding a Distributions (cross validation)</a>
-  <ul class="collapse">
-  <li><a href="#test-deviance" id="toc-test-deviance" class="nav-link" data-scroll-target="#test-deviance">test deviance</a></li>
-  <li><a href="#chi-squared-the-focus-measure" id="toc-chi-squared-the-focus-measure" class="nav-link" data-scroll-target="#chi-squared-the-focus-measure">chi-squared (the focus measure )</a></li>
-  </ul></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="IWSM_analysis.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="IWSM_analysis.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -4962,7 +4949,7 @@ window.Quarto = {
 
 <section id="the-alb-data" class="level2">
 <h2 class="anchored" data-anchor-id="the-alb-data">The ALB data</h2>
-<p>The ALB are in the latest version <code>6.0-10</code> of the <code>gamlss.data</code> package. (Note that we may have to get the latest version from the <a href="https://gamlss-dev.r-universe.dev/builds">gamlss universe</a>.</p>
+<p>The ALB data are in the latest version, <code>6.0-10</code>, of the <code>gamlss.data</code> package. (Note that you may have to get the latest version of ther package from the <a href="https://gamlss-dev.r-universe.dev/builds">gamlss universe</a> since it not to CRAN yet.</p>
 <p>Getting the data from <code>gamlss.data</code>;</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gamlss)</span>
@@ -5004,14 +4991,14 @@ Purpose
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The purpose of the study is to try to identify patients with low <code>ALB</code></p>
+<p>The purpose of the study is to identify patients with low <code>ALB</code></p>
 </div>
 </div>
 </section>
 <section id="fit-a-model" class="level2">
 <h2 class="anchored" data-anchor-id="fit-a-model">Fit a model</h2>
-<p>Here we are using a <code>distributional regression</code> model, GAMLSS, to answer the question.In a distributional model all the parameters of the distributions are functions of the explanatory variable gestation age, <code>ga</code>.</p>
-<p>Any GAMLSS regression model needs two type of assumtions to be fitted:</p>
+<p>Here we are using a <code>distributional regression</code> model, GAMLSS, to answer the question. In a distributional model all the parameters of the distributions are functions of the explanatory variables. Here we have only one gestation age, <code>ga</code>.</p>
+<p>Any GAMLSS regression model needs two type of assumptions:</p>
 <ol type="i">
 <li><p>the assumed <code>distribution</code> for the response i.e <code>family=GA</code>,</p></li>
 <li><p>the <code>selection</code> of covariates; In fact in general since we are modelling all distribution parameters as functions of the covariates, we are looking <code>which covariate</code> affect <code>which distribution parameter</code>.</p></li>
@@ -5063,13 +5050,13 @@ GAMLSS-RS iteration 17: Global Deviance = 15155.38
 GAMLSS-RS iteration 18: Global Deviance = 15155.38 </code></pre>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+reminder
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -5092,7 +5079,7 @@ reminder
 </section>
 <section id="finding-a-distributions-using-the-training-data" class="level2">
 <h2 class="anchored" data-anchor-id="finding-a-distributions-using-the-training-data">Finding a Distributions (using the training data)</h2>
-<p>The typical function for finding a distribution is <code>chooseDist()</code>. The problem is that the function only finds suitable distributions for the training data using an Generalized AKaike information criterion, GAIC, as the <code>training  measure of goodness of fit</code>. Therefor it do not check for over-fitting.</p>
+<p>The typical function for finding a distribution is <code>chooseDist()</code>. The problem is that the function only finds suitable distributions for the training data using a Generalized AKaike information criterion, GAIC, used as the <code>training  measure of goodness of fit</code>. Therefor it do not check for over-fitting.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>D1<span class="ot">=</span><span class="fu">chooseDist</span>(m00, <span class="at">data=</span>ALB, <span class="at">type=</span><span class="st">&quot;realplus&quot;</span>, <span class="at">parallel=</span><span class="st">&quot;snow&quot;</span>, <span class="at">ncpus =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -5264,7 +5251,7 @@ minimum GAIC(k= 8.14 ) family: BCPEo </code></pre>
 <section id="finding-a-distributions-cross-validation" class="level2">
 <h2 class="anchored" data-anchor-id="finding-a-distributions-cross-validation">Finding a Distributions (cross validation)</h2>
 <p>Next we use a <span class="math inline">\(10^{th}\)</span> fold cross validation for choosing the distribution. Cross validation hopefully prevent overfiting.</p>
-<p>There are two criteria we used here;</p>
+<p>There are two `measures of goodess of fit’ we used here;</p>
 <ul>
 <li><p>the <code>test deviance</code> which is a <code>global</code> criterion, that is, it evaluates how the distribution fits overall.</p></li>
 <li><p>a <code>chi-square</code> criterion which <code>focus</code> on the lower centiles of the distribution.</p></li>
@@ -5284,7 +5271,7 @@ minimum GAIC(k= 8.14 ) family: BCPEo </code></pre>
 </div>
 <p>Now to avoid fitting all possible positive range distributions using cross validation we speed the process by using only a selected set of 5 distributions. The gamma., <code>GA</code> and the log-normal, <code>LOGNO</code>, distributions both very popular in the statistical literature and the distributions <code>BCTo</code>, <code>BCPEo</code> and <code>BCCGo</code> popular in centile estimation (associated with the LMS method). The <code>R</code> code is as follows;</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>PP <span class="ot">=</span> <span class="fu">chooseDistCV</span>(m0, <span class="at">data=</span>ALB, <span class="at">type=</span><span class="st">&quot;extra&quot;</span>, </span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>PP0 <span class="ot">=</span> <span class="fu">chooseDistCV</span>(m0, <span class="at">data=</span>ALB, <span class="at">type=</span><span class="st">&quot;extra&quot;</span>, </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">extra=</span><span class="fu">c</span>(<span class="st">&quot;GA&quot;</span>, <span class="st">&quot;LOGNO&quot;</span>, <span class="st">&quot;BCCGo&quot;</span>, <span class="st">&quot;BCPEo&quot;</span>, <span class="st">&quot;BCTo&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>fold 1
@@ -5369,7 +5356,7 @@ smooth.frame, : additive.fit convergence not obtained in 30 iterations</code></p
 </div>
 <p>we can print the order of the fit using;</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>PP</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>PP0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    BCTo    BCPEo    BCCGo       GA    LOGNO 
 15204.66 15207.80 15240.09 15388.38 15429.09 </code></pre>

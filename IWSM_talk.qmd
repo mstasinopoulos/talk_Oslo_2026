@@ -20,16 +20,15 @@ format:
 bibliography: book2025.bib       
 ---
 
-
 ## introduction
 
-- in the 70's @BOxJenkins70 had a diagram to show what is `statistical modelling` (SM)
+- in the 70's, @BOxJenkins70 had a diagram to show what was the current state of `statistical modelling` (SM)
 
 - over the last 40 years I have not seen something similar
 
-This talk 
+This talk
 
-- start a discussion on the  basic ideas of `statistical modelling`
+- start a discussion on the basic ideas of `statistical modelling`
 
 - using a `distributional regression` example
 
@@ -46,14 +45,13 @@ This talk
 #     style D fill:#dfd")
 ```
 
-## QR code 
+## QR code
 
 ![](QR.png){width="90%" height="570px"}
 
 ## The data
 
 - The `data`, are collected to answer a `question` and this is done through a `model`.
-
 
 ## The Albumin (ALB): (`data`)
 
@@ -110,30 +108,25 @@ ALBe <- data.frame(ALB, zscores=resid(m2), index=resid(m2) < qnorm(.05))
    ggplot2::theme_bw(15)
 ```
 
-
-
-
 ## question-data-model {.smaller}
 
 ![](Question_Data_answer.png){width="90%" height="400px"}
 
-- The `data`, are collected to answer the `question` 
+- The `data`, are collected to answer the `question`
 
 - The concepts are `interconnected`
 
 ## Model
 
-- a `model` is a simplification or reality 
+- a `model` is a simplification or reality
 
   > `all models are wrong but some are useful`.
   >
   > -- George @box1979robustness
 
-- whether a model is useful depends on the `purpose` of the study
-and whether it can answer the `question`
+- whether a model is useful depends on the `purpose` of the study and whether it can answer the `question`
 
-- models depend on `assumptions`
-<!-- ## Regression Models -->
+- models depend on `assumptions` <!-- ## Regression Models -->
 
 <!-- @breiman2003statistical -->
 
@@ -163,12 +156,11 @@ and whether it can answer the `question`
 
 - the `assumptions` could help with the `intepretation` of a model
 
-
 - types of assumptions;
 
-     - `explicit` assumptions, are easier to check;
+  - `explicit` assumptions, are easier to check;
 
-     - `implicit` assumptions, are often not checked;
+  - `implicit` assumptions, are often not checked;
 
 - `assumptions` should be checked using `diagnostic` tools;
 
@@ -182,7 +174,6 @@ and whether it can answer the `question`
 
 <!-- - `assumptions` should be checked using `diagnostic` tools; -->
 
-
 ## Diagnostics {.mediun}
 
 1)  diagmostics based on (training) `residuals`:
@@ -193,9 +184,7 @@ and whether it can answer the `question`
 
   - no: start again
 
-
 2)  Other types of `diagnostics` check other assumptions of the model some of them `focus` in answering the `question`.
-
 
 ## Classical statistical modelling
 
@@ -215,15 +204,6 @@ and whether it can answer the `question`
 
 - `data partition` can help with this
 
-
-
-
-
-
-
-
-
-
 <!-- ## Algorithmic \<-\> Stastistical models {.mediun} -->
 
 <!-- - `statistical models,` the function $G(X,E)$ is defined explicitly through the `assumptions` -->
@@ -231,8 +211,6 @@ and whether it can answer the `question`
 <!-- - `algorithmic models` make implicit assumptions about the function $G(X,E)$. -->
 
 <!-- - the additive algorithmic `model` $G(X)+E$ makes implicit assumptions for $G(X)$ and the `natural error` -->
-
-
 
 ## Data Partition
 
@@ -307,21 +285,21 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 
 ![](modern_1.png){width="90%" height="570px"}
 
-## Discussion {.smaller}
+## Discussion 
 
 - most problems in SM arise if the `assumptions` are not correct
 
-- `measures of goodness of fit` are needed for both model `fitting` and model `comparison` (the two `measures` can be different)
+- `measures of goodness of fit` are needed for both model `fit` and `comparison` 
 
 - ideally `measures of goodness of fit` should `focus` on the `question`
 
-- the `measure` of goodness of fit can be model `agnostic`
-
 - `diagnostics` evaluated at `test` and `training` `data` should be part of any SM
 
-- `interpretable` (mostly mathematical) models are easier to check.
+- `interpretable` models are easier to check.
 
 - "Stop explaining black box machine learning models for `high stakes decisions` and use `interpretable` models instead" [@rudin2019stop]
+
+<!-- - the `measure` of goodness of fit can be model `agnostic` -->
 
 ## end
 
@@ -329,18 +307,11 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 ![](book-1.png){width="300"} ![](BOOK-2.png){width="323"} ![](book3.png){width="333"} see also the `R` package `gamlss2`
 :::
 
+## 
 
-## MAGNET
-
-
-![](Flexible_regression_flyer4.png){width="8000"} 
-
-
+![](Flexible_regression_flyer4.png){width="8000"}
 
 ## Reference {.smaller}
-
-
-
 
 <!-- ## Distributional regression models -->
 
@@ -355,6 +326,7 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 <!-- - The task of parametric `distributional Regression` is to find ; -->
 
 <!--   - `which` and `how` the x's effect the parameters of the distribution i.e $\boldsymbol{\theta}(X)$ and -->
+
 <!--   - the appropriate `distribution` for the response i.e. $D(Y|\boldsymbol{\theta})$ -->
 
 <!-- ## Distributional regression models -->
@@ -362,7 +334,6 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 <!-- - A `modern` computational approach of the distributional regression, @chai2026neural; $$X, U  {\longrightarrow}  \fbox{deep learning} {\longrightarrow} D(Y|X),$$ where U represent a simple distribution e.g. uniform which after transformations becomes $D(Y|X)$ the conditional distribution of $Y$ given $X$. -->
 
 <!-- This version of the DR model is NOT easy to interpret because it is a `black box`. -->
-
 
 <!-- ## Fit -->
 
@@ -381,5 +352,3 @@ resid_wp_wrap(m2, xvar=ALB$ga)
 <!-- - `white noise`, zero mean, constant variance and independent observations -->
 
 <!-- - `residuals` can be used as a `diagnostic` tool -->
-
-
